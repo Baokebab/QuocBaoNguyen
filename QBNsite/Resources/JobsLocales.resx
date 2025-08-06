@@ -120,79 +120,49 @@
   <data name="Experiences" xml:space="preserve">
     <value>Expériences</value>
   </data>
-  <data name="JobTitle3" xml:space="preserve">
+  <data name="Caceis_JobTitle" xml:space="preserve">
     <value>Collateral trading officer</value>
   </data>
-  <data name="Desc3" xml:space="preserve">
+  <data name="Caceis_Desc" xml:space="preserve">
     <value>Trading de collatéral, traitement et suivi opérationnel des Prêts-Emprunts Titres et REPO. Réconciliation des positions avec le Back Office et avec les contreparties. Révision et amélioration des procédures de contrôles. Aide à la mise en place de la nouvelle règlementation SFTR.</value>
   </data>
-  <data name="JobTitle2" xml:space="preserve">
+  <data name="Cnp_JobTitle" xml:space="preserve">
     <value>Alternant en actuariat</value>
   </data>
-  <data name="Desc2" xml:space="preserve">
+  <data name="Cnp_Desc" xml:space="preserve">
     <value>Travaux de pilotage de résultats de la norme IFRS 17 avec les outils internes de CNP assurance (NEMO). Automatisation de contrôles sous SAS et VBA.</value>
   </data>
-  <data name="Desc1" xml:space="preserve">
+  <data name="Unicancer_Desc" xml:space="preserve">
     <value>Préparation et mise en forme du rapport annuel « Bilan et perspectives ».</value>
   </data>
-  <data name="Desc0" xml:space="preserve">
+  <data name="Fractales_Desc" xml:space="preserve">
     <value>Chargé de tests de l’outil de modélisation ALM Solveo. Préparation de tests de validation de la modélisation conçue par les actuaires et implémentée dans l’outil par les développeurs JAVA.</value>
   </data>
-  <data name="JobTitle0" xml:space="preserve">
+  <data name="Fractales_JobTitle" xml:space="preserve">
     <value>Stagiaire en actuariat</value>
   </data>
-  <data name="JobTitle1" xml:space="preserve">
+  <data name="Unicancer_JobTitle" xml:space="preserve">
     <value>Stagiaire en data science</value>
   </data>
-  <data name="JobTitle4" xml:space="preserve">
+  <data name="DriVR_JobTitle" xml:space="preserve">
     <value>Développeur Unity VR</value>
   </data>
-  <data name="Desc4" xml:space="preserve">
+  <data name="DriVR_Desc" xml:space="preserve">
     <value>Développement d'une application VR de risque routier avec le moteur de jeu Unity (C#).</value>
   </data>
-  <data name="Dates4" xml:space="preserve">
+  <data name="DriVR_Dates" xml:space="preserve">
     <value>2022-Aujourd'hui</value>
   </data>
-  <data name="Dates1" xml:space="preserve">
+  <data name="Unicancer_Dates" xml:space="preserve">
     <value>2018</value>
   </data>
-  <data name="Dates2" xml:space="preserve">
+  <data name="Cnp_Dates" xml:space="preserve">
     <value>2018-2019</value>
   </data>
-  <data name="Dates3" xml:space="preserve">
+  <data name="Caceis_Dates" xml:space="preserve">
     <value>2020-2022</value>
   </data>
-  <data name="Dates0" xml:space="preserve">
+  <data name="Fractales_Dates" xml:space="preserve">
     <value>2017</value>
-  </data>
-  <data name="EnterpriseName4" xml:space="preserve">
-    <value>DriVR</value>
-  </data>
-  <data name="EnterpriseName3" xml:space="preserve">
-    <value>Caceis Luxembourg</value>
-  </data>
-  <data name="EnterpriseName2" xml:space="preserve">
-    <value>CNP Assurances</value>
-  </data>
-  <data name="EnterpriseName1" xml:space="preserve">
-    <value>UNICANCER GCS</value>
-  </data>
-  <data name="EnterpriseName0" xml:space="preserve">
-    <value>Fractales</value>
-  </data>
-  <data name="EnterpriseLink4" xml:space="preserve">
-    <value>https://drivr.online/</value>
-  </data>
-  <data name="EnterpriseLink3" xml:space="preserve">
-    <value>https://www.caceis.com/fr/qui-sommes-nous/ou-nous-trouver/luxembourg/</value>
-  </data>
-  <data name="EnterpriseLink2" xml:space="preserve">
-    <value>https://www.cnp.fr/particuliers</value>
-  </data>
-  <data name="EnterpriseLink1" xml:space="preserve">
-    <value>https://www.unicancer.fr/fr/</value>
-  </data>
-  <data name="EnterpriseLink0" xml:space="preserve">
-    <value>https://www.fractales.com/</value>
   </data>
 </root>

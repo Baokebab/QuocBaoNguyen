@@ -117,111 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Title1" xml:space="preserve">
-    <value>Zodiaq</value>
-  </data>
-  <data name="Title2" xml:space="preserve">
-    <value>Convergence</value>
-  </data>
-  <data name="Title3" xml:space="preserve">
-    <value>Chroma Clash</value>
-  </data>
-  <data name="Title6" xml:space="preserve">
-    <value>Minivilles</value>
-  </data>
-  <data name="Title4" xml:space="preserve">
-    <value>Sensei Simu</value>
-  </data>
-  <data name="Title5" xml:space="preserve">
-    <value>Jurassic Defence</value>
-  </data>
-  <data name="Title7" xml:space="preserve">
-    <value>TBD</value>
-  </data>
-  <data name="Description1" xml:space="preserve">
+  <data name="Zodiaq_SimpleDesc" xml:space="preserve">
     <value>Multiplayer online boss rush PC game for 1 to 4 players.</value>
   </data>
-  <data name="Description2" xml:space="preserve">
+  <data name="Convergence_SimpleDesc" xml:space="preserve">
     <value>Cross-platform MOBA in which two to three teams, each made up of a PC player and a mobile player, battle it out in an arena.</value>
   </data>
-  <data name="Description3" xml:space="preserve">
+  <data name="ChromaClash_SimpleDesc" xml:space="preserve">
     <value>Multiplayer online PC FPS game played by 2 to 4 players.</value>
   </data>
-  <data name="Description4" xml:space="preserve">
+  <data name="SenseiSimu_SimpleDesc" xml:space="preserve">
     <value>PC game simulating a school teacher.</value>
   </data>
-  <data name="Description5" xml:space="preserve">
+  <data name="JurassicDefence_SimpleDesc" xml:space="preserve">
     <value>2D WebGL tower defence game.</value>
   </data>
-  <data name="Description6" xml:space="preserve">
+  <data name="Minivilles_SimpleDesc" xml:space="preserve">
     <value>Windows Forms digital adaptation of the Minivilles board game.</value>
   </data>
-  <data name="Description7" xml:space="preserve">
+  <data name="BaboChill_SimpleDesc" xml:space="preserve">
     <value>Music editing software - Under development</value>
-  </data>
-  <data name="ImagePath1" xml:space="preserve">
-    <value>Zodiaq</value>
-  </data>
-  <data name="ImagePath2" xml:space="preserve">
-    <value>Convergence</value>
-  </data>
-  <data name="ImagePath3" xml:space="preserve">
-    <value>ChromaClash</value>
-  </data>
-  <data name="ImagePath4" xml:space="preserve">
-    <value>SenseiSimu</value>
-  </data>
-  <data name="ImagePath5" xml:space="preserve">
-    <value>JurassicDefence</value>
-  </data>
-  <data name="ImagePath6" xml:space="preserve">
-    <value>Minivilles</value>
-  </data>
-  <data name="ImagePath7" xml:space="preserve">
-    <value>WIP</value>
-  </data>
-  <data name="GameEngine1" xml:space="preserve">
-    <value>Unreal Engine 5, C++</value>
-  </data>
-  <data name="GameEngine2" xml:space="preserve">
-    <value>PC - Unity, C#
-Android - Unreal Engine 5, C++</value>
-  </data>
-  <data name="GameEngine3" xml:space="preserve">
-    <value>Unity, C#</value>
-  </data>
-  <data name="GameEngine4" xml:space="preserve">
-    <value>Unity, C#</value>
-  </data>
-  <data name="GameEngine5" xml:space="preserve">
-    <value>Unity, C#</value>
-  </data>
-  <data name="GameEngine6" xml:space="preserve">
-    <value>Windows Forms, C#</value>
-  </data>
-  <data name="GameEngine7" xml:space="preserve">
-    <value>C#</value>
-  </data>
-  <data name="PageLink1" xml:space="preserve">
-    <value>wip</value>
-  </data>
-  <data name="PageLink2" xml:space="preserve">
-    <value>wip</value>
-  </data>
-  <data name="PageLink3" xml:space="preserve">
-    <value>wip</value>
-  </data>
-  <data name="PageLink4" xml:space="preserve">
-    <value>wip</value>
-  </data>
-  <data name="PageLink5" xml:space="preserve">
-    <value>wip</value>
-  </data>
-  <data name="PageLink6" xml:space="preserve">
-    <value>wip</value>
-  </data>
-  <data name="PageLink7" xml:space="preserve">
-    <value>wip</value>
   </data>
   <data name="MoreDetails" xml:space="preserve">
     <value>More details</value>

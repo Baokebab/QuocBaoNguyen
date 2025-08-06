@@ -1,0 +1,277 @@
+﻿header {
+    margin-bottom: 50px;
+}
+
+.underName {
+    color: #fff;
+    font-size: 18px;
+}
+
+h1, h2, .h2, .h1 {
+    font-family: Oswald, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+}
+
+h1, .h1 {
+    line-height: 1.1;
+    color: #fff;
+    margin-top: 25px;
+    margin-bottom: 12.5px;
+}
+
+h2, .h2 {
+    color: #000;
+}
+
+
+
+h5, .h5 {
+    color: #000;
+    font-family: Lato, Helvetica, Arial, sans-serif;
+    font-weight: 700;
+}
+
+    .h5.date-title,
+    h5.date-title {
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+
+.h1 .small, .h1 small, .h2 .small, .h2 small, .h3 .small, .h3 small, .h4 .small, .h4 small, .h5 .small, .h5 small, .h6 .small, .h6 small, h1 .small, h1 small, h2 .small, h2 small, h3 .small, h3 small, h4 .small, h4 small, h5 .small, h5 small, h6 .small, h6 small {
+    font-weight: 400;
+    line-height: 1;
+    color: #777;
+}
+
+.h1,
+h1 {
+    font-size: 63px
+}
+
+.h2,
+h2 {
+    font-size: 27px
+}
+
+.h3,
+.h4,
+h3,
+h4 {
+    font-size: 20px
+}
+
+.h5,
+h5 {
+    font-size: 18px
+}
+
+.h6,
+h6 {
+    font-size: 14px
+}
+
+p {
+    margin: 0 0 12.5px;
+    white-space: pre-line;
+}
+
+.text-center {
+    text-align: center
+}
+
+.small-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+
+.card {
+    border-radius: .25rem;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .125);
+    margin-bottom: 3rem
+}
+
+    .card .card-block {
+        padding: 4rem
+    }
+
+    .card  {
+        padding-bottom: 1rem;
+        padding-right: 4rem;
+    }
+
+.card .h2,
+.card h2 {
+    margin-top: 0;
+    margin-bottom: 40px
+}
+
+
+.page-container {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.sidebar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 0;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.sidebar-base, .sidebar-item {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: wrap;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-size-adjust: 0.5;
+}
+
+
+    .sidebar-base:hover, .sidebar-item:hover {
+        background-color: #000;
+    }
+
+sidebar.ul {
+    padding-left: 0;
+}
+
+
+@media (max-width: 768px) {
+
+    .underName {
+        font-size: 14px;
+    }
+
+    .h1,
+    h1 {
+        font-size: 40px;
+        padding-top: 3.5rem;
+    }
+
+    .h2,
+    h2 {
+        font-size: 21px;
+    }
+
+    .h3,
+    .h4,
+    h3,
+    h4 {
+        font-size: 17px
+    }
+
+    .h5,
+    h5 {
+        font-size: 15px
+    }
+
+    .h6,
+    h6 {
+        font-size: 14px
+    }
+
+    p, .more-details-link {
+        font-size: 12px;
+    }
+
+    .card .card-block {
+        padding: 1rem
+    }
+
+    .card .card-block-portfolio {
+        padding: 1rem;
+        padding-bottom: 0rem;
+    }
+
+    .card-block-portfolio h2 {
+        padding-left: 0rem;
+        padding-top: 0rem;
+    }
+
+    .sidebar-item {
+        display: block;
+        padding: 8px;
+        text-decoration: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        overflow: hidden;
+        white-space: wrap;
+        margin-bottom: 5px;
+        font-size: 11px;
+        font-size-adjust: 0.5;
+    }
+
+    .card .h2,
+    .card h2 {
+        margin-top: 0;
+        margin-bottom: 20px
+    }
+
+    .card .image-column {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        width: 100%;
+        height: 50%;
+        max-width: 100%;
+        max-height: 50%;
+        overflow: hidden;
+    }
+
+        .card .image-column a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+    .image-column img {
+        height: 100%;
+        width: auto;
+        border-radius: 12px;
+        object-fit: cover;
+        display: block;
+        top: 0;
+    }
+
+    .text-column {
+        text-align: center;
+    }
+
+    .main-content {
+        padding: 5px;
+    }
+
+    .container {
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+    }
+}

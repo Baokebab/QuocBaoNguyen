@@ -61,182 +61,83 @@ namespace QBNsite.Resources {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à 2017.
-        /// </summary>
-        public static string Dates0 {
-            get {
-                return ResourceManager.GetString("Dates0", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à 2018.
-        /// </summary>
-        public static string Dates1 {
-            get {
-                return ResourceManager.GetString("Dates1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à 2018-2019.
-        /// </summary>
-        public static string Dates2 {
-            get {
-                return ResourceManager.GetString("Dates2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Recherche une chaîne localisée semblable à 2020-2022.
         /// </summary>
-        public static string Dates3 {
+        public static string Caceis_Dates {
             get {
-                return ResourceManager.GetString("Dates3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à 2022-Aujourd&apos;hui.
-        /// </summary>
-        public static string Dates4 {
-            get {
-                return ResourceManager.GetString("Dates4", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Chargé de tests de l’outil de modélisation ALM Solveo. Préparation de tests de validation de la modélisation conçue par les actuaires et implémentée dans l’outil par les développeurs JAVA..
-        /// </summary>
-        public static string Desc0 {
-            get {
-                return ResourceManager.GetString("Desc0", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Préparation et mise en forme du rapport annuel « Bilan et perspectives »..
-        /// </summary>
-        public static string Desc1 {
-            get {
-                return ResourceManager.GetString("Desc1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Travaux de pilotage de résultats de la norme IFRS 17 avec les outils internes de CNP assurance (NEMO). Automatisation de contrôles sous SAS et VBA..
-        /// </summary>
-        public static string Desc2 {
-            get {
-                return ResourceManager.GetString("Desc2", resourceCulture);
+                return ResourceManager.GetString("Caceis_Dates", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Recherche une chaîne localisée semblable à Trading de collatéral, traitement et suivi opérationnel des Prêts-Emprunts Titres et REPO. Réconciliation des positions avec le Back Office et avec les contreparties. Révision et amélioration des procédures de contrôles. Aide à la mise en place de la nouvelle règlementation SFTR..
         /// </summary>
-        public static string Desc3 {
+        public static string Caceis_Desc {
             get {
-                return ResourceManager.GetString("Desc3", resourceCulture);
+                return ResourceManager.GetString("Caceis_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Collateral trading officer.
+        /// </summary>
+        public static string Caceis_JobTitle {
+            get {
+                return ResourceManager.GetString("Caceis_JobTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à 2018-2019.
+        /// </summary>
+        public static string Cnp_Dates {
+            get {
+                return ResourceManager.GetString("Cnp_Dates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Travaux de pilotage de résultats de la norme IFRS 17 avec les outils internes de CNP assurance (NEMO). Automatisation de contrôles sous SAS et VBA..
+        /// </summary>
+        public static string Cnp_Desc {
+            get {
+                return ResourceManager.GetString("Cnp_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Alternant en actuariat.
+        /// </summary>
+        public static string Cnp_JobTitle {
+            get {
+                return ResourceManager.GetString("Cnp_JobTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à 2022-Aujourd&apos;hui.
+        /// </summary>
+        public static string DriVR_Dates {
+            get {
+                return ResourceManager.GetString("DriVR_Dates", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Recherche une chaîne localisée semblable à Développement d&apos;une application VR de risque routier avec le moteur de jeu Unity (C#)..
         /// </summary>
-        public static string Desc4 {
+        public static string DriVR_Desc {
             get {
-                return ResourceManager.GetString("Desc4", resourceCulture);
+                return ResourceManager.GetString("DriVR_Desc", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à https://www.fractales.com/.
+        ///   Recherche une chaîne localisée semblable à Développeur Unity VR.
         /// </summary>
-        public static string EnterpriseLink0 {
+        public static string DriVR_JobTitle {
             get {
-                return ResourceManager.GetString("EnterpriseLink0", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à https://www.unicancer.fr/fr/.
-        /// </summary>
-        public static string EnterpriseLink1 {
-            get {
-                return ResourceManager.GetString("EnterpriseLink1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à https://www.cnp.fr/particuliers.
-        /// </summary>
-        public static string EnterpriseLink2 {
-            get {
-                return ResourceManager.GetString("EnterpriseLink2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à https://www.caceis.com/fr/qui-sommes-nous/ou-nous-trouver/luxembourg/.
-        /// </summary>
-        public static string EnterpriseLink3 {
-            get {
-                return ResourceManager.GetString("EnterpriseLink3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à https://drivr.online/.
-        /// </summary>
-        public static string EnterpriseLink4 {
-            get {
-                return ResourceManager.GetString("EnterpriseLink4", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Fractales.
-        /// </summary>
-        public static string EnterpriseName0 {
-            get {
-                return ResourceManager.GetString("EnterpriseName0", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à UNICANCER GCS.
-        /// </summary>
-        public static string EnterpriseName1 {
-            get {
-                return ResourceManager.GetString("EnterpriseName1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à CNP Assurances.
-        /// </summary>
-        public static string EnterpriseName2 {
-            get {
-                return ResourceManager.GetString("EnterpriseName2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Caceis Luxembourg.
-        /// </summary>
-        public static string EnterpriseName3 {
-            get {
-                return ResourceManager.GetString("EnterpriseName3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à DriVR.
-        /// </summary>
-        public static string EnterpriseName4 {
-            get {
-                return ResourceManager.GetString("EnterpriseName4", resourceCulture);
+                return ResourceManager.GetString("DriVR_JobTitle", resourceCulture);
             }
         }
         
@@ -250,47 +151,56 @@ namespace QBNsite.Resources {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à 2017.
+        /// </summary>
+        public static string Fractales_Dates {
+            get {
+                return ResourceManager.GetString("Fractales_Dates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Chargé de tests de l’outil de modélisation ALM Solveo. Préparation de tests de validation de la modélisation conçue par les actuaires et implémentée dans l’outil par les développeurs JAVA..
+        /// </summary>
+        public static string Fractales_Desc {
+            get {
+                return ResourceManager.GetString("Fractales_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Stagiaire en actuariat.
         /// </summary>
-        public static string JobTitle0 {
+        public static string Fractales_JobTitle {
             get {
-                return ResourceManager.GetString("JobTitle0", resourceCulture);
+                return ResourceManager.GetString("Fractales_JobTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à 2018.
+        /// </summary>
+        public static string Unicancer_Dates {
+            get {
+                return ResourceManager.GetString("Unicancer_Dates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Préparation et mise en forme du rapport annuel « Bilan et perspectives »..
+        /// </summary>
+        public static string Unicancer_Desc {
+            get {
+                return ResourceManager.GetString("Unicancer_Desc", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Recherche une chaîne localisée semblable à Stagiaire en data science.
         /// </summary>
-        public static string JobTitle1 {
+        public static string Unicancer_JobTitle {
             get {
-                return ResourceManager.GetString("JobTitle1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Alternant en actuariat.
-        /// </summary>
-        public static string JobTitle2 {
-            get {
-                return ResourceManager.GetString("JobTitle2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Collateral trading officer.
-        /// </summary>
-        public static string JobTitle3 {
-            get {
-                return ResourceManager.GetString("JobTitle3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Développeur Unity VR.
-        /// </summary>
-        public static string JobTitle4 {
-            get {
-                return ResourceManager.GetString("JobTitle4", resourceCulture);
+                return ResourceManager.GetString("Unicancer_JobTitle", resourceCulture);
             }
         }
     }

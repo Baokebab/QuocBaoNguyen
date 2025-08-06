@@ -133,6 +133,15 @@ namespace QBNsite.Resources {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Expériences.
+        /// </summary>
+        public static string Experiences {
+            get {
+                return ResourceManager.GetString("Experiences", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Langue maternelle.
         /// </summary>
         public static string LanguageLevel1 {

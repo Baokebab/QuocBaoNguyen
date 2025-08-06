@@ -189,4 +189,7 @@
   <data name="WIPMessage" xml:space="preserve">
     <value>Page en cours de réalisation, n'hésitez pas à me poser des questions sur ce sujet lors d'un entretien si cela vous intéresse.</value>
   </data>
+  <data name="Experiences" xml:space="preserve">
+    <value>Expériences</value>
+  </data>
 </root>

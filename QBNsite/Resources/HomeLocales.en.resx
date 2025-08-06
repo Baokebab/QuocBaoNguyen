@@ -189,4 +189,7 @@
   <data name="WIPMessage" xml:space="preserve">
     <value>Page in progress, please feel free to ask me questions about it during an interview if you're interested.</value>
   </data>
+  <data name="Experiences" xml:space="preserve">
+    <value>Experiences</value>
+  </data>
 </root>

@@ -61,192 +61,47 @@ namespace QBNsite.Resources {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Jeu PC de boss rush multijoueur en ligne qui se joue de 1 à 4 joueurs..
+        ///   Recherche une chaîne localisée semblable à Logiciel d&apos;édition de musique - En cours de dev.
         /// </summary>
-        public static string Description1 {
+        public static string BaboChill_SimpleDesc {
             get {
-                return ResourceManager.GetString("Description1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à MOBA multiplateforme dans lequel deux à trois équipes équipes, composées chacune d’un joueur PC et d’un joueur mobile, s’affrontent dans une arène. .
-        /// </summary>
-        public static string Description2 {
-            get {
-                return ResourceManager.GetString("Description2", resourceCulture);
+                return ResourceManager.GetString("BaboChill_SimpleDesc", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Recherche une chaîne localisée semblable à Jeu PC FPS multijoueur en ligne qui se joue de 2 à 4 joueurs. .
         /// </summary>
-        public static string Description3 {
+        public static string ChromaClash_SimpleDesc {
             get {
-                return ResourceManager.GetString("Description3", resourceCulture);
+                return ResourceManager.GetString("ChromaClash_SimpleDesc", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Jeu PC de simulation d&apos;un enseignant des écoles..
+        ///   Recherche une chaîne localisée semblable à MOBA multiplateforme dans lequel deux à trois équipes équipes, composées chacune d’un joueur PC et d’un joueur mobile, s’affrontent dans une arène. .
         /// </summary>
-        public static string Description4 {
+        public static string Convergence_SimpleDesc {
             get {
-                return ResourceManager.GetString("Description4", resourceCulture);
+                return ResourceManager.GetString("Convergence_SimpleDesc", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Recherche une chaîne localisée semblable à Jeu 2D WebGL de défense de tour..
         /// </summary>
-        public static string Description5 {
+        public static string JurassicDefence_SimpleDesc {
             get {
-                return ResourceManager.GetString("Description5", resourceCulture);
+                return ResourceManager.GetString("JurassicDefence_SimpleDesc", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Recherche une chaîne localisée semblable à Adaptation numérique sous Windows Forms du jeu de société Minivilles..
         /// </summary>
-        public static string Description6 {
+        public static string Minivilles_SimpleDesc {
             get {
-                return ResourceManager.GetString("Description6", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Logiciel d&apos;édition de musique - En cours de dev.
-        /// </summary>
-        public static string Description7 {
-            get {
-                return ResourceManager.GetString("Description7", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Unreal Engine 5, C++.
-        /// </summary>
-        public static string GameEngine1 {
-            get {
-                return ResourceManager.GetString("GameEngine1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à PC - Unity, C#
-        ///Android - Unreal Engine 5, C++.
-        /// </summary>
-        public static string GameEngine2 {
-            get {
-                return ResourceManager.GetString("GameEngine2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Unity, C#.
-        /// </summary>
-        public static string GameEngine3 {
-            get {
-                return ResourceManager.GetString("GameEngine3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Unity, C#.
-        /// </summary>
-        public static string GameEngine4 {
-            get {
-                return ResourceManager.GetString("GameEngine4", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Unity, C#.
-        /// </summary>
-        public static string GameEngine5 {
-            get {
-                return ResourceManager.GetString("GameEngine5", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Windows Forms, C#.
-        /// </summary>
-        public static string GameEngine6 {
-            get {
-                return ResourceManager.GetString("GameEngine6", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à C#.
-        /// </summary>
-        public static string GameEngine7 {
-            get {
-                return ResourceManager.GetString("GameEngine7", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Zodiaq.
-        /// </summary>
-        public static string ImagePath1 {
-            get {
-                return ResourceManager.GetString("ImagePath1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Convergence.
-        /// </summary>
-        public static string ImagePath2 {
-            get {
-                return ResourceManager.GetString("ImagePath2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à ChromaClash.
-        /// </summary>
-        public static string ImagePath3 {
-            get {
-                return ResourceManager.GetString("ImagePath3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à SenseiSimu.
-        /// </summary>
-        public static string ImagePath4 {
-            get {
-                return ResourceManager.GetString("ImagePath4", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à JurassicDefence.
-        /// </summary>
-        public static string ImagePath5 {
-            get {
-                return ResourceManager.GetString("ImagePath5", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Minivilles.
-        /// </summary>
-        public static string ImagePath6 {
-            get {
-                return ResourceManager.GetString("ImagePath6", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à WIP.
-        /// </summary>
-        public static string ImagePath7 {
-            get {
-                return ResourceManager.GetString("ImagePath7", resourceCulture);
+                return ResourceManager.GetString("Minivilles_SimpleDesc", resourceCulture);
             }
         }
         
@@ -260,128 +115,20 @@ namespace QBNsite.Resources {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à wip.
+        ///   Recherche une chaîne localisée semblable à Jeu PC de simulation d&apos;un enseignant des écoles..
         /// </summary>
-        public static string PageLink1 {
+        public static string SenseiSimu_SimpleDesc {
             get {
-                return ResourceManager.GetString("PageLink1", resourceCulture);
+                return ResourceManager.GetString("SenseiSimu_SimpleDesc", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à wip.
+        ///   Recherche une chaîne localisée semblable à Jeu PC de boss rush multijoueur en ligne qui se joue de 1 à 4 joueurs..
         /// </summary>
-        public static string PageLink2 {
+        public static string Zodiaq_SimpleDesc {
             get {
-                return ResourceManager.GetString("PageLink2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à wip.
-        /// </summary>
-        public static string PageLink3 {
-            get {
-                return ResourceManager.GetString("PageLink3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à wip.
-        /// </summary>
-        public static string PageLink4 {
-            get {
-                return ResourceManager.GetString("PageLink4", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à wip.
-        /// </summary>
-        public static string PageLink5 {
-            get {
-                return ResourceManager.GetString("PageLink5", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à wip.
-        /// </summary>
-        public static string PageLink6 {
-            get {
-                return ResourceManager.GetString("PageLink6", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à counter.
-        /// </summary>
-        public static string PageLink7 {
-            get {
-                return ResourceManager.GetString("PageLink7", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Zodiaq.
-        /// </summary>
-        public static string Title1 {
-            get {
-                return ResourceManager.GetString("Title1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Convergence.
-        /// </summary>
-        public static string Title2 {
-            get {
-                return ResourceManager.GetString("Title2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Chroma Clash.
-        /// </summary>
-        public static string Title3 {
-            get {
-                return ResourceManager.GetString("Title3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Sensei Simu.
-        /// </summary>
-        public static string Title4 {
-            get {
-                return ResourceManager.GetString("Title4", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Jurassic Defence.
-        /// </summary>
-        public static string Title5 {
-            get {
-                return ResourceManager.GetString("Title5", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Minivilles.
-        /// </summary>
-        public static string Title6 {
-            get {
-                return ResourceManager.GetString("Title6", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à TBD.
-        /// </summary>
-        public static string Title7 {
-            get {
-                return ResourceManager.GetString("Title7", resourceCulture);
+                return ResourceManager.GetString("Zodiaq_SimpleDesc", resourceCulture);
             }
         }
     }

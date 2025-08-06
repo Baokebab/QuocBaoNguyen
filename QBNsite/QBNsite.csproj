@@ -35,6 +35,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Resources\PortfolioLocales.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PortfolioLocales.resx</DependentUpon>
+    </Compile>
     <Compile Update="Resources\HomeLocales.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
