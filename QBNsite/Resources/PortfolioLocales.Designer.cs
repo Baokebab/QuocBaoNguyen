@@ -98,7 +98,7 @@ namespace QBNsite.Resources {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Par équipe de deux, incarnez un champion et son acolyte au travers de duels intenses et rapides contre d’autres joueurs. Maîtrisez les capacités uniques des nombreux champions à votre disposition. Faites équipe avec vos amis et plongez dans le combat, car la gloire attend seulement ceux qui la cherchent..
+        ///   Recherche une chaîne localisée semblable à Par équipes de deux, incarnez un champion et son acolyte au travers de duels intenses et rapides contre d’autres joueurs. Maîtrisez les capacités uniques des nombreux champions à votre disposition. Faites équipe avec vos amis et plongez dans le combat, car la gloire attend seulement ceux qui la cherchent..
         /// </summary>
         public static string Convergence_Pitch {
             get {
@@ -107,7 +107,7 @@ namespace QBNsite.Resources {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à MOBA multiplateforme dans lequel deux à trois équipes équipes, composées chacune d’un joueur PC et d’un joueur mobile, s’affrontent dans une arène. .
+        ///   Recherche une chaîne localisée semblable à MOBA multiplateforme dans lequel deux à trois équipes, composées chacune d’un joueur PC et d’un joueur mobile, s’affrontent dans une arène. .
         /// </summary>
         public static string Convergence_SimpleDesc {
             get {
@@ -251,7 +251,7 @@ namespace QBNsite.Resources {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Système de log qui envoi les données voulues sur la base Firebase. Récupération et traitement des données par une application développée sous Flutter. Visualisation des dégâts moyens par sort, par joueur, timeline complète d&apos;un combat, heatmaps, etc..
+        ///   Recherche une chaîne localisée semblable à Système de log qui envoie les données voulues sur la base Firebase. Récupération et traitement des données par une application développée sous Flutter. Visualisation des dégâts moyens par sort, par joueur, timeline complète d&apos;un combat, heatmaps, etc..
         /// </summary>
         public static string Zodiaq_Analytics {
             get {
@@ -336,7 +336,7 @@ namespace QBNsite.Resources {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Les modèles 3D sont des assets importés et modifiés sous Blender. Les VFX utilisent le système de Niagara d&apos;Unreal Engine, et sont lancées par les animations avec des Anim Notify. .
+        ///   Recherche une chaîne localisée semblable à Les modèles 3D sont des assets importés et modifiés sous Blender. Les VFX utilisent le système de Niagara d&apos;Unreal Engine, et sont lancés par les animations avec des Anim Notify. .
         /// </summary>
         public static string Zodiaq_Visuals {
             get {

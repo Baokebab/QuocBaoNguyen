@@ -121,7 +121,7 @@
     <value>Jeu PC de boss rush multijoueur en ligne qui se joue de 1 à 4 joueurs.</value>
   </data>
   <data name="Convergence_SimpleDesc" xml:space="preserve">
-    <value>MOBA multiplateforme dans lequel deux à trois équipes équipes, composées chacune d’un joueur PC et d’un joueur mobile, s’affrontent dans une arène. </value>
+    <value>MOBA multiplateforme dans lequel deux à trois équipes, composées chacune d’un joueur PC et d’un joueur mobile, s’affrontent dans une arène. </value>
   </data>
   <data name="ChromaClash_SimpleDesc" xml:space="preserve">
     <value>Jeu PC FPS multijoueur en ligne qui se joue de 2 à 4 joueurs. </value>
@@ -161,10 +161,10 @@ Les types d'effet développés : dégâts, soins, buff / debuff (vitesse de dép
 Chaque sort applique un ou plusieurs effets, et peuvent se cumuler. Les cumuls ont été developpés avec un système de résultante de sorte à pouvoir équilibrer des potentielles stratégies non voulues. Par exemple 2 stack de rédution de dégâts subits à -50% ont un résultat dégressif à -55% au lieu de -100% de dégâts subits, qui est jugé trop fort pour le design voulu. </value>
   </data>
   <data name="Zodiaq_Analytics" xml:space="preserve">
-    <value>Système de log qui envoi les données voulues sur la base Firebase. Récupération et traitement des données par une application développée sous Flutter. Visualisation des dégâts moyens par sort, par joueur, timeline complète d'un combat, heatmaps, etc.</value>
+    <value>Système de log qui envoie les données voulues sur la base Firebase. Récupération et traitement des données par une application développée sous Flutter. Visualisation des dégâts moyens par sort, par joueur, timeline complète d'un combat, heatmaps, etc.</value>
   </data>
   <data name="Zodiaq_Visuals" xml:space="preserve">
-    <value>Les modèles 3D sont des assets importés et modifiés sous Blender. Les VFX utilisent le système de Niagara d'Unreal Engine, et sont lancées par les animations avec des Anim Notify. </value>
+    <value>Les modèles 3D sont des assets importés et modifiés sous Blender. Les VFX utilisent le système de Niagara d'Unreal Engine, et sont lancés par les animations avec des Anim Notify. </value>
   </data>
   <data name="Title_Visuals" xml:space="preserve">
     <value>Visuel</value>
@@ -194,7 +194,7 @@ Chaque sort applique un ou plusieurs effets, et peuvent se cumuler. Les cumuls o
     <value>Jeu PC de boss rush multijoueur en ligne qui se joue de 1 à 4 joueurs.</value>
   </data>
   <data name="Convergence_Pitch" xml:space="preserve">
-    <value>Par équipe de deux, incarnez un champion et son acolyte au travers de duels intenses et rapides contre d’autres joueurs. Maîtrisez les capacités uniques des nombreux champions à votre disposition. Faites équipe avec vos amis et plongez dans le combat, car la gloire attend seulement ceux qui la cherchent.</value>
+    <value>Par équipes de deux, incarnez un champion et son acolyte au travers de duels intenses et rapides contre d’autres joueurs. Maîtrisez les capacités uniques des nombreux champions à votre disposition. Faites équipe avec vos amis et plongez dans le combat, car la gloire attend seulement ceux qui la cherchent.</value>
   </data>
   <data name="Convergence_Network" xml:space="preserve">
     <value>Deux serveurs : un serveur Unity Netcode for GameObject pour la communication entre les PC et un serveur gRPC pour la communication entre les joueurs mobiles et les joueurs PC. gRPC a permit la transmission de données entre C# (Unity sur les PC) et C++ (Unreal Mobile). </value>

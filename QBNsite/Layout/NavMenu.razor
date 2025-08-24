@@ -6,6 +6,7 @@
 
     private string zodiaqIconPath => $"{rootPath}/Images/png/ZodiaqSimpleLogo.png";
     private string convergenceIconPath => $"{rootPath}/Images/png/ConvergenceLogo.png";
+    private string chromaClashIconPath => $"{rootPath}/Images/png/ChromaClashLogo.png";
 }
 
 <div class="top-row ps-3 navbar navbar-dark">
@@ -43,7 +44,9 @@
 
          <div class="nav-item px-3">
             <NavLink class="nav-link" href="ChromaClash">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"> </span> Chroma Clash
+                <span class="custom-icon-nav-menu">
+                    <img src="@convergenceIconPath" />
+                </span> Chroma Clash
             </NavLink>
         </div>
 
