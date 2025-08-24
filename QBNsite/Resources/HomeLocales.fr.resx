@@ -195,4 +195,7 @@
   <data name="MoreDetails" xml:space="preserve">
     <value>Voir plus</value>
   </data>
+  <data name="CV_Path" xml:space="preserve">
+    <value>Images\pdf\NGUYEN_QuocBao_CV.pdf</value>
+  </data>
 </root>

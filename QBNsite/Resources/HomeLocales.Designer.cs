@@ -97,6 +97,15 @@ namespace QBNsite.Resources {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Images\pdf\NGUYEN_QuocBao_CV.pdf.
+        /// </summary>
+        public static string CV_Path {
+            get {
+                return ResourceManager.GetString("CV_Path", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Education.
         /// </summary>
         public static string Education {
