@@ -223,6 +223,15 @@ namespace QBNsite.Resources {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Voir plus.
+        /// </summary>
+        public static string MoreDetails {
+            get {
+                return ResourceManager.GetString("MoreDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Je suis Quoc-Bao Nguyen.
         /// </summary>
         public static string NamePres {

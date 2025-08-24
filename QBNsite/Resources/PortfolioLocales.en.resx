@@ -141,4 +141,79 @@
   <data name="MoreDetails" xml:space="preserve">
     <value>More details</value>
   </data>
+  <data name="Zodiaq_Networking" xml:space="preserve">
+    <value>Use of Epic Games Online Services (EOS), with a Map Lobby directly on a dedicated server. Boss maps are instances hosted by clients. Players must log in or create an account in our player database on Firebase.</value>
+  </data>
+  <data name="Zodiaq_Lore" xml:space="preserve">
+    <value>To save the humanity from the corruption of the divines, you heroes shall defeat the malicious Taurus Wraithraiser. 
+By yourself if you feel courageous, or in teams up to 4 warriors, figure out your mighty opponent's fighting style, and use both your strenght and agility to end this battle, and this war.</value>
+  </data>
+  <data name="Zodiaq_GameplayJoueur" xml:space="preserve">
+    <value>Players can move around, attack with their basic weapon, cast spells, and rush. The combat mechanics were implemented in C++, without using GAS (Gameplay Ability System). Movement is inspired by Unreal's top-down controller, modified to fit the desired game design, with WASD movement and character orientation toward the mouse cursor.</value>
+  </data>
+  <data name="Zodiaq_Boss" xml:space="preserve">
+    <value>Bosses use Unreal Engine's Behavior Tree. Each boss spell has a priority order, a cooldown time, and dependencies depending on the boss's phases.</value>
+  </data>
+  <data name="Zodiaq_Spells" xml:space="preserve">
+    <value>The types of spells developed: Skillshot, AOE, targeted spell, and dash.
+The types of effects developed: Damage, healing, Buff/Debuff (movement speed, healing received, damage taken, damage dealt).
+
+Each spell applies one or more effects, which can be stacked. Stacks have been developed with a resultant system in order to balance out potential unintended strategies. For example, 2 stacks of damage reduction at -50% have a degressive result of -55% instead of -100% damage, which is considered too strong for the intended design.</value>
+  </data>
+  <data name="Zodiaq_Analytics" xml:space="preserve">
+    <value>Logging system that sends the desired data to the Firebase database. Data retrieval and processing by an application developed using Flutter. Visualization of average damage per spell, per player, complete battle timeline, heatmaps, etc.</value>
+  </data>
+  <data name="Zodiaq_Visuals" xml:space="preserve">
+    <value>The 3D models are assets imported and modified in Blender. The VFX use Unreal Engine's Niagara system and are triggered by animations with Anim Notify.</value>
+  </data>
+  <data name="Title_Visuals" xml:space="preserve">
+    <value>Visuals</value>
+  </data>
+  <data name="Title_Lore" xml:space="preserve">
+    <value>Lore</value>
+  </data>
+  <data name="Title_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Title_Gameplay" xml:space="preserve">
+    <value>Gameplay</value>
+  </data>
+  <data name="Title_Boss" xml:space="preserve">
+    <value>Boss</value>
+  </data>
+  <data name="Title_Analytics" xml:space="preserve">
+    <value>Analytics</value>
+  </data>
+  <data name="Title_Spells" xml:space="preserve">
+    <value>Spells</value>
+  </data>
+  <data name="Title_Network" xml:space="preserve">
+    <value>Network</value>
+  </data>
+  <data name="Zodiaq_DetailedDesc" xml:space="preserve">
+    <value>Multiplayer online boss rush PC game for 1 to 4 players.</value>
+  </data>
+  <data name="Convergence_Pitch" xml:space="preserve">
+    <value>In teams of two, play as a champion and their sidekick in intense, fast-paced duels against other players. Master the unique abilities of the many champions at your disposal. Team up with your friends and dive into battle, because glory 
+awaits only those who seek it.</value>
+  </data>
+  <data name="Convergence_Network" xml:space="preserve">
+    <value>Two servers: a Unity Netcode for GameObject server for communication between PCs and a gRPC server for communication between mobile players and PC players. gRPC enabled data transmission between C# (Unity on PCs) and C++ (Unreal Mobile).</value>
+  </data>
+  <data name="Convergence_Gameplay" xml:space="preserve">
+    <value>The gameplay is heavily inspired by MOBA games on the market (LoL, Dota2) : top-down with mouse movement for the PC, 4 spells.
+The mobile player cannot move and remains permanently alongside their PC ally, but they can still cast spells. They have a support role.</value>
+  </data>
+  <data name="Convergence_Sound" xml:space="preserve">
+    <value>Fmod was used for sound integration, with ambient transitions based on the players' health points.</value>
+  </data>
+  <data name="Convergence_Visual" xml:space="preserve">
+    <value>The 3D models are assets imported and modified in Blender. The VFX use Unreal Engine's Niagara system for mobile and particle systems for PCs.</value>
+  </data>
+  <data name="Zodiaq_Software" xml:space="preserve">
+    <value>Unreal Engine 5 (C++), Firebase, Blender, Flutter</value>
+  </data>
+  <data name="Title_Software" xml:space="preserve">
+    <value>Software</value>
+  </data>
 </root>

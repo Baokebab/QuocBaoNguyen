@@ -19,10 +19,33 @@ namespace QBNsite.Helper.Portfolio.PortfolioItems
         public override string imagePathAvif => "Images/avif/Minivilles.avif";
         public override string imagePathPng => "";
         public override string imagePathWebP => "Images/webp/Minivilles.webp";
-        public override string pageLink => "Minivilles_pageLink";
+        public override string pageLink => "Minivilles";
         public override string repositoryLink => "";
-        public override string trailerLink => "https://www.youtube.com/shorts/nnue1qXgBIU";
 
-        public override List<PortfolioVideo> videos => throw new NotImplementedException();
+        public override List<PortfolioCarouselItem> visuals => new List<PortfolioCarouselItem>
+        {
+            new PortfolioCarouselItem
+            {
+                link = "https://www.youtube.com/watch?v=2XokIX19gL0&ab_channel=BaoCNAM",
+                youtubeId = "2XokIX19gL0",
+                itemType = PortfolioItemType.YoutubeVideo,
+                title = "Gameplay",
+            }
+        };
+        public override string logoPath => throw new NotImplementedException();
+
+        public override List<PortfolioDetailsCard> detailsItems => new List<PortfolioDetailsCard>
+        {
+            new PortfolioDetailsCard
+            {
+                title = localizer["Title_Description"],
+                description = localizer["Minivilles_SimpleDesc"],
+            },
+            new PortfolioDetailsCard
+            {
+                title = localizer["Title_Software"],
+                description = gameEngine,
+            }
+        };
     }
 }

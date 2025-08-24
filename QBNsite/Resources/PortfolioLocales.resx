@@ -141,4 +141,78 @@
   <data name="MoreDetails" xml:space="preserve">
     <value>En savoir plus</value>
   </data>
+  <data name="Zodiaq_Networking" xml:space="preserve">
+    <value>Utilisation d'Epic Games Online services (EOS), avec une Map Lobby directement sur un serveur dédié. Les Maps de boss sont des instances host par les clients. Les joueurs doivent se connecter ou créer un compte dans notre base de données de joueurs sous Firebase.</value>
+  </data>
+  <data name="Zodiaq_Lore" xml:space="preserve">
+    <value>Pour sauver l'humanité des dieux corrompus, vous, héros, n'avez pas d'autre choix que de vaincre le terrible Taurus Wraithraiser.
+Seul si vous en avez le courage, ou en équipe jusqu'à 4 valeureux guerriers, décelez les mécaniques de combat de votre puissant adversaire, et par votre force et votre agilité, mettez fin à cette bataille, ainsi qu'à cette guerre.</value>
+  </data>
+  <data name="Zodiaq_GameplayJoueur" xml:space="preserve">
+    <value>Les joueurs peuvent se déplacer, attaquer avec leur arme de base, lancer des sorts, et faire une ruée. L'implémentation des mécaniques de combat a été fait en C++, sans l'utilisation de GAS (Gameplay Ability System). Les déplacements sont inspirés du controller Top-Down d'Unreal, modifié pour correspondre au game design voulu, déplacement ZQSD, orientation du personnage vers le curseur de la souris.</value>
+  </data>
+  <data name="Zodiaq_Boss" xml:space="preserve">
+    <value>Les boss utilisent le Behavior Tree d'Unreal Engine. Chaque sort boss possède un ordre de priorité, un temps de rechargement, et des dépendances selon les phases du boss. </value>
+  </data>
+  <data name="Zodiaq_Spells" xml:space="preserve">
+    <value>Les types de sort développés : skillshot, AOE, sort ciblé, et le dash.
+Les types d'effet développés : dégâts, soins, buff / debuff (vitesse de déplacement, soins reçus, dégâts subits, dégâts infligés).
+
+Chaque sort applique un ou plusieurs effets, et peuvent se cumuler. Les cumuls ont été developpés avec un système de résultante de sorte à pouvoir équilibrer des potentielles stratégies non voulues. Par exemple 2 stack de rédution de dégâts subits à -50% ont un résultat dégressif à -55% au lieu de -100% de dégâts subits, qui est jugé trop fort pour le design voulu. </value>
+  </data>
+  <data name="Zodiaq_Analytics" xml:space="preserve">
+    <value>Système de log qui envoi les données voulues sur la base Firebase. Récupération et traitement des données par une application développée sous Flutter. Visualisation des dégâts moyens par sort, par joueur, timeline complète d'un combat, heatmaps, etc.</value>
+  </data>
+  <data name="Zodiaq_Visuals" xml:space="preserve">
+    <value>Les modèles 3D sont des assets importés et modifiés sous Blender. Les VFX utilisent le système de Niagara d'Unreal Engine, et sont lancées par les animations avec des Anim Notify. </value>
+  </data>
+  <data name="Title_Visuals" xml:space="preserve">
+    <value>Visuel</value>
+  </data>
+  <data name="Title_Lore" xml:space="preserve">
+    <value>Lore</value>
+  </data>
+  <data name="Title_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Title_Gameplay" xml:space="preserve">
+    <value>Gameplay</value>
+  </data>
+  <data name="Title_Boss" xml:space="preserve">
+    <value>Boss</value>
+  </data>
+  <data name="Title_Analytics" xml:space="preserve">
+    <value>Analytics</value>
+  </data>
+  <data name="Title_Spells" xml:space="preserve">
+    <value>Sorts</value>
+  </data>
+  <data name="Title_Network" xml:space="preserve">
+    <value>Réseaux</value>
+  </data>
+  <data name="Zodiaq_DetailedDesc" xml:space="preserve">
+    <value>Jeu PC de boss rush multijoueur en ligne qui se joue de 1 à 4 joueurs.</value>
+  </data>
+  <data name="Convergence_Pitch" xml:space="preserve">
+    <value>Par équipe de deux, incarnez un champion et son acolyte au travers de duels intenses et rapides contre d’autres joueurs. Maîtrisez les capacités uniques des nombreux champions à votre disposition. Faites équipe avec vos amis et plongez dans le combat, car la gloire attend seulement ceux qui la cherchent.</value>
+  </data>
+  <data name="Convergence_Network" xml:space="preserve">
+    <value>Deux serveurs : un serveur Unity Netcode for GameObject pour la communication entre les PC et un serveur gRPC pour la communication entre les joueurs mobiles et les joueurs PC. gRPC a permit la transmission de données entre C# (Unity sur les PC) et C++ (Unreal Mobile). </value>
+  </data>
+  <data name="Convergence_Gameplay" xml:space="preserve">
+    <value>Le gameplay est très inspiré des MOBA sur le marché (LoL, Dota2) : top down avec un déplacement par la souris pour le PC, 4 sorts. 
+Le joueur mobile ne peut pas se déplacer et reste en permanence aux côtés de son allié PC, il peut néanmoins lancer des sorts. Il a une fonction de soutien.</value>
+  </data>
+  <data name="Convergence_Sound" xml:space="preserve">
+    <value>Fmod a été utilisé pour l'intégration sonore, avec des transitions d'ambiance selon les points de vie des joueurs.</value>
+  </data>
+  <data name="Convergence_Visual" xml:space="preserve">
+    <value>Les modèles 3D sont des assets importés et modifiés sous Blender. Les VFX utilisent le système de Niagara d'Unreal Engine pour le mobile et les particles system pour les PC.</value>
+  </data>
+  <data name="Zodiaq_Software" xml:space="preserve">
+    <value>Unreal Engine 5 (C++), Firebase, Blender, Flutter</value>
+  </data>
+  <data name="Title_Software" xml:space="preserve">
+    <value>Logicels</value>
+  </data>
 </root>

@@ -1,4 +1,4 @@
-﻿@page "/Zodiaq"
+﻿@page "/Convergence"
 
 @using Microsoft.Extensions.Localization;
 @using QBNsite.Helper.Portfolio.PortfolioItems
@@ -20,7 +20,7 @@
 	private PortfolioItem thisPortfolioItem;
 	protected override void OnInitialized()
 	{
-		thisPortfolioItem = new ZodiaqPI(PortfolioL);
+		thisPortfolioItem = new ConvergencePI(PortfolioL);
 		Selected = thisPortfolioItem.visuals.FirstOrDefault();
 	}
 
@@ -44,19 +44,19 @@
 						<div class="player-frame">
 							@if (Selected is not null)
 							{
-								if (Selected.itemType == PortfolioItemType.YoutubeVideo)
+								if(Selected.itemType == PortfolioItemType.YoutubeVideo)
 								{
-										<iframe width="560" height="315"
-												src=@Selected.EmbedUrl
-												title=@Selected.title
-												allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-												allowfullscreen>
-										</iframe>
+									<iframe width="560" height="315"
+											src=@Selected.EmbedUrl
+											title=@Selected.title
+											allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+											allowfullscreen>
+									</iframe>
 								}
 								else
 								{
 									<img width="560" height="315"
-										 src=@Selected.link />
+										src=@Selected.link />
 								}
 							}
 						</div>
@@ -75,7 +75,7 @@
 								@if (item.itemType == PortfolioItemType.YoutubeVideo)
 								{
 									<img src=@item.Thumbnail alt=""
-										 loading="lazy" decoding="async" />
+									loading="lazy" decoding="async" />
 								}
 								else
 								{

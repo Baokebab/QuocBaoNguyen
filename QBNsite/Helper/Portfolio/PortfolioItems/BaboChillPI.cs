@@ -19,9 +19,12 @@ namespace QBNsite.Helper.Portfolio.PortfolioItems
         public override string imagePathAvif => "";
         public override string imagePathPng => "Images/png/WIP.png";
         public override string imagePathWebP => "";
-        public override string pageLink => "BaboChill_pageLink";
+        public override string pageLink => "wip";
         public override string repositoryLink => "";
-        public override string trailerLink => "";
-        public override List<PortfolioVideo> videos => throw new NotImplementedException();
+        public override List<PortfolioCarouselItem> visuals => throw new NotImplementedException();
+
+        public override string logoPath => throw new NotImplementedException();
+
+        public override List<PortfolioDetailsCard> detailsItems => throw new NotImplementedException();
     }
 }

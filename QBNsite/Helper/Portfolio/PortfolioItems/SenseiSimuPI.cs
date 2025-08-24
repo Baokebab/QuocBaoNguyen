@@ -19,28 +19,34 @@ namespace QBNsite.Helper.Portfolio.PortfolioItems
         public override string imagePathAvif => "Images/avif/SenseiSimu.avif";
         public override string imagePathPng => "";
         public override string imagePathWebP => "Images/webp/SenseiSimu.webp";
-        public override string pageLink => "SenseiSimu_pageLink";
+        public override string pageLink => "SenseiSimu";
         public override string repositoryLink => "";
-        public override string trailerLink => "https://www.youtube.com/shorts/nnue1qXgBIU";
-        public override List<PortfolioVideo> videos => new List<PortfolioVideo>
+        public override List<PortfolioCarouselItem> visuals => new List<PortfolioCarouselItem>
         {
-            new PortfolioVideo
+            new PortfolioCarouselItem
             {
-                videoLink = "https://www.youtube.com/watch?v=B-Pr4Q9twxA&ab_channel=BaoCNAM",
-                title = "Convergence - Gameplay (PC & Mobile)",
-                description = ""
+                link = "https://www.youtube.com/watch?v=GZ6z9dZaLls&ab_channel=BaoCNAM",
+                title = "Trailer",
+                youtubeId = "GZ6z9dZaLls",
+                itemType = PortfolioItemType.YoutubeVideo
             },
-            new PortfolioVideo
+            new PortfolioCarouselItem
             {
-                videoLink = "https://www.youtube.com/watch?v=4c7adaxixm0&ab_channel=BaoCNAM",
-                title = "Convergence - PC Gameplay",
-                description = ""
-            },
-            new PortfolioVideo
+                link = "https://www.youtube.com/watch?v=t7rM2vcr9dI&ab_channel=BaoCNAM",
+                title = "Gameplay",
+                 itemType = PortfolioItemType.YoutubeVideo,
+                youtubeId = "t7rM2vcr9dI"
+            }
+        };
+
+        public override string logoPath => throw new NotImplementedException();
+
+        public override List<PortfolioDetailsCard> detailsItems => new List<PortfolioDetailsCard>
+        {
+            new PortfolioDetailsCard
             {
-                videoLink = "https://www.youtube.com/watch?v=vMLrDFHrmbM&ab_channel=BaoCNAM",
-                title = "Convergence - Mobile Gameplay",
-                description = ""
+                title = localizer["Title_Description"],
+                description = localizer["SenseiSimu_SimpleDesc"],
             }
         };
     }

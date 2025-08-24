@@ -79,11 +79,57 @@ namespace QBNsite.Resources {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Le gameplay est très inspiré des MOBA sur le marché (LoL, Dota2) : top down avec un déplacement par la souris pour le PC, 4 sorts. 
+        ///Le joueur mobile ne peut pas se déplacer et reste en permanence aux côtés de son allié PC, il peut néanmoins lancer des sorts. Il a une fonction de soutien..
+        /// </summary>
+        public static string Convergence_Gameplay {
+            get {
+                return ResourceManager.GetString("Convergence_Gameplay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Deux serveurs : un serveur Unity Netcode for GameObject pour la communication entre les PC et un serveur gRPC pour la communication entre les joueurs mobiles et les joueurs PC. gRPC a permit la transmission de données entre C# (Unity sur les PC) et C++ (Unreal Mobile). .
+        /// </summary>
+        public static string Convergence_Network {
+            get {
+                return ResourceManager.GetString("Convergence_Network", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Par équipe de deux, incarnez un champion et son acolyte au travers de duels intenses et rapides contre d’autres joueurs. Maîtrisez les capacités uniques des nombreux champions à votre disposition. Faites équipe avec vos amis et plongez dans le combat, car la gloire attend seulement ceux qui la cherchent..
+        /// </summary>
+        public static string Convergence_Pitch {
+            get {
+                return ResourceManager.GetString("Convergence_Pitch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à MOBA multiplateforme dans lequel deux à trois équipes équipes, composées chacune d’un joueur PC et d’un joueur mobile, s’affrontent dans une arène. .
         /// </summary>
         public static string Convergence_SimpleDesc {
             get {
                 return ResourceManager.GetString("Convergence_SimpleDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Fmod a été utilisé pour l&apos;intégration sonore, avec des transitions d&apos;ambiance selon les points de vie des joueurs..
+        /// </summary>
+        public static string Convergence_Sound {
+            get {
+                return ResourceManager.GetString("Convergence_Sound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Les modèles 3D sont des assets importés et modifiés sous Blender. Les VFX utilisent le système de Niagara d&apos;Unreal Engine pour le mobile et les particles system pour les PC..
+        /// </summary>
+        public static string Convergence_Visual {
+            get {
+                return ResourceManager.GetString("Convergence_Visual", resourceCulture);
             }
         }
         
@@ -124,11 +170,177 @@ namespace QBNsite.Resources {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Analytics.
+        /// </summary>
+        public static string Title_Analytics {
+            get {
+                return ResourceManager.GetString("Title_Analytics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Boss.
+        /// </summary>
+        public static string Title_Boss {
+            get {
+                return ResourceManager.GetString("Title_Boss", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Description.
+        /// </summary>
+        public static string Title_Description {
+            get {
+                return ResourceManager.GetString("Title_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Gameplay.
+        /// </summary>
+        public static string Title_Gameplay {
+            get {
+                return ResourceManager.GetString("Title_Gameplay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Lore.
+        /// </summary>
+        public static string Title_Lore {
+            get {
+                return ResourceManager.GetString("Title_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Réseaux.
+        /// </summary>
+        public static string Title_Network {
+            get {
+                return ResourceManager.GetString("Title_Network", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Logicels.
+        /// </summary>
+        public static string Title_Software {
+            get {
+                return ResourceManager.GetString("Title_Software", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Sorts.
+        /// </summary>
+        public static string Title_Spells {
+            get {
+                return ResourceManager.GetString("Title_Spells", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Visuel.
+        /// </summary>
+        public static string Title_Visuals {
+            get {
+                return ResourceManager.GetString("Title_Visuals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Système de log qui envoi les données voulues sur la base Firebase. Récupération et traitement des données par une application développée sous Flutter. Visualisation des dégâts moyens par sort, par joueur, timeline complète d&apos;un combat, heatmaps, etc..
+        /// </summary>
+        public static string Zodiaq_Analytics {
+            get {
+                return ResourceManager.GetString("Zodiaq_Analytics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Les boss utilisent le Behavior Tree d&apos;Unreal Engine. Chaque sort boss possède un ordre de priorité, un temps de rechargement, et des dépendances selon les phases du boss. .
+        /// </summary>
+        public static string Zodiaq_Boss {
+            get {
+                return ResourceManager.GetString("Zodiaq_Boss", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Jeu PC de boss rush multijoueur en ligne qui se joue de 1 à 4 joueurs..
+        /// </summary>
+        public static string Zodiaq_DetailedDesc {
+            get {
+                return ResourceManager.GetString("Zodiaq_DetailedDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Les joueurs peuvent se déplacer, attaquer avec leur arme de base, lancer des sorts, et faire une ruée. L&apos;implémentation des mécaniques de combat a été fait en C++, sans l&apos;utilisation de GAS (Gameplay Ability System). Les déplacements sont inspirés du controller Top-Down d&apos;Unreal, modifié pour correspondre au game design voulu, déplacement ZQSD, orientation du personnage vers le curseur de la souris..
+        /// </summary>
+        public static string Zodiaq_GameplayJoueur {
+            get {
+                return ResourceManager.GetString("Zodiaq_GameplayJoueur", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Pour sauver l&apos;humanité des dieux corrompus, vous, héros, n&apos;avez pas d&apos;autre choix que de vaincre le terrible Taurus Wraithraiser.
+        ///Seul si vous en avez le courage, ou en équipe jusqu&apos;à 4 valeureux guerriers, décelez les mécaniques de combat de votre puissant adversaire, et par votre force et votre agilité, mettez fin à cette bataille, ainsi qu&apos;à cette guerre..
+        /// </summary>
+        public static string Zodiaq_Lore {
+            get {
+                return ResourceManager.GetString("Zodiaq_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Utilisation d&apos;Epic Games Online services (EOS), avec une Map Lobby directement sur un serveur dédié. Les Maps de boss sont des instances host par les clients. Les joueurs doivent se connecter ou créer un compte dans notre base de données de joueurs sous Firebase..
+        /// </summary>
+        public static string Zodiaq_Networking {
+            get {
+                return ResourceManager.GetString("Zodiaq_Networking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Jeu PC de boss rush multijoueur en ligne qui se joue de 1 à 4 joueurs..
         /// </summary>
         public static string Zodiaq_SimpleDesc {
             get {
                 return ResourceManager.GetString("Zodiaq_SimpleDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Unreal Engine 5 (C++), Firebase, Blender, Flutter.
+        /// </summary>
+        public static string Zodiaq_Software {
+            get {
+                return ResourceManager.GetString("Zodiaq_Software", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Les types de sort développés : skillshot, AOE, sort ciblé, et le dash.
+        ///Les types d&apos;effet développés : dégâts, soins, buff / debuff (vitesse de déplacement, soins reçus, dégâts subits, dégâts infligés).
+        ///
+        ///Chaque sort applique un ou plusieurs effets, et peuvent se cumuler. Les cumuls ont été developpés avec un système de résultante de sorte à pouvoir équilibrer des potentielles stratégies non voulues. Par exemple 2 stack de rédution de dégâts subits à -50% ont un résultat dégressif à -55% au lieu de -100% d [le reste de la chaîne a été tronqué]&quot;;.
+        /// </summary>
+        public static string Zodiaq_Spells {
+            get {
+                return ResourceManager.GetString("Zodiaq_Spells", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Les modèles 3D sont des assets importés et modifiés sous Blender. Les VFX utilisent le système de Niagara d&apos;Unreal Engine, et sont lancées par les animations avec des Anim Notify. .
+        /// </summary>
+        public static string Zodiaq_Visuals {
+            get {
+                return ResourceManager.GetString("Zodiaq_Visuals", resourceCulture);
             }
         }
     }

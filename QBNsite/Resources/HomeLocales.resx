@@ -192,4 +192,7 @@
   <data name="Experiences" xml:space="preserve">
     <value>Expériences</value>
   </data>
+  <data name="MoreDetails" xml:space="preserve">
+    <value>Voir plus</value>
+  </data>
 </root>
