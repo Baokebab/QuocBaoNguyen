@@ -224,7 +224,7 @@ namespace QBNsite.Resources {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Logicels.
+        ///   Recherche une chaîne localisée semblable à Logiciels.
         /// </summary>
         public static string Title_Software {
             get {

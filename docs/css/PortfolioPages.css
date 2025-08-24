@@ -184,6 +184,13 @@ sidebar.ul {
         display: block;
     }
 
+    .player-frame img {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+    }
+
 .thumbs {
     display: flex;
     gap: 8px;

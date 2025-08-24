@@ -49,7 +49,7 @@ namespace QBNsite.Helper
         public string title = "";
         public string description = "";
         public string fixedPngPath = ""; 
-        public string EmbedUrl => $"https://www.youtube-nocookie.com/embed/{youtubeId}?rel=0";
+        public string EmbedUrl => $"https://www.youtube.com/embed/{youtubeId}?rel=0";
         public string Thumbnail => $"https://img.youtube.com/vi/{youtubeId}/hqdefault.jpg";
     }
 
