@@ -11,7 +11,7 @@ namespace QBNsite.Helper
             _env = hostEnvironment;
         }
 
-        public string homePath => _env.IsDevelopment() ? "/" : "/QuocBaoNguyen/";
+        public string homePath => _env.IsDevelopment() ? "" : "/QuocBaoNguyen/";
     }
     public class CardInfo
     {
