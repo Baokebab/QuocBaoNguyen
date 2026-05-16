@@ -88,7 +88,7 @@ namespace QBNsite.Resources {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Développeur avec 3 ans d&apos;expérience professionnelle.
+        ///   Recherche une chaîne localisée semblable à 6 ans d&apos;expérience professionnelle.
         /// </summary>
         public static string CurrentDesc {
             get {
@@ -259,7 +259,7 @@ namespace QBNsite.Resources {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Projets.
+        ///   Recherche une chaîne localisée semblable à Réalisations Dev.
         /// </summary>
         public static string PortfolioTitle {
             get {

@@ -115,7 +115,7 @@ namespace QBNsite.Resources {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à 2022-Aujourd&apos;hui.
+        ///   Recherche une chaîne localisée semblable à 2022-2025.
         /// </summary>
         public static string DriVR_Dates {
             get {
