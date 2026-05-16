@@ -70,7 +70,7 @@ namespace QBNsite.Resources {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Fort d&apos;une reconversion professionnelle réussie d&apos;actuaire à développeur, et bientôt diplômé d&apos;une licence de développement de jeux-vidéo au Cnam-Enjmin  (septembre 2025), je suis désormais activement à la recherche d&apos;un poste de développeur en région parisienne..
+        ///   Recherche une chaîne localisée semblable à Fort d&apos;une reconversion professionnelle réussie d&apos;actuaire à développeur, et récemment diplômé d&apos;une licence de développement de jeux-vidéo au Cnam-Enjmin (septembre 2025), je suis désormais activement à la recherche d&apos;un emploi en région parisienne..
         /// </summary>
         public static string AboutMeDesc {
             get {
