@@ -1,0 +1,185 @@
+﻿@page "/LearningLoLChamps"
+
+@using Microsoft.Extensions.Localization;
+@using QBNsite.Resources;
+@using QBNsite.Helper;
+
+
+@inject IStringLocalizer<HomeLocales> L
+@inject IJSRuntime JS
+@inject NavigationManager NavManager
+@inject Helper HelperInstance;
+
+@code {
+	private void GoHome()
+	{
+		NavManager.NavigateTo(HelperInstance.homePath);
+	}
+
+	static string baseUrl = "https://ddragon.leagueoflegends.com";
+	static string baseSpellVideoUrl = "https://lol.dyn.riotcdn.net/x/videos/champion-abilities";
+
+	List<ChampionsDetails> Champions = new();
+
+	string championsSpellCsv = "Champions,SpellId,SpellName,SpellSlot,First";
+
+	protected override async Task OnInitializedAsync()
+	{
+		var http = new HttpClient();
+		var versions = await http.GetFromJsonAsync<List<string>>(
+			$"{baseUrl}/api/versions.json"
+		);
+		if (versions == null || versions.Count == 0) return;
+		var version = versions.First();
+
+		string curVerBaseUrl = $"{baseUrl}/cdn/{version}";
+		var root = await http.GetFromJsonAsync<ChampionRoot>(
+			$"{curVerBaseUrl}/data/en_US/champion.json"
+		);
+		if (root == null) return;
+		foreach (var kvp in root.Data)
+		{
+			var dto = kvp.Value;
+
+			var detailRoot = await http.GetFromJsonAsync<ChampionDetailRoot>(
+			$"{curVerBaseUrl}/data/en_US/champion/{dto.Id}.json"
+		);
+
+			if (detailRoot == null) continue;
+
+			var detail = detailRoot.Data[dto.Id];
+			var keyInt = int.Parse(dto.Key);
+			var padded = keyInt.ToString("D4");
+
+
+			var champ = new ChampionsDetails
+			{
+				Id = dto.Id,
+				Name = dto.Name,
+				IconLink = $"{curVerBaseUrl}/img/champion/{dto.Image.full}"
+			};
+
+			string[] slots = { "P1", "Q1", "W1", "E1", "R1" };
+
+			for (int i = 0; i < slots.Length; i++)
+			{
+				var slot = slots[i];
+				Spell currentSpell;
+
+				if (i == 0)
+				{
+					currentSpell = new Spell(
+						slot,
+						detail.Passive.Name,
+						detail.Passive.Image.full,
+					HelperInstance.StripHtml(detail.Passive.Description),
+					"",
+					$"{curVerBaseUrl}/img/passive/{detail.Passive.Image.full}",
+					$"{baseSpellVideoUrl}/{padded}/ability_{padded}_{slot}.mp4"
+					);
+
+
+				}
+				else
+				{
+					currentSpell = new Spell(
+					slot,
+					detail.Spells[i - 1].Name,
+					detail.Spells[i - 1].Id,
+						HelperInstance.StripHtml(detail.Spells[i - 1].Description),
+						HelperInstance.StripHtml(detail.Spells[i - 1].Tooltip),
+					$"{curVerBaseUrl}/img/spell/{detail.Spells[i - 1].Id}.png",
+					$"{baseSpellVideoUrl}/{padded}/ability_{padded}_{slot}.mp4"
+					);
+				}
+
+				champ.Spells.Add(currentSpell);
+				championsSpellCsv += $"\n{champ.Name},{currentSpell.Id},{currentSpell.Name},{currentSpell.Slot}";
+
+				if (currentSpell.Description.Contains("first", StringComparison.CurrentCultureIgnoreCase) || currentSpell.Tooltip.Contains("first", StringComparison.CurrentCultureIgnoreCase))
+				{
+					championsSpellCsv += ",1";
+				}
+			}
+
+			Champions.Add(champ);
+		}
+	}
+
+	private async Task DownloadCsv()
+	{
+		var bytes = System.Text.Encoding.UTF8.GetBytes(championsSpellCsv);
+
+		using var streamRef = new DotNetStreamReference(new MemoryStream(bytes));
+
+		await JS.InvokeVoidAsync(
+			"downloadFileFromStream",
+			"LearningLoLExport.csv",
+			streamRef
+		);
+	}
+
+	private string SearchText = "";
+
+	private List<ChampionsDetails> FilteredChampions =>
+	   Champions.Where(c =>
+		   string.IsNullOrWhiteSpace(SearchText)
+		   || c.Name.Contains(SearchText, StringComparison.OrdinalIgnoreCase)
+	   ).ToList();
+
+	private ChampionsDetails SelectedChampion;
+
+	private void OpenOverlay(ChampionsDetails champ)
+	{
+		SelectedChampion = champ;
+	}
+	private void CloseOverlay()
+	{
+		SelectedChampion = null;
+	}
+}
+
+<PageTitle>Learning LoL Champions</PageTitle>
+
+@* <button @onclick="DownloadCsv">Télécharger CSV</button> *@
+
+<div class="search-container">
+	<input type="text" placeholder="Rechercher un champion..."
+		   @bind="SearchText" @bind:event="oninput" />
+</div>
+
+
+<div class="champion-grid">
+	@for (int i = 0; i < FilteredChampions.Count; i++)
+	{
+		var champ = FilteredChampions[i];
+
+		<div class="champion-card">
+			<img src="@champ.IconLink" alt="@champ.Name" @onclick="() => OpenOverlay(champ)" />
+		</div>
+
+		@* 	<h2>@champ.Name</h2>
+	<img src="@champ.IconLink" />
+
+	@foreach (var abilities in champ.Spells)
+	{
+		<b>@abilities.Slot</b>
+		<b>@abilities.Description</b>
+		<img src="@abilities.IconLink" />
+		<video width="320" controls>
+			<source src="@abilities.VideoLink" type="video/mp4" />
+		</video>
+	} *@
+	}
+
+</div>
+
+@if (SelectedChampion != null)
+{
+	<ChampionOverlay Champion="SelectedChampion" OnClose="CloseOverlay" />
+}
+
+
+
+
+

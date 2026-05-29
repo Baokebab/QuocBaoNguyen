@@ -1,0 +1,64 @@
+﻿@using QBNsite.Helper;
+@inject IJSRuntime JS
+
+@code {
+    [Parameter] public ChampionsDetails Champion { get; set; }
+    [Parameter] public EventCallback OnClose { get; set; }
+
+    private Spell SelectedSpell;
+
+    protected override void OnParametersSet()
+    {
+        SelectedSpell = Champion?.Spells?.FirstOrDefault();
+    }
+
+    private void SelectSpell(Spell spell)
+    {
+        SelectedSpell = spell;
+    }
+
+    private void CloseOverlay()
+    {
+        OnClose.InvokeAsync();
+    }
+}
+
+@if (Champion != null)
+{
+    <div class="overlay-background" @onclick="CloseOverlay">
+        <div class="overlay-panel" @onclick:stopPropagation="true">
+
+            <h2>@Champion.Name</h2>
+
+            <div class="overlay-content">
+
+                <!-- Colonne gauche : SpellCards -->
+                <div class="spells-column">
+                    @foreach (var spell in Champion.Spells)
+                    {
+                        <div class="spell-card" @onclick="() => SelectSpell(spell)">
+                            <img src="@spell.IconLink" alt="@spell.Name" />
+                            <span>@spell.Name</span>
+                        </div>
+                    }
+                </div>
+
+                <!-- Colonne droite : Vidéo + description -->
+                <div class="spell-details">
+                    @if (SelectedSpell != null)
+                    {
+                        <video width="100%" autoplay loop muted @key="SelectedSpell.VideoLink">
+                            <source src="@SelectedSpell.VideoLink" type="video/mp4" />
+                        </video>
+
+                        <p class="spell-description">@SelectedSpell.Description</p>
+                    }
+                </div>
+
+            </div>
+
+            <button class="close-btn" @onclick="CloseOverlay">X</button>
+        </div>
+    </div>
+}
+

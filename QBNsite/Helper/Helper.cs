@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using System.Text.RegularExpressions;
 
 namespace QBNsite.Helper
 {
@@ -12,6 +13,12 @@ namespace QBNsite.Helper
         }
 
         public string homePath => _env.IsDevelopment() ? "" : "/QuocBaoNguyen/";
+
+        public string StripHtml(string input)
+        {
+
+            return Regex.Replace(input, "<.*?>", string.Empty);
+        }
     }
     public class CardInfo
     {

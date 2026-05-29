@@ -1,4 +1,5 @@
 ﻿window.initCarousel = function () {
+
     const intervalMs = 10000; 
     const carousel = document.getElementById('carousel-example-generic');
 
@@ -96,11 +97,11 @@
         }
     });
     showItem(current, 'next');
-};
+}
 
 window.scrollToElement = (elementId) => {
 
-    const offset = 20; 
+    const offset = 20;
     const element = document.getElementById(elementId);
 
     if (element) {
@@ -111,6 +112,19 @@ window.scrollToElement = (elementId) => {
             behavior: 'smooth'
         });
     } else {
-        console.error("id " + {elementId} + " not found");
+        console.error("id " + { elementId } + " not found");
     }
 }
+
+window.downloadFileFromStream = async (filename, contentStreamReference) => {
+    const arrayBuffer = await contentStreamReference.arrayBuffer();
+    const blob = new Blob([arrayBuffer], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    a.click();
+
+    URL.revokeObjectURL(url);
+};

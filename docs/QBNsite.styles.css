@@ -714,6 +714,222 @@ sidebar.ul[b-stu6smjf3l] {
         padding-left: 0 !important;
     }
 }
+/* /Pages/LearningLoL/ChampionOverlay.razor.rz.scp.css */
+.overlay-background[b-w6zauq4hkk] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.overlay-panel[b-w6zauq4hkk] {
+    background: #111;
+    padding: 20px;
+    border-radius: 12px;
+    width: 80vw; 
+    max-width: 1000px; 
+
+    height: 80vh; 
+    max-height: 900px; 
+
+    overflow: hidden; 
+    position: relative;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.overlay-content[b-w6zauq4hkk] {
+    display: flex;
+    gap: 20px;
+}
+
+.spells-column[b-w6zauq4hkk] {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.spell-card[b-w6zauq4hkk] {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 10px;
+    background: #1e1e1e;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+    .spell-card:hover[b-w6zauq4hkk] {
+        transform: scale(1.05);
+    }
+
+    .spell-card img[b-w6zauq4hkk] {
+        width: 50px;
+        height: 50px;
+    }
+
+.spell-details[b-w6zauq4hkk] {
+    width: 70%;
+}
+
+.spell-description[b-w6zauq4hkk] {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.close-btn[b-w6zauq4hkk] {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #aa0000;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+video[b-w6zauq4hkk] {
+    background-color: black;
+    min-height: 400px;
+}
+
+@media(max-width: 768px) {
+    video[b-w6zauq4hkk] {
+        min-height: 100px;
+    }
+
+    .spell-description[b-w6zauq4hkk] {
+        margin-top: 10px;
+        font-size: 12px;
+    }
+
+    .spell-card img[b-w6zauq4hkk] {
+        width: 25px;
+        height: 25px;
+    }
+
+    .spell-card span[b-w6zauq4hkk] {
+        font-size: 10px;
+    }
+
+
+
+    .spells-column[b-w6zauq4hkk] {
+        width: 30%;
+        display: contents;
+        flex-direction: row;
+        gap: 2px;
+    }
+
+    .overlay-content[b-w6zauq4hkk] {
+        display: grid;
+        gap: 5px;
+    }
+}
+/* /Pages/LearningLoL/LearningLoL.razor.rz.scp.css */
+
+article.content px-4[b-fao7nt93w8] {
+    height: 100%;
+}
+
+.search-container[b-fao7nt93w8] {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+    .search-container input[b-fao7nt93w8] {
+        width: 50%;
+        max-width: 400px;
+        padding: 10px 15px;
+        border-radius: 8px;
+        border: none;
+        font-size: 16px;
+        outline: none;
+        background: #1e1e1e;
+        color: white;
+        transition: box-shadow 0.2s ease;
+    }
+
+        .search-container input:focus[b-fao7nt93w8] {
+            box-shadow: 0 0 10px #00aaff;
+        }
+
+.champion-card[b-fao7nt93w8] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+    .champion-card img[b-fao7nt93w8] {
+        width: 90px;
+        height: 90px;
+        border-radius: 8px;
+        transition: transform 0.2s ease;
+    }
+
+    .champion-card:hover img[b-fao7nt93w8] {
+        transform: scale(1.2);
+    }
+
+    .champion-card span[b-fao7nt93w8] {
+        margin-top: 6px;
+        font-size: 14px;
+        color: white;
+        text-align: center;
+    }
+
+
+.champion-grid[b-fao7nt93w8] {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 15px;
+    padding: 15px;
+}
+
+
+@media(max-width: 768px) {
+    h1[b-fao7nt93w8] {
+        padding-top: 3.5rem;
+    }
+    .search-container[b-fao7nt93w8] {
+        margin-top: 60px;
+        margin-bottom: 15px;
+    }
+
+        .search-container input[b-fao7nt93w8] {
+            font-size: 10px;
+        }
+
+    .champion-grid[b-fao7nt93w8] {
+        gap: 5px;
+        padding: 5px;
+    }
+
+
+.content[b-fao7nt93w8] {
+    height: 100%;
+}
+
+img[b-fao7nt93w8] {
+    max-width: 100%;
+    height: auto;
+}
+
 /* /Pages/WIP.razor.rz.scp.css */
 
 article.content px-4[b-nerr0lr8c3] {

@@ -28,6 +28,9 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>.txt</LastGenOutput>
     </Content>
+    <Content Update="wwwroot\js\custom.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
