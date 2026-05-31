@@ -49,6 +49,9 @@
     <Content Update="wwwroot\mp3\ValorantEvoriKill4.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Update="wwwroot\mp3\ValorantVandal.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

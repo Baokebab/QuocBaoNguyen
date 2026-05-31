@@ -56,10 +56,13 @@
                 <audio autoplay>
                     <source src="@AudioManager.GetAudioPathForCorrectAnswer(HelperInstance.homePath)" type="audio/mp3" />
                 </audio>
-                AudioManager.GoodAnswerCount++;
+                AudioManager.GoodAnswerCount = (AudioManager.GoodAnswerCount + 1)%5 ;
             }
             else
             {
+                 <audio autoplay>
+                    <source src="@AudioManager.GetAudioPathForWrongAnswer(HelperInstance.homePath)" type="audio/mp3" />
+                </audio>
 				AudioManager.GoodAnswerCount = 0;
             }
 
@@ -74,7 +77,7 @@
                     <span>@spell.Slot - @spell.Name</span>
                     <span>@spell.Description</span>
 
-                    <video width="50%" controls>
+                    <video width="100%" autoplay loop muted >
                         <source src="@spell.VideoLink" type="video/mp4"  />
                     </video>
                 </div>

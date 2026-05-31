@@ -77,6 +77,7 @@
         SpellAttribute.UnitTargeted,
         SpellAttribute.MiniUnitTargeted,
         SpellAttribute.TerrainTargeted,
+        SpellAttribute.Blink,
     };
 
     }
