@@ -77,6 +77,7 @@
 
                 @if (activeTab == 1)
                 {
+                <div class="overlay-question-content">
                     @if(currentQuestion != null)
                     {
                         switch (currentQuestion.Type)
@@ -86,14 +87,16 @@
                                 Question = "@currentQuestion.QuestionPrompt"
                                 CorrectAnswer = "@currentQuestion.CorrectAnswers[0]"
                                 Commentary= "@currentQuestion.Commentary"
+                                SpellsToShow = "@currentQuestion.SpellsToShow"
                                 OnNext="LoadNextQuestion" />
                                 break;
                         }
                     }
+                </div>
                 }
                 else if (activeTab == 2)
                 {
-                    <div class="overlay-content">
+                    <div class="overlay-champion-content">
                         <div class="spells-column">
                             @foreach (var spell in SelectedChampion.Spells)
                             {

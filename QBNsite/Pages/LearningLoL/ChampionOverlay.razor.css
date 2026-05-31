@@ -65,7 +65,15 @@
 }
 
 
-.overlay-content {
+.overlay-question-content {
+    padding: 15px;
+    border-radius: 4px;
+    gap: 20px;
+    overflow-y: auto;
+    z-index: 9999;
+}
+
+.overlay-champion-content {
     padding: 15px;
     border-radius: 4px;
     display: flex;
@@ -125,7 +133,7 @@ video {
         min-height: 100px;
     }
 
-    .overlay-content {
+    .overlay-champion-content {
         display: block;
     }
 

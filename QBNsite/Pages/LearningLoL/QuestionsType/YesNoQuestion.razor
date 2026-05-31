@@ -1,50 +1,87 @@
-﻿@code {
+﻿@using QBNsite.Helper;
+@inject Helper HelperInstance;
+
+@code {
     [Parameter] public string Question { get; set; }
     [Parameter] public bool CorrectAnswer { get; set; }
     [Parameter] public string Commentary { get; set; }
-
+    [Parameter] public List<Spell> SpellsToShow { get; set; } = new List<Spell>();
     [Parameter] public EventCallback OnNext { get; set; }
 
     bool? UserChoice = null;
+    bool AreButtonsDisabled = false;
 
     void Select(bool choix)
     {
         UserChoice = choix;
+        AreButtonsDisabled = true;
     }
 
     async Task Next()
     {
         UserChoice = null;
+        AreButtonsDisabled = false;
         await OnNext.InvokeAsync();
     }
 }
 
 <div class="yn-question">
-    <div class="question-text">@Question</div>
+    <div class="yn-question-content">
+        <div class="question-text">@Question</div>
 
-    <div class="answers">
-        <button class="answer-btn @(UserChoice == true ? (CorrectAnswer ? "good" : "bad") : "")"
-                @onclick="() => Select(true)">
-            Oui
-        </button>
+        <div class="answers">
+            <button class="answer-btn @(UserChoice == true ? (CorrectAnswer ? "good" : "bad") : "")"
+                    @onclick="() => Select(true)" disabled="@AreButtonsDisabled">
+                Oui
+            </button>
 
-        <button class="answer-btn @(UserChoice == false ? (!CorrectAnswer ? "good" : "bad") : "")"
-                @onclick="() => Select(false)">
-            Non
-        </button>
+            <button class="answer-btn @(UserChoice == false ? (!CorrectAnswer ? "good" : "bad") : "")"
+                    @onclick="() => Select(false)" disabled="@AreButtonsDisabled">
+                Non
+            </button>
+        </div>
+
+        @if (UserChoice != null)
+        {
+
+            if (!string.IsNullOrWhiteSpace(Commentary))
+            {
+                <div class="comment-block">
+                    @Commentary
+                </div>
+            }
+
+            if (UserChoice == CorrectAnswer)
+            {
+                <audio autoplay>
+                    <source src="@AudioManager.GetAudioPathForCorrectAnswer(HelperInstance.homePath)" type="audio/mp3" />
+                </audio>
+                AudioManager.GoodAnswerCount++;
+            }
+            else
+            {
+				AudioManager.GoodAnswerCount = 0;
+            }
+
+            <div class="next-container">
+                <button class="next-btn" @onclick="Next">Suivant →</button>
+            </div>
+
+            @foreach (var spell in SpellsToShow)
+            {
+                <div class="spell-answer-display">
+                    <img src="@spell.IconLink" alt="@spell.Name" />
+                    <span>@spell.Slot - @spell.Name</span>
+                    <span>@spell.Description</span>
+
+                    <video width="50%" controls>
+                        <source src="@spell.VideoLink" type="video/mp4"  />
+                    </video>
+                </div>
+            }
+
+            
+        }
     </div>
 
-    @if (UserChoice != null && !string.IsNullOrWhiteSpace(Commentary))
-    {
-        <div class="comment-block">
-            @Commentary
-        </div>
-    }
-
-    @if (UserChoice != null)
-    {
-        <div class="next-container">
-            <button class="next-btn" @onclick="Next">Suivant →</button>
-        </div>
-    }
 </div>

@@ -1,17 +1,36 @@
 ﻿.yn-question {
+
+}
+.yn-question-content {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 12px;
-    max-width: 500px;
-    background: #fafafa;
-    margin-bottom: 25px;
+    background: #1e1e1e;
 }
 
+.spell-answer-display {
+    gap: 15px;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+}
+    .spell-answer-display img {
+        width: 35px;
+        height: 35px;
+    }
+    .spell-answer-display span {
+        font-size: 1rem;
+    }
+    .spell-answer-display video {
+        
+    }
 .question-text {
     font-size: 1.2rem;
     margin-bottom: 15px;
     font-weight: bold;
-    color: black;
+    color: white;
 }
 
 .answers {
@@ -27,19 +46,24 @@
     background: white;
     cursor: pointer;
     transition: 0.2s;
-    background: yellow !important;
 }
+
+    .answer-btn:hover {
+        transform: scale(1.05);
+    }
 
     .answer-btn.good {
         border-color: #2ecc71;
         color: #2ecc71;
         font-weight: bold;
+        transform: scale(1.05);
     }
 
     .answer-btn.bad {
         border-color: #e74c3c;
         color: #e74c3c;
         font-weight: bold;
+        transform: scale(1.05);
     }
 
 .comment-block {

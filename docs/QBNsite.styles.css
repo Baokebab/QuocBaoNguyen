@@ -782,7 +782,15 @@ sidebar.ul[b-stu6smjf3l] {
 }
 
 
-.overlay-content[b-w6zauq4hkk] {
+.overlay-question-content[b-w6zauq4hkk] {
+    padding: 15px;
+    border-radius: 4px;
+    gap: 20px;
+    overflow-y: auto;
+    z-index: 9999;
+}
+
+.overlay-champion-content[b-w6zauq4hkk] {
     padding: 15px;
     border-radius: 4px;
     display: flex;
@@ -842,7 +850,7 @@ video[b-w6zauq4hkk] {
         min-height: 100px;
     }
 
-    .overlay-content[b-w6zauq4hkk] {
+    .overlay-champion-content[b-w6zauq4hkk] {
         display: block;
     }
 
@@ -970,19 +978,38 @@ article.content px-4[b-fao7nt93w8] {
 
 /* /Pages/LearningLoL/QuestionsType/YesNoQuestion.razor.rz.scp.css */
 .yn-question[b-pmf5m2u2aw] {
+
+}
+.yn-question-content[b-pmf5m2u2aw] {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 12px;
-    max-width: 500px;
-    background: #fafafa;
-    margin-bottom: 25px;
+    background: #1e1e1e;
 }
 
+.spell-answer-display[b-pmf5m2u2aw] {
+    gap: 15px;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+}
+    .spell-answer-display img[b-pmf5m2u2aw] {
+        width: 35px;
+        height: 35px;
+    }
+    .spell-answer-display span[b-pmf5m2u2aw] {
+        font-size: 1rem;
+    }
+    .spell-answer-display video[b-pmf5m2u2aw] {
+        
+    }
 .question-text[b-pmf5m2u2aw] {
     font-size: 1.2rem;
     margin-bottom: 15px;
     font-weight: bold;
-    color: black;
+    color: white;
 }
 
 .answers[b-pmf5m2u2aw] {
@@ -998,19 +1025,24 @@ article.content px-4[b-fao7nt93w8] {
     background: white;
     cursor: pointer;
     transition: 0.2s;
-    background: yellow !important;
 }
+
+    .answer-btn:hover[b-pmf5m2u2aw] {
+        transform: scale(1.05);
+    }
 
     .answer-btn.good[b-pmf5m2u2aw] {
         border-color: #2ecc71;
         color: #2ecc71;
         font-weight: bold;
+        transform: scale(1.05);
     }
 
     .answer-btn.bad[b-pmf5m2u2aw] {
         border-color: #e74c3c;
         color: #e74c3c;
         font-weight: bold;
+        transform: scale(1.05);
     }
 
 .comment-block[b-pmf5m2u2aw] {
