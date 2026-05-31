@@ -1,0 +1,50 @@
+﻿@code {
+    [Parameter] public string Question { get; set; }
+    [Parameter] public bool CorrectAnswer { get; set; }
+    [Parameter] public string Commentary { get; set; }
+
+    [Parameter] public EventCallback OnNext { get; set; }
+
+    bool? UserChoice = null;
+
+    void Select(bool choix)
+    {
+        UserChoice = choix;
+    }
+
+    async Task Next()
+    {
+        UserChoice = null;
+        await OnNext.InvokeAsync();
+    }
+}
+
+<div class="yn-question">
+    <div class="question-text">@Question</div>
+
+    <div class="answers">
+        <button class="answer-btn @(UserChoice == true ? (CorrectAnswer ? "good" : "bad") : "")"
+                @onclick="() => Select(true)">
+            Oui
+        </button>
+
+        <button class="answer-btn @(UserChoice == false ? (!CorrectAnswer ? "good" : "bad") : "")"
+                @onclick="() => Select(false)">
+            Non
+        </button>
+    </div>
+
+    @if (UserChoice != null && !string.IsNullOrWhiteSpace(Commentary))
+    {
+        <div class="comment-block">
+            @Commentary
+        </div>
+    }
+
+    @if (UserChoice != null)
+    {
+        <div class="next-container">
+            <button class="next-btn" @onclick="Next">Suivant →</button>
+        </div>
+    }
+</div>

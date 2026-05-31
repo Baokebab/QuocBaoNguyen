@@ -13,7 +13,6 @@
 
 .overlay-panel {
     background: #111;
-    padding: 20px;
     border-radius: 12px;
     width: 80vw; 
     max-width: 1000px; 
@@ -29,7 +28,46 @@
     justify-content: flex-start;
 }
 
+.overlay-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 8px 12px;
+    background: #1e1e1e;
+    color: white;
+    height: 32px;
+}
+
+.overlay-panel-header .title {
+    font-size: 16px;
+    font-weight: 600;
+}
+.tab-btn {
+    border: none;
+    background: #ddd;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+    .tab-btn.active {
+        background: #4287f5;
+        color: white;
+    }
+
+.close-btn {
+    top: 10px;
+    right: 10px;
+    background: #aa0000;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
 .overlay-content {
+    padding: 15px;
+    border-radius: 4px;
     display: flex;
     gap: 20px;
 }
@@ -61,6 +99,12 @@
         height: 50px;
     }
 
+    .spell-card.selected {
+        background: #555;
+        border: 2px solid #aaa;
+        transform: scale(1.05);
+    }
+
 .spell-details {
     width: 70%;
 }
@@ -70,17 +114,6 @@
     font-size: 16px;
 }
 
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #aa0000;
-    border: none;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-}
 
 video {
     background-color: black;
@@ -90,6 +123,10 @@ video {
 @media(max-width: 768px) {
     video {
         min-height: 100px;
+    }
+
+    .overlay-content {
+        display: block;
     }
 
     .spell-description {
@@ -106,8 +143,6 @@ video {
         font-size: 10px;
     }
 
-
-
     .spells-column {
         width: 30%;
         display: contents;
@@ -115,8 +150,9 @@ video {
         gap: 2px;
     }
 
-    .overlay-content {
+    .tab-content {
         display: grid;
         gap: 5px;
     }
+
 }

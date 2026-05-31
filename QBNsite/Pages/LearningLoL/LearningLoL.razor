@@ -9,6 +9,7 @@
 @inject IJSRuntime JS
 @inject NavigationManager NavManager
 @inject Helper HelperInstance;
+@inject HttpClient Http
 
 @code {
 	private void GoHome()
@@ -18,30 +19,37 @@
 
 	static string baseUrl = "https://ddragon.leagueoflegends.com";
 	static string baseSpellVideoUrl = "https://lol.dyn.riotcdn.net/x/videos/champion-abilities";
+	static string csvPath = "LoL/LolSpells.csv"; 
 
 	List<ChampionsDetails> Champions = new();
 
-	string championsSpellCsv = "Champions,SpellId,SpellName,SpellSlot,First";
+	// string ExportCsv = "Champions,SpellId,SpellName,SpellSlot,First";
 
 	protected override async Task OnInitializedAsync()
 	{
-		var http = new HttpClient();
-		var versions = await http.GetFromJsonAsync<List<string>>(
+		string csvRelativePath = Path.Combine(HelperInstance.homePath, csvPath);
+		Dictionary<string, List<SpellAttribute>> csvDataDict = await LeagueCsvHelper.LoadCsvAttributes(Http, csvRelativePath);
+
+		var versions = await Http.GetFromJsonAsync<List<string>>(
 			$"{baseUrl}/api/versions.json"
 		);
 		if (versions == null || versions.Count == 0) return;
 		var version = versions.First();
 
 		string curVerBaseUrl = $"{baseUrl}/cdn/{version}";
-		var root = await http.GetFromJsonAsync<ChampionRoot>(
+		var root = await Http.GetFromJsonAsync<ChampionRoot>(
 			$"{curVerBaseUrl}/data/en_US/champion.json"
 		);
 		if (root == null) return;
+
+		int j = 0; 
 		foreach (var kvp in root.Data)
 		{
+			// if (j >= 2) break;
+
 			var dto = kvp.Value;
 
-			var detailRoot = await http.GetFromJsonAsync<ChampionDetailRoot>(
+			var detailRoot = await Http.GetFromJsonAsync<ChampionDetailRoot>(
 			$"{curVerBaseUrl}/data/en_US/champion/{dto.Id}.json"
 		);
 
@@ -56,7 +64,8 @@
 			{
 				Id = dto.Id,
 				Name = dto.Name,
-				IconLink = $"{curVerBaseUrl}/img/champion/{dto.Image.full}"
+				IconLink = $"{curVerBaseUrl}/img/champion/{dto.Image.full}",
+				NumberOfSkins = detail.Skins.Count,
 			};
 
 			string[] slots = { "P1", "Q1", "W1", "E1", "R1" };
@@ -77,8 +86,6 @@
 					$"{curVerBaseUrl}/img/passive/{detail.Passive.Image.full}",
 					$"{baseSpellVideoUrl}/{padded}/ability_{padded}_{slot}.mp4"
 					);
-
-
 				}
 				else
 				{
@@ -93,30 +100,37 @@
 					);
 				}
 
-				champ.Spells.Add(currentSpell);
-				championsSpellCsv += $"\n{champ.Name},{currentSpell.Id},{currentSpell.Name},{currentSpell.Slot}";
-
-				if (currentSpell.Description.Contains("first", StringComparison.CurrentCultureIgnoreCase) || currentSpell.Tooltip.Contains("first", StringComparison.CurrentCultureIgnoreCase))
+				if(csvDataDict.ContainsKey(currentSpell.Id))
 				{
-					championsSpellCsv += ",1";
+					currentSpell.SpellAttributes = csvDataDict[currentSpell.Id];
 				}
+
+				champ.Spells.Add(currentSpell);
+
+				// championsSpellCsv += $"\n{champ.Name},{currentSpell.Id},{currentSpell.Name},{currentSpell.Slot}";
+
+				// if (currentSpell.Description.Contains("first", StringComparison.CurrentCultureIgnoreCase) || currentSpell.Tooltip.Contains("first", StringComparison.CurrentCultureIgnoreCase))
+				// {
+				// 	championsSpellCsv += ",1";
+				// }
 			}
 
 			Champions.Add(champ);
+			j++;
 		}
 	}
 
 	private async Task DownloadCsv()
 	{
-		var bytes = System.Text.Encoding.UTF8.GetBytes(championsSpellCsv);
+		// var bytes = System.Text.Encoding.UTF8.GetBytes(championsSpellCsv);
 
-		using var streamRef = new DotNetStreamReference(new MemoryStream(bytes));
+		// using var streamRef = new DotNetStreamReference(new MemoryStream(bytes));
 
-		await JS.InvokeVoidAsync(
-			"downloadFileFromStream",
-			"LearningLoLExport.csv",
-			streamRef
-		);
+		// await JS.InvokeVoidAsync(
+		// 	"downloadFileFromStream",
+		// 	"LearningLoLExport.csv",
+		// 	streamRef
+		// );
 	}
 
 	private string SearchText = "";
@@ -133,6 +147,7 @@
 	{
 		SelectedChampion = champ;
 	}
+
 	private void CloseOverlay()
 	{
 		SelectedChampion = null;
@@ -157,26 +172,13 @@
 		<div class="champion-card">
 			<img src="@champ.IconLink" alt="@champ.Name" @onclick="() => OpenOverlay(champ)" />
 		</div>
-
-		@* 	<h2>@champ.Name</h2>
-	<img src="@champ.IconLink" />
-
-	@foreach (var abilities in champ.Spells)
-	{
-		<b>@abilities.Slot</b>
-		<b>@abilities.Description</b>
-		<img src="@abilities.IconLink" />
-		<video width="320" controls>
-			<source src="@abilities.VideoLink" type="video/mp4" />
-		</video>
-	} *@
 	}
 
 </div>
 
 @if (SelectedChampion != null)
 {
-	<ChampionOverlay Champion="SelectedChampion" OnClose="CloseOverlay" />
+	<ChampionOverlay SelectedChampion="SelectedChampion" OnClose="CloseOverlay" />
 }
 
 

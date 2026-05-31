@@ -1,15 +1,46 @@
 ﻿@using QBNsite.Helper;
+@using QBNsite.Pages.LearningLoL.QuestionsType
 @inject IJSRuntime JS
 
 @code {
-    [Parameter] public ChampionsDetails Champion { get; set; }
-    [Parameter] public EventCallback OnClose { get; set; }
 
-    private Spell SelectedSpell;
+    [Parameter] public ChampionsDetails SelectedChampion { get; set; } = new ChampionsDetails();
+    [Parameter] public EventCallback OnClose { get; set; }
+    [Parameter] public int activeTab { get; set; } = 1;
+
+    private Spell SelectedSpell = new Spell();
+    McqManager.McqQuestion currentQuestion ;
+    HashSet<string> questionUsed = new HashSet<string>();
 
     protected override void OnParametersSet()
     {
-        SelectedSpell = Champion?.Spells?.FirstOrDefault();
+        questionUsed = new HashSet<string>();
+
+        if(SelectedChampion != null && SelectedChampion.Spells.Count > 0)
+        {
+            SelectedSpell = SelectedChampion.Spells.First();
+            currentQuestion = GenerateNewQuestion();
+        }
+    }
+
+    private McqManager.McqQuestion GenerateNewQuestion()
+    {
+        int floor = 10; 
+        var newQuestion = McqManager.GenerateBasicIsEffectPresentQuestion(SelectedChampion);
+        while (questionUsed.Contains(newQuestion.Id) && floor > 0)
+        {
+            newQuestion = McqManager.GenerateBasicIsEffectPresentQuestion(SelectedChampion);
+            floor--; 
+        }
+        currentQuestion = newQuestion;
+        questionUsed.Add(currentQuestion.Id);
+
+        return newQuestion;
+    }
+
+    void LoadNextQuestion()
+    {
+        currentQuestion = GenerateNewQuestion();
     }
 
     private void SelectSpell(Spell spell)
@@ -21,44 +52,84 @@
     {
         OnClose.InvokeAsync();
     }
+
 }
 
-@if (Champion != null)
+@if (SelectedChampion != null)
 {
     <div class="overlay-background" @onclick="CloseOverlay">
         <div class="overlay-panel" @onclick:stopPropagation="true">
 
-            <h2>@Champion.Name</h2>
-
-            <div class="overlay-content">
-
-                <!-- Colonne gauche : SpellCards -->
-                <div class="spells-column">
-                    @foreach (var spell in Champion.Spells)
-                    {
-                        <div class="spell-card" @onclick="() => SelectSpell(spell)">
-                            <img src="@spell.IconLink" alt="@spell.Name" />
-                            <span>@spell.Name</span>
-                        </div>
-                    }
+            <div class="overlay-panel-header">
+                <div class="title">@SelectedChampion.Name</div>
+                <div class="actions">
+                    <button class="tab-btn @(activeTab == 1 ? "active" : "")"
+                            @onclick="() => activeTab = 1">
+                        Quizz
+                    </button>
+                    <button class="tab-btn @(activeTab == 2 ? "active" : "")"
+                            @onclick="() => activeTab = 2">
+                        Info
+                    </button>
+                    <button class="close-btn" @onclick="CloseOverlay">X</button>
                 </div>
-
-                <!-- Colonne droite : Vidéo + description -->
-                <div class="spell-details">
-                    @if (SelectedSpell != null)
-                    {
-                        <video width="100%" autoplay loop muted @key="SelectedSpell.VideoLink">
-                            <source src="@SelectedSpell.VideoLink" type="video/mp4" />
-                        </video>
-
-                        <p class="spell-description">@SelectedSpell.Description</p>
-                    }
-                </div>
-
             </div>
 
-            <button class="close-btn" @onclick="CloseOverlay">X</button>
+                @if (activeTab == 1)
+                {
+                    @if(currentQuestion != null)
+                    {
+                        switch (currentQuestion.Type)
+                        {
+                            case McqManager.QuestionType.YesNo:
+                                <YesNoQuestion
+                                Question = "@currentQuestion.QuestionPrompt"
+                                CorrectAnswer = "@currentQuestion.CorrectAnswers[0]"
+                                Commentary= "@currentQuestion.Commentary"
+                                OnNext="LoadNextQuestion" />
+                                break;
+                        }
+                    }
+                }
+                else if (activeTab == 2)
+                {
+                    <div class="overlay-content">
+                        <div class="spells-column">
+                            @foreach (var spell in SelectedChampion.Spells)
+                            {
+                            <div class="spell-card @(SelectedSpell.Name == spell.Name ? "selected" : "")"
+                                     @onclick="() => SelectSpell(spell)">
+                                    <img src="@spell.IconLink" alt="@spell.Name" />
+                                    <span>@spell.Slot - @spell.Name</span>
+                                </div>
+                            }
+                        </div>
+
+                        <div class="spell-details">
+                            @if (SelectedSpell != null)
+                            {
+                                <video width="100%" autoplay loop muted @key="SelectedSpell.VideoLink">
+                                    <source src="@SelectedSpell.VideoLink" type="video/mp4" />
+                                </video>
+
+                                <p class="spell-description">@SelectedSpell.Description</p>
+
+                                @if (SelectedSpell.SpellAttributes.Count > 0)
+                                {
+                                    @foreach (var attr in SelectedSpell.SpellAttributes)
+                                    {
+                                        <strong>@attr.ToString()  &nbsp </strong>
+                                    }
+                                }
+                            }
+                        </div>
+
+                    </div>
+                }
+            
+
         </div>
     </div>
 }
+
 

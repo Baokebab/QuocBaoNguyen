@@ -66,6 +66,7 @@ article.content px-4 {
     h1 {
         padding-top: 3.5rem;
     }
+
     .search-container {
         margin-top: 60px;
         margin-bottom: 15px;
@@ -81,12 +82,13 @@ article.content px-4 {
     }
 
 
-.content {
-    height: 100%;
-}
+    .content {
+        height: 100%;
+    }
 
-img {
-    max-width: 100%;
-    height: auto;
+    img {
+        max-width: 100%;
+        height: auto;
+    }
 }
 
