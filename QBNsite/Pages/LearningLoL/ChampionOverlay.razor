@@ -112,8 +112,8 @@
                             @if (SelectedSpell != null)
                             {
                                 <video width="100%" autoplay loop muted @key="SelectedSpell.VideoLink">
-                                    <source src="@SelectedSpell.VideoLink" type="video/mp4" />
                                 <source src="@SelectedSpell.VideoLinkWebm" type="video/webm" />
+                                 <source src="@SelectedSpell.VideoLink" type="video/mp4" />
                                 </video>
 
                                 <p class="spell-description">@SelectedSpell.Description</p>
