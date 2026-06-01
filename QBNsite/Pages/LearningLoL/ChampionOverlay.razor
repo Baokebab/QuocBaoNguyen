@@ -99,7 +99,7 @@
 
                 @* <button @onclick="LoadPreviousChampion"> Prev </button> *@
                 <div class="title">@SelectedChampion.Name</div>
-                <button @onclick="LoadNextChampion">  -> @(GlobalState.ChampionsData[(currentChampionIndex + 1) % GlobalState.ChampionsData.Count].Name) </button>
+                <button @onclick="() => {isRandomMode = false ; LoadNextChampion();}">  -> @(GlobalState.ChampionsData[(currentChampionIndex + 1) % GlobalState.ChampionsData.Count].Name) </button>
                 <button @onclick="() => {isRandomMode = true ; LoadNextChampion();}">  Random </button>
                 <div class="actions">
                     <button class="tab-btn @(activeTab == 1 ? "active" : "")"
