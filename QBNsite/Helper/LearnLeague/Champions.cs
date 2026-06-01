@@ -35,6 +35,8 @@
         public string IconLink { get; set; } = "";
         public List<Spell> Spells { get; set; } = new List<Spell>();
         public int NumberOfSkins { get; set; } = 0; 
+        public List<MultipleChoiceQuestion> Mcq { get; set; } = new List<MultipleChoiceQuestion>();
+        public bool IsLockedFromRandom { get; set; } = false; 
     }
     public class ImageDto
     {
@@ -44,4 +46,54 @@
     {
 
     }
+
+    public static class ChampionsManager
+    {
+        public static List<ChampionsDetails> ChampionsData = new List<ChampionsDetails>();
+        public static int GetRandomUnlockedChampionIndex(List<ChampionsDetails> champions, int currentIndex)
+        {
+            var validIndexes = new List<int>();
+            for (int i = 0; i < champions.Count; i++)
+            {
+                if (!champions[i].IsLockedFromRandom)
+                    validIndexes.Add(i);
+            }
+            if (validIndexes.Count == 0)
+                return -1;
+            int randomPos = new Random().Next(validIndexes.Count); 
+            return validIndexes[randomPos];
+
+        }
+        public static int GetNextUnlockedChampionIndex(List<ChampionsDetails> champions, int currentIndex)
+        {
+            int count = champions.Count;
+            int i = currentIndex;
+
+            do
+            {
+                i = (i + 1) % count;
+                if (!champions[i].IsLockedFromRandom)
+                    return i;
+
+            } while (i != currentIndex);
+
+            return -1; 
+        }
+        public static string GetNextUnlockedChampionName(List<ChampionsDetails> champions, int currentIndex)
+        {
+            int count = champions.Count;
+            int i = currentIndex;
+
+            do
+            {
+                i = (i + 1) % count;
+                if (!champions[i].IsLockedFromRandom)
+                    return champions[i].Name;
+
+            } while (i != currentIndex);
+
+            return "All completed";
+        }
+    }
+
 }

@@ -25,7 +25,7 @@
 
 	protected override async Task OnInitializedAsync()
 	{
-		GlobalState.ChampionsData = new List<ChampionsDetails>();
+		ChampionsManager.ChampionsData = new List<ChampionsDetails>();
 
 		string csvRelativePath = Path.Combine(HelperInstance.homePath, csvPath);
 		Dictionary<string, List<SpellAttribute>> csvDataDict = await LeagueCsvHelper.LoadCsvAttributes(Http, csvRelativePath);
@@ -67,6 +67,8 @@
 				IconLink = $"{curVerBaseUrl}/img/champion/{dto.Image.full}",
 				NumberOfSkins = detail.Skins.Count,
 			};
+
+			
 
 			string[] slots = { "P1", "Q1", "W1", "E1", "R1" };
 
@@ -115,7 +117,9 @@
 				// }
 			}
 
-			GlobalState.ChampionsData.Add(champ);
+			champ.Mcq = McqManager.GenerateAllMcq(champ);
+
+			ChampionsManager.ChampionsData.Add(champ);
 			j++;
 		}
 	}
@@ -136,7 +140,7 @@
 	private string SearchText = "";
 
 	private List<ChampionsDetails> FilteredChampions =>
-				GlobalState.ChampionsData.Where(c =>
+				ChampionsManager.ChampionsData.Where(c =>
 					string.IsNullOrWhiteSpace(SearchText)
 					|| c.Name.Contains(SearchText, StringComparison.OrdinalIgnoreCase)
 				).ToList();
@@ -172,17 +176,17 @@
 
 	<div class="champion-card">
 		@{
-			var randomIndex = new Random().Next(0, GlobalState.ChampionsData.Count);
+			var randomIndex = new Random().Next(0, ChampionsManager.ChampionsData.Count);
 		<img src="https://wiki.leagueoflegends.com/en-us/images/Arena_Bravery_square.png" alt="All champions Random"
-		@onclick="() => OpenOverlay(GlobalState.ChampionsData[randomIndex], randomIndex, true)" />
+				 @onclick="() => OpenOverlay(ChampionsManager.ChampionsData[randomIndex], randomIndex, true)" />
 		 }
 	</div>
 	@for (int i = 0; i < FilteredChampions.Count; i++)
 	{
 		var champ = FilteredChampions[i];
-		int champIndex = GlobalState.ChampionsData.FindIndex(c => c.Id == champ.Id);
+		int champIndex = ChampionsManager.ChampionsData.FindIndex(c => c.Id == champ.Id);
 
-		<div class="champion-card">
+		<div class="champion-card @(champ.IsLockedFromRandom ? "completed" : "")">
 			<img src="@champ.IconLink" alt="@champ.Name" @onclick="() => OpenOverlay(champ, champIndex)" />
 		</div>
 	}
