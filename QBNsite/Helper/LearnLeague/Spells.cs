@@ -111,6 +111,7 @@
 
         public string IconLink { get; set; } = "";
         public string VideoLink { get; set; } = "";
+        public string VideoLinkWebm => VideoLink.Replace(".mp4", ".webm");
         public Spell() { }
         public Spell(string SpellSlot, string Name, string Id, string Description, string Tooltip, string iconLink, string VideoLink)
         {
