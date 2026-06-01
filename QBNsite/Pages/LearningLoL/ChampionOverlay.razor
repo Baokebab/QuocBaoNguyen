@@ -66,13 +66,13 @@
 			}
 
 			SelectedChampion.IsLockedFromRandom = false;
+			LoadNextQuestion();
 		}
 		else
 		{
 			SelectedChampion.IsLockedFromRandom = true;
+			LoadNextChampion();
 		}
-
-		LoadNextQuestion();
 	}
 
 	void ValidateQuestion(bool hasAnsweredCorrectly)
