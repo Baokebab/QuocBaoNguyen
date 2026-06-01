@@ -656,8 +656,8 @@ Syndra,SyndraE,Scatter the Weak,E,1,,,,,1,,,1,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Syndra,SyndraR,Unleashed Power,R,,,,,,,,,,,,,,,,,,,,,,,,,1,,,,,,,,,,,
 Tahm Kench,TahmKenchP.png,An Acquired Taste,P,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Tahm Kench,TahmKenchQ,Tongue Lash,Q,,,,,,1,,,1,,,,,,,,,,,,,,,,,,,1,1,,,,,,,
-Tahm Kench,TahmKenchW,Abyssal Dive,W,,,,,,,,,,,,,,,,,,,,,,,1,,,,,,,,,,,,,
-Tahm Kench,TahmKenchE,Thick Skin,E,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Tahm Kench,TahmKenchW,Abyssal Dive,W,1,,,,,,,,,,,,,,,,,,,,,,1,,,,,,,,,,,,,
+Tahm Kench,TahmKenchE,Thick Skin,E,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Tahm Kench,TahmKenchRWrapper,Devour,R,,,,,,,1,,,,,,,,,,,,,,,,,,,,1,,,,,,1,,,1
 Taliyah,Taliyah_Passive.png,Rock Surfing,P,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,,,1
 Taliyah,TaliyahQ,Threaded Volley,Q,,,,,,,,,1,,,,,,,,,,,,,,,,,,,1,1,,,,,,,
@@ -858,4 +858,4 @@ Zyra,ZyraP.png,Garden of Thorns,P,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Zyra,ZyraQ,Deadly Spines,Q,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Zyra,ZyraW,Rampant Growth,W,,,,,,,,,,,,,,,,,,,,,,,,1,,,,,,,,1,,,1,
 Zyra,ZyraE,Grasping Roots,E,,,1,,,,,,1,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Zyra,ZyraR,Stranglethorns,R,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Zyra,ZyraR,Stranglethorns,R,1

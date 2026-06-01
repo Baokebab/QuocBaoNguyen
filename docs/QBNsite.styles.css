@@ -745,6 +745,19 @@ sidebar.ul[b-stu6smjf3l] {
     justify-content: flex-start;
 }
 
+    .overlay-panel[b-w6zauq4hkk]::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0,0,0,0.55); 
+        pointer-events: none;
+        z-index: 0;
+    }
+    .overlay-panel > *[b-w6zauq4hkk] {
+        position: relative;
+        z-index: 1; 
+    }
+
 .overlay-panel-header[b-w6zauq4hkk] {
     display: flex;
     align-items: center;
@@ -831,7 +844,7 @@ sidebar.ul[b-stu6smjf3l] {
     }
 
 .spell-details[b-w6zauq4hkk] {
-    width: 70%;
+
 }
 
 .spell-description[b-w6zauq4hkk] {
@@ -848,6 +861,10 @@ video[b-w6zauq4hkk] {
 @media(max-width: 768px) {
     video[b-w6zauq4hkk] {
         min-height: 100px;
+    }
+
+    .overlay-panel[b-w6zauq4hkk] {
+        width: 90vw;
     }
 
     .overlay-champion-content[b-w6zauq4hkk] {
@@ -994,6 +1011,7 @@ article.content px-4[b-fao7nt93w8] {
     border-radius: 12px;
     display: flex;
     flex-direction: column;
+    padding: 10px;
 }
     .spell-answer-display img[b-pmf5m2u2aw] {
         width: 35px;

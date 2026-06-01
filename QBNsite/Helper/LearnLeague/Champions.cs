@@ -1,6 +1,5 @@
 ﻿namespace QBNsite.Helper
 {
-
     public class ChampionRoot
     {
         public string Type { get; set; } = "";
@@ -41,7 +40,6 @@
     {
         public string full { get; set; } = "";
     }
-
     public class SkinDto
     {
 

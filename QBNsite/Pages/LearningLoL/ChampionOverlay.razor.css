@@ -28,6 +28,19 @@
     justify-content: flex-start;
 }
 
+    .overlay-panel::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0,0,0,0.55); 
+        pointer-events: none;
+        z-index: 0;
+    }
+    .overlay-panel > * {
+        position: relative;
+        z-index: 1; 
+    }
+
 .overlay-panel-header {
     display: flex;
     align-items: center;
@@ -114,7 +127,7 @@
     }
 
 .spell-details {
-    width: 70%;
+
 }
 
 .spell-description {
@@ -131,6 +144,10 @@ video {
 @media(max-width: 768px) {
     video {
         min-height: 100px;
+    }
+
+    .overlay-panel {
+        width: 90vw;
     }
 
     .overlay-champion-content {

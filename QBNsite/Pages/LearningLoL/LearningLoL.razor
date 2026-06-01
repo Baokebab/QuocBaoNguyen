@@ -21,12 +21,12 @@
 	static string baseSpellVideoUrl = "https://lol.dyn.riotcdn.net/x/videos/champion-abilities";
 	static string csvPath = "LoL/LolSpells.csv"; 
 
-	List<ChampionsDetails> Champions = new();
-
 	// string ExportCsv = "Champions,SpellId,SpellName,SpellSlot,First";
 
 	protected override async Task OnInitializedAsync()
 	{
+		GlobalState.ChampionsData = new List<ChampionsDetails>();
+
 		string csvRelativePath = Path.Combine(HelperInstance.homePath, csvPath);
 		Dictionary<string, List<SpellAttribute>> csvDataDict = await LeagueCsvHelper.LoadCsvAttributes(Http, csvRelativePath);
 
@@ -45,7 +45,7 @@
 		int j = 0; 
 		foreach (var kvp in root.Data)
 		{
-			if (j >= 2) break;
+			if (j >= 10) break;
 
 			var dto = kvp.Value;
 
@@ -115,7 +115,7 @@
 				// }
 			}
 
-			Champions.Add(champ);
+			GlobalState.ChampionsData.Add(champ);
 			j++;
 		}
 	}
@@ -136,16 +136,20 @@
 	private string SearchText = "";
 
 	private List<ChampionsDetails> FilteredChampions =>
-	   Champions.Where(c =>
-		   string.IsNullOrWhiteSpace(SearchText)
-		   || c.Name.Contains(SearchText, StringComparison.OrdinalIgnoreCase)
-	   ).ToList();
+				GlobalState.ChampionsData.Where(c =>
+					string.IsNullOrWhiteSpace(SearchText)
+					|| c.Name.Contains(SearchText, StringComparison.OrdinalIgnoreCase)
+				).ToList();
 
-	private ChampionsDetails SelectedChampion;
+	private ChampionsDetails SelectedChampion; 
+	private int SelectedChampionIndex;
+	private bool isRandomModeOn = false; 
 
-	private void OpenOverlay(ChampionsDetails champ)
+	private void OpenOverlay(ChampionsDetails champ, int currentIndex, bool isRandom = false)
 	{
 		SelectedChampion = champ;
+		SelectedChampionIndex = currentIndex;
+		isRandomModeOn = isRandom;
 	}
 
 	private void CloseOverlay()
@@ -165,12 +169,21 @@
 
 
 <div class="champion-grid">
+
+	<div class="champion-card">
+		@{
+			var randomIndex = new Random().Next(0, GlobalState.ChampionsData.Count);
+		<img src="https://wiki.leagueoflegends.com/en-us/images/Arena_Bravery_square.png" alt="All champions Random"
+		@onclick="() => OpenOverlay(GlobalState.ChampionsData[randomIndex], randomIndex, true)" />
+		 }
+	</div>
 	@for (int i = 0; i < FilteredChampions.Count; i++)
 	{
 		var champ = FilteredChampions[i];
+		int champIndex = GlobalState.ChampionsData.FindIndex(c => c.Id == champ.Id);
 
 		<div class="champion-card">
-			<img src="@champ.IconLink" alt="@champ.Name" @onclick="() => OpenOverlay(champ)" />
+			<img src="@champ.IconLink" alt="@champ.Name" @onclick="() => OpenOverlay(champ, champIndex)" />
 		</div>
 	}
 
@@ -178,7 +191,11 @@
 
 @if (SelectedChampion != null)
 {
-	<ChampionOverlay SelectedChampion="SelectedChampion" OnClose="CloseOverlay" />
+	<ChampionOverlay 
+		SelectedChampion="SelectedChampion"
+		currentChampionIndex="SelectedChampionIndex"
+		isRandomMode="isRandomModeOn"
+		OnClose="CloseOverlay" />
 }
 
 

@@ -5,6 +5,8 @@
 @code {
 
     [Parameter] public ChampionsDetails SelectedChampion { get; set; } = new ChampionsDetails();
+    [Parameter] public int currentChampionIndex { get; set; } = -1;
+    [Parameter] public bool isRandomMode { get; set; } =  false ;
     [Parameter] public EventCallback OnClose { get; set; }
     [Parameter] public int activeTab { get; set; } = 1;
 
@@ -14,13 +16,18 @@
 
     protected override void OnParametersSet()
     {
-        questionUsed = new HashSet<string>();
-
         if(SelectedChampion != null && SelectedChampion.Spells.Count > 0)
         {
             SelectedSpell = SelectedChampion.Spells.First();
+            questionUsed = new HashSet<string>();
             currentQuestion = GenerateNewQuestion();
         }
+    }
+
+    private void InitializeMcq()
+    {
+        questionUsed = new HashSet<string>();
+        currentQuestion = GenerateNewQuestion();
     }
 
     private McqManager.McqQuestion GenerateNewQuestion()
@@ -53,15 +60,47 @@
         OnClose.InvokeAsync();
     }
 
+    void LoadNextChampion()
+    {
+        int nextIndex;
+        if (isRandomMode)
+        {
+            nextIndex = new Random().Next(0, GlobalState.ChampionsData.Count);
+        }
+        else
+        {
+            nextIndex = (currentChampionIndex + 1) % GlobalState.ChampionsData.Count;
+        }
+        SelectedChampion = GlobalState.ChampionsData[nextIndex];
+        currentChampionIndex = nextIndex;
+        InitializeMcq();
+    }
+
+    void LoadPreviousChampion()
+    {
+        int prevIndex = (currentChampionIndex - 1 + GlobalState.ChampionsData.Count) % GlobalState.ChampionsData.Count;
+        SelectedChampion = GlobalState.ChampionsData[prevIndex];
+        currentChampionIndex = prevIndex;
+        InitializeMcq();
+    }
+
+    string baseBackgroundImageUrl => "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/";
 }
 
 @if (SelectedChampion != null)
 {
     <div class="overlay-background" @onclick="CloseOverlay">
-        <div class="overlay-panel" @onclick:stopPropagation="true">
-
+        <div class="overlay-panel" @onclick:stopPropagation="true"
+             style="background-image: url('@(baseBackgroundImageUrl + SelectedChampion.Name + "_0.jpg")');
+                background-size: cover;
+                background-position: center;">
+             
             <div class="overlay-panel-header">
+
+                @* <button @onclick="LoadPreviousChampion"> Prev </button> *@
                 <div class="title">@SelectedChampion.Name</div>
+                <button @onclick="LoadNextChampion">  -> @(GlobalState.ChampionsData[(currentChampionIndex + 1) % GlobalState.ChampionsData.Count].Name) </button>
+                <button @onclick="() => {isRandomMode = true ; LoadNextChampion();}">  Random </button>
                 <div class="actions">
                     <button class="tab-btn @(activeTab == 1 ? "active" : "")"
                             @onclick="() => activeTab = 1">
@@ -83,7 +122,7 @@
                         switch (currentQuestion.Type)
                         {
                             case McqManager.QuestionType.YesNo:
-                                <YesNoQuestion
+                                <YesNoQuestion @key="currentQuestion"
                                 Question = "@currentQuestion.QuestionPrompt"
                                 CorrectAnswer = "@currentQuestion.CorrectAnswers[0]"
                                 Commentary= "@currentQuestion.Commentary"

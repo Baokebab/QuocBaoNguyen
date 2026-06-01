@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "QBNsite",
   "resources": {
-    "hash": "sha256-RiVdwY9IPiC6gytgLpEgI8CN4bGOFrC9bSJLEGx6fJ0=",
+    "hash": "sha256-MA3iVK+jltCd+2AbEcE9EynKE54h9yTo/YqxSYB4MIo=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-O/NCYcAN9uPocD7ns7AzF/cqx7f5vL1PTJCQs0vEXyk="
     },
@@ -46,20 +46,20 @@
       "System.Net.Primitives.wasm": "sha256-/ngKYiUmCJkeiOJd18iDRokO4dhYRskbDwj2fczIG2g=",
       "System.Private.Uri.wasm": "sha256-RLf/hSN7vcT7FKmBjdzovAX3SrhEWHj2ary8vvbP9F4=",
       "System.Runtime.InteropServices.JavaScript.wasm": "sha256-GQaJQCMKTUTZEPO7XAVzYK9jQ3jWNTAMGOu9Qa+zd5A=",
-      "System.Runtime.wasm": "sha256-fEW11laymy9Y+2cyYR5vqWvDxZi2xywI5okm8P5FyU0=",
+      "System.Runtime.wasm": "sha256-0CINrR92dm2tZLdi2psVB1slqMUBjyHm470cySv/Hug=",
       "System.Text.Encodings.Web.wasm": "sha256-O51l51rdKdc0QB4M7PMdbm3q0zFrHyadJ3mWrPdHgaI=",
       "System.Text.Json.wasm": "sha256-55pfkt1wl/a+bTRLL7jB0em7pabTUwFZX5lyzO+YxQ0=",
       "System.Text.RegularExpressions.wasm": "sha256-SpO2KTcvJ0/q5BlU7TaOyCFrwQnfm0QXHnU+1yyEU7g=",
       "netstandard.wasm": "sha256-ejBQrUlUZS1uhINRKngqE9xQ1VxQOysv9UN3JHbZChU=",
-      "System.Private.CoreLib.wasm": "sha256-ljPoj6AlCc4zC/e3c7szpIkAmsJGHyrwQH1E9/TQtz8=",
-      "QBNsite.wasm": "sha256-B055JarbSM+QibI0bsQmP6Uax93CObcwQK0lq/H9TZw="
+      "System.Private.CoreLib.wasm": "sha256-NDIuJ24Dq5S7mtkhkmEX5YctiOHqiQx9PC4p5LkFII4=",
+      "QBNsite.wasm": "sha256-S7v6ilpRlTwEAnWhBC1bsUD831nD0qCkwC0cBNNJljc="
     },
     "satelliteResources": {
       "en": {
-        "QBNsite.resources.wasm": "sha256-XoiiRV9OtrHEn/ndK5ygU27osLVFEp+GW70KbxUUe6E="
+        "QBNsite.resources.wasm": "sha256-OHPFB1yNzSpX1guGjWxFWTDhQih+nqoIp4reUy1SJ0M="
       },
       "fr": {
-        "QBNsite.resources.wasm": "sha256-WqK536nxzv5IMHHoFnqOnFlRWDOol2TPpcBH/r0pSYI="
+        "QBNsite.resources.wasm": "sha256-JbYsW8ts0T6WmHyBQhDthY+G5htCA2xgO5qIJvzCReg="
       }
     }
   },

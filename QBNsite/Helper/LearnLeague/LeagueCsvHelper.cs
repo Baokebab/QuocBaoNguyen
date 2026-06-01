@@ -19,7 +19,7 @@
                 string spellId = cols[1];
                 var attributes = new List<SpellAttribute>();
 
-                for (int c = 4; c < headers.Length; c++)
+                for (int c = 4; c < cols.Length; c++)
                 {
                     if (Enum.TryParse(headers[c], out SpellAttribute attribute) && !String.IsNullOrEmpty(cols[c]))
                     {
