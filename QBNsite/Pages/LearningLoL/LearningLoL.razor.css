@@ -83,6 +83,14 @@ article.content px-4 {
     .champion-grid {
         gap: 5px;
         padding: 5px;
+        grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    }
+
+    .champion-card img {
+        width: 60px;
+        height: 60px;
+        border-radius: 8px;
+        transition: transform 0.2s ease;
     }
 
 

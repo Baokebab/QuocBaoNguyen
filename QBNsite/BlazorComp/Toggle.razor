@@ -1,0 +1,24 @@
+﻿@code {
+    [Parameter] public bool Value { get; set; }
+    [Parameter] public EventCallback<bool> ValueChanged { get; set; }
+    [Parameter] public string[] Label { get; set; } = new string[2] { "On", "Off" };
+
+    private async Task OnChange(ChangeEventArgs e)
+    {
+        var newValue = (bool)e.Value!;
+        await ValueChanged.InvokeAsync(newValue);
+    }
+}
+
+
+<div class="toggle-container">
+    <label class="switch">
+        <input type="checkbox"
+               checked="@Value"
+               @onchange="OnChange" />
+        <span class="slider"></span>
+    </label>
+
+    <span class="toggle-label">@((Value ? Label[0] : Label[1]))</span>
+</div>
+

@@ -1,6 +1,7 @@
 ﻿@page "/LearningLoLChamps"
 
 @using Microsoft.Extensions.Localization;
+@using QBNsite.BlazorComp
 @using QBNsite.Resources;
 @using QBNsite.Helper;
 
@@ -68,7 +69,7 @@
 				NumberOfSkins = detail.Skins.Count,
 			};
 
-			
+
 
 			string[] slots = { "P1", "Q1", "W1", "E1", "R1" };
 
@@ -170,6 +171,9 @@
 	<input type="text" placeholder="Rechercher un champion..."
 		   @bind="SearchText" @bind:event="oninput" />
 </div>
+
+<Toggle @bind-Value="McqManager.IgnoreResetQuestion"
+	Label="@(new string[]{"Ignore Reset On","Ignore Reset Off" })" />
 
 
 <div class="champion-grid">

@@ -2,13 +2,15 @@
 
 namespace QBNsite.Helper
 {
-    public class McqManager
+    public static class McqManager
     {
         public enum QuestionType
         {
             YesNo,
             AllQuestionsAnswered
         }
+
+        public static bool IgnoreResetQuestion = false;
 
         public static int GetNextUnansweredQuestion(ChampionsDetails champion, int currentQuestionIndex = -1)
         {

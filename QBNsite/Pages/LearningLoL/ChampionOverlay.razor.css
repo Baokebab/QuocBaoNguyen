@@ -150,9 +150,22 @@ video {
         width: 90vw;
     }
 
+    .overlay-panel-header button {
+        font-size: 10px;
+    }
+
+    .overlay-panel-header .title {
+        font-size: 12px;
+    }
+
+
     .overlay-champion-content {
         display: block;
+        overflow-y: auto;
+        z-index: 9999;
     }
+
+
 
     .spell-description {
         margin-top: 10px;
