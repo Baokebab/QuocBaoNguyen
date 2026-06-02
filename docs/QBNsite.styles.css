@@ -1265,16 +1265,9 @@ article.content px-4[b-fao7nt93w8] {
         transform: scale(1.05);
     }
 
-    .answer-btn.good[b-qdat7j0h2p] {
-        border-color: #2ecc71;
-        color: #2ecc71;
-        font-weight: bold;
-        transform: scale(1.05);
-    }
-
-    .answer-btn.bad[b-qdat7j0h2p] {
-        border-color: #e74c3c;
-        color: #e74c3c;
+    .answer-btn.selected[b-qdat7j0h2p] {
+        border-color: gold;
+        color: gold;
         font-weight: bold;
         transform: scale(1.05);
     }

@@ -5,13 +5,9 @@
 
 	bool? UserChoice = null;
 
-	void Select(bool choix)
+	async Task Select(bool choix)
 	{
 		UserChoice = choix;
-	}
-
-	async Task Next()
-	{
 		bool finalChoice = UserChoice == null ? false : UserChoice.Value;
 		UserChoice = null;
 		await OnNext.InvokeAsync(finalChoice);
@@ -23,23 +19,16 @@
 		<div class="question-text">@Question</div>
 
 		<div class="answers">
-			<button class="answer-btn @(UserChoice == true ? "good" : "")"
+			<button class="answer-btn @(UserChoice == true ? "selected" : "")"
 					@onclick="() => Select(true)">
 				Oui
 			</button>
 
-			<button class="answer-btn @(UserChoice == false ? "bad" : "")"
+			<button class="answer-btn @(UserChoice == false ? "selected" : "")"
 					@onclick="() => Select(false)">
 				Non
 			</button>
 		</div>
 	</div>
-
-	@if (UserChoice != null)
-	{
-		<div class="next-container">
-			<button class="next-btn" @onclick="Next">Suivant →</button>
-		</div>
-	}
 
 </div>

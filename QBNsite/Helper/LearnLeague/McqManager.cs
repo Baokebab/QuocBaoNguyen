@@ -72,7 +72,7 @@ namespace QBNsite.Helper
             res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, SpellGroups.Dash, "Dash"));
             res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, SpellGroups.CC, "CC (Soft & Hard)"));
             res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, new List<SpellAttribute>() { SpellAttribute.BlockedByMinion }, "blocable par un minion"));
-            res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, new List<SpellAttribute>() { SpellAttribute.UnitTargeted }, "unit targeted (point & click)"));
+            res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, new List<SpellAttribute>() { SpellAttribute.PointAndClick }, "unit targeted (point & click)"));
 
             if(DoesChamponHaveThisEffect(champions, SpellAttribute.Reset))
             {
@@ -133,7 +133,7 @@ namespace QBNsite.Helper
         }
         public static MultipleChoiceQuestion GenerateWhatKindOfGroupEffectsQuestion(ChampionsDetails champions, List<SpellAttribute> spellAttributes, string groupName)
         {
-            string questionPrompt = $"Quel genre de {groupName} {champions.Name} a-t-il ?";
+            string questionPrompt = $"Quels genres de {groupName} {champions.Name} a-t-il ?";
             string commentary = "";
 
             BaseAnswer[] possibleAnswers = spellAttributes.Select(attr => new BaseAnswer(attr.ToFriendlyString(), false)).ToArray();
@@ -183,7 +183,7 @@ namespace QBNsite.Helper
         }
         public static MultipleChoiceQuestion GenerateWhatSpellsHasThisEffectQuestion(ChampionsDetails champions, List<SpellAttribute> spellAttributes, string attributeName)
         {
-            string questionPrompt = $"Quel sort de {champions.Name} est {attributeName} ?";
+            string questionPrompt = $"Quels sorts de {champions.Name} est {attributeName} ?";
             string commentary = "";
 
             BaseAnswer[] possibleAnswers = champions.Spells.Select(spell => new BaseAnswer(spell.Slot + " - " + spell.Name, false, spell.IconLink)).ToArray();
