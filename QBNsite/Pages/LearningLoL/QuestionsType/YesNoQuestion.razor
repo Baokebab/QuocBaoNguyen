@@ -2,26 +2,24 @@
 @inject Helper HelperInstance;
 
 @code {
-	[Parameter] public string Question { get; set; }
-	[Parameter] public bool CorrectAnswer { get; set; }
-	[Parameter] public string Commentary { get; set; }
-	[Parameter] public List<Spell> SpellsToShow { get; set; } = new List<Spell>();
+	[Parameter] public MultipleChoiceQuestion Question { get; set; }
 	[Parameter] public EventCallback OnNext { get; set; }
 	[Parameter] public EventCallback<bool> OnAnswerValidated { get; set; }
 
-	bool? UserChoice = null;
+	int UserChoice = -1;
 	bool AreButtonsDisabled = false;
 
-	void Select(bool choix)
+	void Select(int choix)
 	{
+		//0 = YES, 1 = NO
 		UserChoice = choix;
 		AreButtonsDisabled = true;
-		OnAnswerValidated.InvokeAsync(UserChoice == CorrectAnswer);
+		OnAnswerValidated.InvokeAsync(Question.Answers[UserChoice].IsCorrectAnswer);
 	}
 
 	async Task Next()
 	{
-		UserChoice = null;
+		UserChoice = -1;
 		AreButtonsDisabled = false;
 		await OnNext.InvokeAsync();
 	}
@@ -29,31 +27,31 @@
 
 <div class="yn-question">
 	<div class="yn-question-content">
-		<div class="question-text">@Question</div>
+		<div class="question-text">@Question.QuestionPrompt</div>
 
 		<div class="answers">
-			<button class="answer-btn @(UserChoice == true ? (CorrectAnswer ? "good" : "bad") : "")"
-					@onclick="() => Select(true)" disabled="@AreButtonsDisabled">
+			<button class="answer-btn @(UserChoice == 0 ? (Question.Answers[0].IsCorrectAnswer ? "good" : "bad") : "")"
+					@onclick="() => Select(0)" disabled="@AreButtonsDisabled">
 				Oui
 			</button>
 
-			<button class="answer-btn @(UserChoice == false ? (!CorrectAnswer ? "good" : "bad") : "")"
-					@onclick="() => Select(false)" disabled="@AreButtonsDisabled">
+			<button class="answer-btn @(UserChoice == 1 ? (!Question.Answers[1].IsCorrectAnswer ? "good" : "bad") : "")"
+					@onclick="() => Select(1)" disabled="@AreButtonsDisabled">
 				Non
 			</button>
 		</div>
 
-		@if (UserChoice != null)
+		@if (UserChoice != -1)
 		{
 
-			if (!string.IsNullOrWhiteSpace(Commentary))
+			if (!string.IsNullOrWhiteSpace(Question.Commentary))
 			{
 				<div class="comment-block">
-					@Commentary
+					@Question.Commentary
 				</div>
 			}
 
-			if (UserChoice == CorrectAnswer)
+			if (Question.Answers[UserChoice].IsCorrectAnswer)
 			{
 				<audio autoplay>
 					<source src="@AudioManager.GetAudioPathForCorrectAnswer(HelperInstance.homePath)" type="audio/mp3" />
@@ -72,7 +70,7 @@
 				<button class="next-btn" @onclick="Next">Suivant →</button>
 			</div>
 
-			foreach (var spell in SpellsToShow)
+			foreach (var spell in Question.SpellsToShow)
 			{
 				<div class="spell-answer-display">
 					<img src="@spell.IconLink" alt="@spell.Name" />

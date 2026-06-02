@@ -18,7 +18,7 @@
 		if (SelectedChampion != null && SelectedChampion.Spells.Count > 0)
 		{
 			SelectedSpell = SelectedChampion.Spells.First();
-			LoadNextQuestion(); 
+			LoadNextQuestion();
 		}
 	}
 
@@ -34,13 +34,7 @@
 				LoadNextChampion();
 				return currentQuestion;
 			}
-			newQuestion = new MultipleChoiceQuestion
-			{
-				Id = $"{SelectedChampion.Name}_NoMoreQuestion",
-				Type = McqManager.QuestionType.AllQuestionsAnswered,
-				QuestionPrompt = "Tu as répondu correctement à chaque question pour ce champion. Veux tu les refaire? ",
-				Answers = new string[2] { "Oui", "Non" },
-			};
+			newQuestion = McqManager.GenerateResetQuestion(SelectedChampion.Id);
 		}
 		else
 		{
@@ -121,8 +115,8 @@
 	<div class="overlay-background" @onclick="CloseOverlay">
 		<div class="overlay-panel" @onclick:stopPropagation="true"
 			 style="background-image: url('@(baseBackgroundImageUrl + SelectedChampion.Id + "_0.jpg")');
-				                background-size: cover;
-				                background-position: center;">
+							                background-size: cover;
+							                background-position: center;">
 
 			<div class="overlay-panel-header">
 
@@ -150,18 +144,23 @@
 					{
 						switch (currentQuestion.Type)
 						{
-							case McqManager.QuestionType.YesNo:
-								<YesNoQuestion @key="currentQuestion"
-											   Question="@currentQuestion.QuestionPrompt"
-											   CorrectAnswer="@currentQuestion.CorrectAnswers[0]"
-											   Commentary="@currentQuestion.Commentary"
-											   SpellsToShow="@currentQuestion.SpellsToShow"
+							case QuestionType.YesNo:
+								<YesNoQuestion @key="currentQuestion.Id"
+											   Question="@currentQuestion"
 											   OnNext="LoadNextQuestion"
 											   OnAnswerValidated="ValidateQuestion" />
 								break;
 
-							case McqManager.QuestionType.AllQuestionsAnswered:
-								<ResetQuestions @key="currentQuestion"
+
+							case QuestionType.MultipleCheckbox:
+								<CheckboxQuestion @key="currentQuestion.Id"
+												  Question="@currentQuestion"
+												  OnNext="LoadNextQuestion"
+												  OnAnswerValidated="ValidateQuestion" />
+								break;
+
+							case QuestionType.AllQuestionsAnswered:
+								<ResetQuestions @key="currentQuestion.Id"
 												Question="@currentQuestion.QuestionPrompt"
 												OnNext="OnAllQuestionAnsweredNext" />
 								break;

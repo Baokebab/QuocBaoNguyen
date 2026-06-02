@@ -119,7 +119,7 @@
 			}
 
 			champ.Mcq = McqManager.GenerateAllMcq(champ);
-
+			Helper.Shuffle(champ.Mcq);
 			ChampionsManager.ChampionsData.Add(champ);
 			j++;
 		}
@@ -173,7 +173,7 @@
 </div>
 
 <Toggle @bind-Value="McqManager.IgnoreResetQuestion"
-	Label="@(new string[]{"Ignore Reset On","Ignore Reset Off" })" />
+		Label="@(new string[]{"Refus Auto du Reset On","Refus Auto du Reset Off" })" />
 
 
 <div class="champion-grid">
