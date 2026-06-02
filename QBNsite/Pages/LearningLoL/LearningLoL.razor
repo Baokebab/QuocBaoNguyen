@@ -20,7 +20,8 @@
 
 	static string baseUrl = "https://ddragon.leagueoflegends.com";
 	static string baseSpellVideoUrl = "https://lol.dyn.riotcdn.net/x/videos/champion-abilities";
-	static string csvPath = "LoL/LolSpells.csv"; 
+	static string csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSfq7neW4KfM8c9GlWmr0JJSA-HvU0XZ-7dG07H0PznZ3uX2Uf28F11rO169hiJRexTfVpVUkjoQOcS/pub?gid=0&single=true&output=csv";
+	// static string csvPath = "LoL/LolSpells.csv"; 
 
 	// string ExportCsv = "Champions,SpellId,SpellName,SpellSlot,First";
 
@@ -28,8 +29,8 @@
 	{
 		ChampionsManager.ChampionsData = new List<ChampionsDetails>();
 
-		string csvRelativePath = Path.Combine(HelperInstance.homePath, csvPath);
-		Dictionary<string, List<SpellAttribute>> csvDataDict = await LeagueCsvHelper.LoadCsvAttributes(Http, csvRelativePath);
+		// string csvRelativePath = Path.Combine(HelperInstance.homePath, csvPath);
+		Dictionary<string, List<SpellAttribute>> csvDataDict = await LeagueCsvHelper.LoadCsvAttributes(Http, csvUrl);
 
 		var versions = await Http.GetFromJsonAsync<List<string>>(
 			$"{baseUrl}/api/versions.json"

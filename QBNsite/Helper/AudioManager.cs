@@ -22,5 +22,10 @@
             return Path.Combine(homePath, "mp3/ValorantVandal.mp3");
         }
 
+        public static string GetAudioPathForHalfAnswer(string homePath)
+        {
+            return Path.Combine(homePath, "mp3/HalfCorrectShoot.mp3");
+        }
+
     }
 }

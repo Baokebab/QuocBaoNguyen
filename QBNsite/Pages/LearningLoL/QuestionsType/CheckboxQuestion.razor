@@ -64,6 +64,18 @@
 		}
 		return true;
 	}
+
+	private bool CheckIfAtLeastOneCorrectAnswerSelected()
+	{
+		foreach (var item in Items)
+		{
+			if (item.IsChecked && item.IsCorrectAnswer)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 }
 
 <div class="multiple-checkbox-question">
@@ -107,6 +119,13 @@
 					<source src="@AudioManager.GetAudioPathForCorrectAnswer(HelperInstance.homePath)" type="audio/mp3" />
 				</audio>
 				AudioManager.GoodAnswerCount = (AudioManager.GoodAnswerCount + 1) % 5;
+			}
+			else if (CheckIfAtLeastOneCorrectAnswerSelected())
+			{
+				<audio autoplay>
+					<source src="@AudioManager.GetAudioPathForHalfAnswer(HelperInstance.homePath)" type="audio/mp3" />
+				</audio>
+				AudioManager.GoodAnswerCount = 0;
 			}
 			else
 			{

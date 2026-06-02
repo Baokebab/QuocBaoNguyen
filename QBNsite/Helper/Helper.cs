@@ -33,6 +33,18 @@ namespace QBNsite.Helper
             }
         }
 
+        public static void Shuffle<T>(T[] array)
+        {
+            var rng = new Random();
+            int n = array.Length;
+
+            while (n > 1)
+            {
+                n--;
+                int k = rng.Next(n + 1);
+                (array[k], array[n]) = (array[n], array[k]);
+            }
+        }
     }
 }
     public class CardInfo

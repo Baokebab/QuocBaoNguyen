@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Xml.Linq;
 
 namespace QBNsite.Helper
 {
@@ -71,20 +72,29 @@ namespace QBNsite.Helper
             if (ChampionHasThesesEffect(champions, SpellGroups.Dash))
             {
                 res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, SpellGroups.Dash, "Dash"));
-                res.Add(GenerateWhatKindOfGroupEffectsQuestion(champions, SpellGroups.Dash, "Dash"));
+                res.Add(GenerateWhatKindOfGroupEffectsQuestion(champions, SpellGroups.Dash, "Dash", 5));
             }
             if (ChampionHasThesesEffect(champions, SpellGroups.CC))
             {
                 res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, SpellGroups.CC, "CC (Soft & Hard)"));
-                res.Add(GenerateWhatKindOfGroupEffectsQuestion(champions, SpellGroups.CC, "CC"));
+                res.Add(GenerateWhatKindOfGroupEffectsQuestion(champions, SpellGroups.CC, "CC",5 ));
+            }
+            if (ChampionHasThesesEffect(champions, SpellGroups.Shield))
+            {
+                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, SpellGroups.Shield, "Shield (Normal, Magic, Physical, or Spell)"));
+                res.Add(GenerateWhatKindOfGroupEffectsQuestion(champions, SpellGroups.Shield, "Shield (Normal, Magic, Physical, or Spell)", 5));
+            }
+            if (DoesChamponHaveThisEffect(champions, SpellAttribute.AutoReset))
+            {
+                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, new List<SpellAttribute>() { SpellAttribute.AutoReset }, "Reset d'autoattaque"));
             }
             if (DoesChamponHaveThisEffect(champions, SpellAttribute.BlockedByChampion))
             {
-                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, new List<SpellAttribute>() { SpellAttribute.BlockedByChampion }, "blocable par un champion"));
+                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, new List<SpellAttribute>() { SpellAttribute.BlockedByChampion }, "blocable (ou ralenti au 1er contact) par un champion "));
             }
             if (DoesChamponHaveThisEffect(champions, SpellAttribute.BlockedByMinion))
             {
-                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, new List<SpellAttribute>() { SpellAttribute.BlockedByMinion }, "blocable par un minion"));
+                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, new List<SpellAttribute>() { SpellAttribute.BlockedByMinion }, "blocable (ou ralenti au 1er contact) par un minion"));
             }
             if (DoesChamponHaveThisEffect(champions, SpellAttribute.PointAndClick))
             {
@@ -148,12 +158,12 @@ namespace QBNsite.Helper
                 Commentary = commentary
             };
         }
-        public static MultipleChoiceQuestion GenerateWhatKindOfGroupEffectsQuestion(ChampionsDetails champions, List<SpellAttribute> spellAttributes, string groupName)
+        public static MultipleChoiceQuestion GenerateWhatKindOfGroupEffectsQuestion(ChampionsDetails champions, List<SpellAttribute> spellAttributes, string groupName, int maxPossibleChoices)
         {
             string questionPrompt = $"Quels genres de {groupName} {champions.Name} a-t-il ?";
             string commentary = "";
 
-            BaseAnswer[] possibleAnswers = spellAttributes.Select(attr => new BaseAnswer(attr.ToFriendlyString(), false)).ToArray();
+            List<BaseAnswer> possibleAnswers = spellAttributes.Select(attr => new BaseAnswer(attr.ToFriendlyString(), false)).ToList();
 
             Dictionary<SpellAttribute, HashSet<SpellSlot>> spellDict = new Dictionary<SpellAttribute, HashSet<SpellSlot>>();
             HashSet<Spell> spellToShow = new HashSet<Spell>();
@@ -188,12 +198,14 @@ namespace QBNsite.Helper
 
             if (commentary == "") commentary = $"{champions.Name} n'a pas de {groupName}.";
 
+            var reducedAnswers = ReduceChoices(possibleAnswers, maxPossibleChoices);
+
             return new MultipleChoiceQuestion
             {
                 Id = $"{champions.Name}_Question_What{groupName}",
                 Type = QuestionType.MultipleCheckbox,
                 QuestionPrompt = questionPrompt,
-                Answers = possibleAnswers,
+                Answers = reducedAnswers,
                 SpellsToShow = spellToShow,
                 Commentary = commentary
             };
@@ -310,6 +322,24 @@ namespace QBNsite.Helper
                 }
             }
             return res;
+        }
+        public static BaseAnswer[] ReduceChoices(List<BaseAnswer> answers, int maxCount)
+        {
+            var correctAnswers = answers.Where(ans => ans.IsCorrectAnswer).ToList();
+            var falseAnswers = answers.Where(ans => !ans.IsCorrectAnswer).ToList();
+
+            if (correctAnswers.Count >= maxCount)
+                return correctAnswers.Take(maxCount).ToArray();
+
+            var rng = new Random();
+            var needed = maxCount - correctAnswers.Count;
+
+            var randomFalses = falseAnswers
+                .OrderBy(_ => rng.Next())
+                .Take(needed)
+                .ToList();
+
+            return correctAnswers.Concat(randomFalses).ToArray();
         }
     }
 }

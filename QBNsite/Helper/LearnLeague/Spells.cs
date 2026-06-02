@@ -44,7 +44,12 @@
         BlocksProjectiles,
         MultipleCharges,
         MovementsBuff,
-        PointAndClick
+        PointAndClick,
+        NormalShield,
+        MagicShield,
+        SpellShield,
+        PhysicalShield,
+        AutoReset,
     }
 
     public static class SpellGroups
@@ -100,6 +105,13 @@
         SpellAttribute.TerrainTargeted,
         SpellAttribute.Blink,
     };
+        public static readonly List<SpellAttribute> Shield = new()
+        {
+            SpellAttribute.NormalShield,
+            SpellAttribute.MagicShield,
+            SpellAttribute.SpellShield,
+            SpellAttribute.PhysicalShield,
+        };
 
         public static string ToFriendlyString(this SpellAttribute s) =>
         s switch
@@ -112,12 +124,17 @@
             SpellAttribute.MiniUnitTargeted => "Mini Unit Targeted",
             SpellAttribute.TerrainTargeted => "Terrain Targeted",
             SpellAttribute.InvulnerabilityUntargetableVanished => "Invulnerability / Untargetable / Vanished",
-            SpellAttribute.BlockedByChampion => "Blocked By Champion",
-            SpellAttribute.BlockedByMinion => "Blocked By Minion",
+            SpellAttribute.BlockedByChampion => "Blocked By Champion (or Slowed on first contact)",
+            SpellAttribute.BlockedByMinion => "Blocked By Minion (or Slowed on first contact)",
             SpellAttribute.BlocksAuto => "Blocks Auto",
             SpellAttribute.BlocksProjectiles => "Blocks Projectiles",
             SpellAttribute.MultipleCharges => "Multiple Charges",
             SpellAttribute.MovementsBuff => "Movements Buff",
+            SpellAttribute.NormalShield => "Normal Shield",
+            SpellAttribute.MagicShield => "Magic Shield",
+            SpellAttribute.SpellShield => "Spell Shield",
+            SpellAttribute.PhysicalShield => "Physical Shield",
+            SpellAttribute.AutoReset => "AutoAttack Reset",
             _ => s.ToString()
         };
     }
