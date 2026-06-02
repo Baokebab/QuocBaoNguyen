@@ -63,18 +63,34 @@ namespace QBNsite.Helper
         {
             var res = new List<MultipleChoiceQuestion>();
 
+
             res.Add(GenerateYesNoIsEffectPresentQuestions(champions, SpellGroups.HardCC, "Hard CC"));
             res.Add(GenerateYesNoIsEffectPresentQuestions(champions, SpellGroups.SoftCC, "Soft CC"));
             res.Add(GenerateYesNoIsEffectPresentQuestions(champions, SpellGroups.Dash, "Dash"));
-            res.Add(GenerateWhatKindOfGroupEffectsQuestion(champions, SpellGroups.Dash, "Dash"));
-            res.Add(GenerateWhatKindOfGroupEffectsQuestion(champions, SpellGroups.CC, "CC"));
-            res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, new List<SpellAttribute>() { SpellAttribute.BlockedByChampion }, "blocable par un champion"));
-            res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, SpellGroups.Dash, "Dash"));
-            res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, SpellGroups.CC, "CC (Soft & Hard)"));
-            res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, new List<SpellAttribute>() { SpellAttribute.BlockedByMinion }, "blocable par un minion"));
-            res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, new List<SpellAttribute>() { SpellAttribute.PointAndClick }, "unit targeted (point & click)"));
 
-            if(DoesChamponHaveThisEffect(champions, SpellAttribute.Reset))
+            if (ChampionHasThesesEffect(champions, SpellGroups.Dash))
+            {
+                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, SpellGroups.Dash, "Dash"));
+                res.Add(GenerateWhatKindOfGroupEffectsQuestion(champions, SpellGroups.Dash, "Dash"));
+            }
+            if (ChampionHasThesesEffect(champions, SpellGroups.CC))
+            {
+                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, SpellGroups.CC, "CC (Soft & Hard)"));
+                res.Add(GenerateWhatKindOfGroupEffectsQuestion(champions, SpellGroups.CC, "CC"));
+            }
+            if (DoesChamponHaveThisEffect(champions, SpellAttribute.BlockedByChampion))
+            {
+                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, new List<SpellAttribute>() { SpellAttribute.BlockedByChampion }, "blocable par un champion"));
+            }
+            if (DoesChamponHaveThisEffect(champions, SpellAttribute.BlockedByMinion))
+            {
+                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, new List<SpellAttribute>() { SpellAttribute.BlockedByMinion }, "blocable par un minion"));
+            }
+            if (DoesChamponHaveThisEffect(champions, SpellAttribute.PointAndClick))
+            {
+                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, new List<SpellAttribute>() { SpellAttribute.PointAndClick }, "unit targeted (point & click)"));
+            }
+            if (DoesChamponHaveThisEffect(champions, SpellAttribute.Reset))
             {
                 res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, new List<SpellAttribute>() { SpellAttribute.Reset }, "Reset"));
             }
@@ -106,6 +122,7 @@ namespace QBNsite.Helper
             {
                 res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, new List<SpellAttribute>() { SpellAttribute.MovementsBuff }, "Movement Speed Buff"));
             }
+
 
             return res;
         }
@@ -207,7 +224,7 @@ namespace QBNsite.Helper
             }
             else
             {
-                commentary += $" de {champions.Name} {(plural == 1 ? "a" : "ont")} la caractérisque {attributeName}" ;
+                commentary += $" de {champions.Name} {(plural == 1 ? "a" : "ont")} la caractérisque {attributeName}";
             }
             return new MultipleChoiceQuestion
             {

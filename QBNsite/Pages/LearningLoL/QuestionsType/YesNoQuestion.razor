@@ -35,7 +35,7 @@
 				Oui
 			</button>
 
-			<button class="answer-btn @(UserChoice == 1 ? (!Question.Answers[1].IsCorrectAnswer ? "good" : "bad") : "")"
+			<button class="answer-btn @(UserChoice == 1 ? (Question.Answers[1].IsCorrectAnswer ? "good" : "bad") : "")"
 					@onclick="() => Select(1)" disabled="@AreButtonsDisabled">
 				Non
 			</button>
