@@ -141,7 +141,7 @@
 
 @media(max-width: 768px) {
     .options-container {
-
+        justify-content: center;
     }
     .option-box {
         width: 4rem;

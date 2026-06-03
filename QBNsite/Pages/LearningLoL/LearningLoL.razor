@@ -22,8 +22,7 @@
 	static string baseSpellVideoUrl = "https://lol.dyn.riotcdn.net/x/videos/champion-abilities";
 	static string csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSfq7neW4KfM8c9GlWmr0JJSA-HvU0XZ-7dG07H0PznZ3uX2Uf28F11rO169hiJRexTfVpVUkjoQOcS/pub?gid=0&single=true&output=csv";
 	// static string csvPath = "LoL/LolSpells.csv"; 
-
-	// string ExportCsv = "Champions,SpellId,SpellName,SpellSlot,First";
+	string ExportCsv = "Champions,SpellId,SpellName,SpellSlot,PhysicalDamage,MagicDamage,TrueDamage";
 
 	protected override async Task OnInitializedAsync()
 	{
@@ -31,6 +30,7 @@
 
 		// string csvRelativePath = Path.Combine(HelperInstance.homePath, csvPath);
 		Dictionary<string, List<SpellAttribute>> csvDataDict = await LeagueCsvHelper.LoadCsvAttributes(Http, csvUrl);
+		
 
 		var versions = await Http.GetFromJsonAsync<List<string>>(
 			$"{baseUrl}/api/versions.json"
@@ -98,7 +98,7 @@
 					detail.Spells[i - 1].Name,
 					detail.Spells[i - 1].Id,
 						HelperInstance.StripHtml(detail.Spells[i - 1].Description),
-						HelperInstance.StripHtml(detail.Spells[i - 1].Tooltip),
+						/* HelperInstance.StripHtml(detail.Spells[i - 1].Tooltip) */ detail.Spells[i - 1].Tooltip,
 					$"{curVerBaseUrl}/img/spell/{detail.Spells[i - 1].Id}.png",
 					$"{baseSpellVideoUrl}/{padded}/ability_{padded}_{slot}.mp4"
 					);
@@ -111,11 +111,19 @@
 
 				champ.Spells.Add(currentSpell);
 
-				// championsSpellCsv += $"\n{champ.Name},{currentSpell.Id},{currentSpell.Name},{currentSpell.Slot}";
+				// ExportCsv += $"\n{champ.Name},{currentSpell.Id},{currentSpell.Name},{currentSpell.Slot}";
 
-				// if (currentSpell.Description.Contains("first", StringComparison.CurrentCultureIgnoreCase) || currentSpell.Tooltip.Contains("first", StringComparison.CurrentCultureIgnoreCase))
+				// if (currentSpell.Tooltip.Contains("<physicalDamage>", StringComparison.CurrentCultureIgnoreCase))
 				// {
-				// 	championsSpellCsv += ",1";
+				// 	ExportCsv += ",1";
+				// }
+				// if (currentSpell.Tooltip.Contains("<magicDamage>", StringComparison.CurrentCultureIgnoreCase))
+				// {
+				// 	ExportCsv += ",1";
+				// }
+				// if (currentSpell.Tooltip.Contains("<trueDamage>", StringComparison.CurrentCultureIgnoreCase))
+				// {
+				// 	ExportCsv += ",1";
 				// }
 			}
 
@@ -128,15 +136,15 @@
 
 	private async Task DownloadCsv()
 	{
-		// var bytes = System.Text.Encoding.UTF8.GetBytes(championsSpellCsv);
+		var bytes = System.Text.Encoding.UTF8.GetBytes(ExportCsv);
 
-		// using var streamRef = new DotNetStreamReference(new MemoryStream(bytes));
+		using var streamRef = new DotNetStreamReference(new MemoryStream(bytes));
 
-		// await JS.InvokeVoidAsync(
-		// 	"downloadFileFromStream",
-		// 	"LearningLoLExport.csv",
-		// 	streamRef
-		// );
+		await JS.InvokeVoidAsync(
+			"downloadFileFromStream",
+			"LearningLoLExport.csv",
+			streamRef
+		);
 	}
 
 	private string SearchText = "";
@@ -173,8 +181,11 @@
 		   @bind="SearchText" @bind:event="oninput" />
 </div>
 
+
 <Toggle @bind-Value="McqManager.IgnoreResetQuestion"
 		Label="@(new string[]{"Refus Auto du Reset On","Refus Auto du Reset Off" })" />
+<Toggle @bind-Value="McqManager.AllRandomAllChampions"
+		Label="@(new string[]{"Random Question Random Champion On", "Random Question Random Champion Off " })" />
 
 
 <div class="champion-grid">

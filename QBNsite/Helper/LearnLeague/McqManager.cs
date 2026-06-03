@@ -1,14 +1,11 @@
-﻿using System.Linq;
-using System.Xml.Linq;
-
-namespace QBNsite.Helper
+﻿namespace QBNsite.Helper
 {
     public enum QuestionType
     {
         YesNo,
         AllQuestionsAnswered,
         MultipleCheckbox,
-
+        GuessTheSpell,
     }
     public class MultipleChoiceQuestion
     {
@@ -46,6 +43,7 @@ namespace QBNsite.Helper
     public static class McqManager
     {
         public static bool IgnoreResetQuestion = false;
+        public static bool AllRandomAllChampions = false;
         public static int GetNextUnansweredQuestion(ChampionsDetails champion, int currentQuestionIndex = -1)
         {
 
@@ -69,6 +67,8 @@ namespace QBNsite.Helper
             res.Add(GenerateYesNoIsEffectPresentQuestions(champions, SpellGroups.SoftCC, "Soft CC"));
             res.Add(GenerateYesNoIsEffectPresentQuestions(champions, SpellGroups.Dash, "Dash"));
 
+            AddGuessTheSpellQuestion(champions, res);
+
             if (ChampionHasThesesEffect(champions, SpellGroups.Dash))
             {
                 res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, SpellGroups.Dash, "Dash"));
@@ -77,7 +77,7 @@ namespace QBNsite.Helper
             if (ChampionHasThesesEffect(champions, SpellGroups.CC))
             {
                 res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, SpellGroups.CC, "CC (Soft & Hard)"));
-                res.Add(GenerateWhatKindOfGroupEffectsQuestion(champions, SpellGroups.CC, "CC",5 ));
+                res.Add(GenerateWhatKindOfGroupEffectsQuestion(champions, SpellGroups.CC, "CC", 5));
             }
             if (ChampionHasThesesEffect(champions, SpellGroups.Shield))
             {
@@ -132,9 +132,34 @@ namespace QBNsite.Helper
             {
                 res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, new List<SpellAttribute>() { SpellAttribute.MovementsBuff }, "Movement Speed Buff"));
             }
-
+            if (ChampionHasThesesEffect(champions, SpellGroups.Damage))
+            {
+                res.Add(GenerateWhatKindOfGroupEffectsQuestion(champions, SpellGroups.Damage, "Damage", 3));
+            }
 
             return res;
+        }
+
+        public static void AddGuessTheSpellQuestion(ChampionsDetails champions, List<MultipleChoiceQuestion> mcqList)
+        {
+            for(int i = 1; i < 5;i++)
+            {
+                BaseAnswer[] possibleAnswers = champions.Spells.Where(x => x.Slot != SpellSlot.P)
+                                                            .Select(spell => new BaseAnswer(spell.Slot + " - " + spell.Name, false, spell.IconLink))
+                                                            .ToArray();
+                possibleAnswers[i - 1].IsCorrectAnswer = true;
+
+                MultipleChoiceQuestion mcq = new MultipleChoiceQuestion
+                {
+                    Id = $"{champions.Name}_Question_GuessSpell{champions.Spells[i].Slot}",
+                    Type = QuestionType.GuessTheSpell,
+                    QuestionPrompt = "Quel est ce sort ?",
+                    Answers = possibleAnswers,
+                    SpellsToShow = new HashSet<Spell>() { champions.Spells[i] },
+                    Commentary = $"Le sort était le {champions.Spells[i].Slot}"
+                };
+                mcqList.Add(mcq);
+            }
         }
         public static MultipleChoiceQuestion GenerateYesNoIsEffectPresentQuestions(ChampionsDetails champions, List<SpellAttribute> spellAttributes, string attributeName)
         {

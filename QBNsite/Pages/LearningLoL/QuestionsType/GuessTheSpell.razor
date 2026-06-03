@@ -1,4 +1,5 @@
-﻿@using QBNsite.Helper;
+﻿@using QBNsite.BlazorComp
+@using QBNsite.Helper;
 @inject Helper HelperInstance;
 
 @code {
@@ -38,14 +39,16 @@
 
 	void Toggle(CheckItem item)
 	{
+		SelectedItemLabels.Clear();
 		item.IsChecked = !item.IsChecked;
 		if (item.IsChecked)
 		{
 			SelectedItemLabels.Add(item.Label);
-		}
-		else
-		{
-			SelectedItemLabels.Remove(item.Label);
+			for(int i = 0; i < Items.Count; i++)
+			{
+				if (Items[i] == item) continue;
+				Items[i].IsChecked = false; 
+			}
 		}
 	}
 
@@ -53,7 +56,7 @@
 	{
 		if (!AreAnswersValidated) {
 			AreAnswersValidated = true;
-			await OnAnswerValidated.InvokeAsync(CheckIfAllCorrectAnswersSelected());
+			await OnAnswerValidated.InvokeAsync(IsUserCorrect());
 		}
 		else
 		{
@@ -62,28 +65,14 @@
 		}
 	}
 
-	private bool CheckIfAllCorrectAnswersSelected()
+	private bool IsUserCorrect()
 	{
-		foreach (var item in Items)
+		for(int i = 0; i < Items.Count; i++)
 		{
-			if (item.IsChecked != item.IsCorrectAnswer)
-			{
+			if (Items[i].IsChecked != Items[i].IsCorrectAnswer)
 				return false;
-			}
 		}
 		return true;
-	}
-
-	private bool CheckIfAtLeastOneCorrectAnswerSelected()
-	{
-		foreach (var item in Items)
-		{
-			if (item.IsChecked && item.IsCorrectAnswer)
-			{
-				return true;
-			}
-		}
-		return false;
 	}
 
 	private string IsCheckBoxSelected(CheckItem checkItem)
@@ -106,10 +95,12 @@
 	<div class="multiple-checkbox-question-content">
 
 		<div class="question-text">@Question.QuestionPrompt</div>
+		<VideoSpoiler Source="@Question.SpellsToShow.First().VideoLink"/>
 
 		<div class="options-container">
-			@foreach (var item in Items)
+			@for(int i = 0; i < Items.Count; i++) 
 			{
+				var item = Items[i];
 				<div class="option-box @(IsCheckBoxSelected(item))
 							@(AreAnswersValidated && item.IsChecked ? (item.IsCorrectAnswer ? "good" : "bad") : (AreAnswersValidated && !item.IsChecked && item.IsCorrectAnswer ? "forgotten" : ""))
 							@(AreAnswersValidated ? "disabled" : "")"
@@ -137,19 +128,12 @@
 
 		@if (AreAnswersValidated)
 		{
-			if (CheckIfAllCorrectAnswersSelected())
+			if (IsUserCorrect())
 			{
 				<audio autoplay>
 					<source src="@AudioManager.GetAudioPathForCorrectAnswer(HelperInstance.homePath)" type="audio/mp3" />
 				</audio>
 				AudioManager.GoodAnswerCount = (AudioManager.GoodAnswerCount + 1) % 5;
-			}
-			else if (CheckIfAtLeastOneCorrectAnswerSelected())
-			{
-				<audio autoplay>
-					<source src="@AudioManager.GetAudioPathForHalfAnswer(HelperInstance.homePath)" type="audio/mp3" />
-				</audio>
-				AudioManager.GoodAnswerCount = 0;
 			}
 			else
 			{
@@ -172,11 +156,6 @@
 					<img src="@spell.IconLink" alt="@spell.Name" />
 					<span>@spell.Slot - @spell.Name</span>
 					<span>@spell.Description</span>
-
-					<video width="100%" autoplay loop muted>
-						<source src="@spell.VideoLinkWebm" type="video/webm" />
-						<source src="@spell.VideoLink" type="video/mp4" />
-					</video>
 				</div>
 			}
 		}

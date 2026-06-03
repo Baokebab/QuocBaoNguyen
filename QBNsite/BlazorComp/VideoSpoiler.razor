@@ -1,0 +1,24 @@
+﻿@code {
+	private bool showVideo = false;
+	[Parameter] public string Source { get; set; } = "";
+
+	private void RevealVideo()
+	{
+		showVideo = true;
+	}
+}
+
+
+<div class="video-container">
+	<div class="spoiler-overlay @(showVideo ? "hidden" : "")" @onclick="RevealVideo">
+		<div class="spoiler-text">Afficher la vidéo</div>
+	</div>
+
+	<video src="@Source"
+		   autoplay
+		   loop
+		   controls
+		   muted="false"
+		   width="100%">
+	</video>
+</div>

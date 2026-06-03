@@ -10,6 +10,8 @@
 	[Parameter] public EventCallback OnClose { get; set; }
 	[Parameter] public int activeTab { get; set; } = 1;
 
+	public HashSet<string> SelectedItemLabels { get; set; } = new();
+
 	private Spell SelectedSpell = new Spell();
 	MultipleChoiceQuestion currentQuestion;
 
@@ -18,7 +20,7 @@
 		if (SelectedChampion != null && SelectedChampion.Spells.Count > 0)
 		{
 			SelectedSpell = SelectedChampion.Spells.First();
-			LoadNextQuestion();
+			currentQuestion = GenerateNewQuestion();
 		}
 	}
 
@@ -41,12 +43,23 @@
 			newQuestion = SelectedChampion.Mcq[newQuestionIndex];
 			currentQuestion = newQuestion;
 		}
-
 		return newQuestion;
 	}
 
 	void LoadNextQuestion()
 	{
+		SelectedItemLabels.Clear();
+		if (McqManager.AllRandomAllChampions)
+		{
+			int nextIndex = ChampionsManager.GetRandomUnlockedChampionIndex(ChampionsManager.ChampionsData, currentChampionIndex);
+			if (nextIndex == -1)
+			{
+				SelectedChampion = null;
+				return;
+			}
+			SelectedChampion = ChampionsManager.ChampionsData[nextIndex];
+			currentChampionIndex = nextIndex;
+		}
 		currentQuestion = GenerateNewQuestion();
 	}
 
@@ -60,7 +73,7 @@
 			}
 
 			SelectedChampion.IsLockedFromRandom = false;
-			LoadNextQuestion();
+			currentQuestion = GenerateNewQuestion();
 		}
 		else
 		{
@@ -86,8 +99,7 @@
 
 	void LoadNextChampion()
 	{
-		int nextIndex;
-		nextIndex = isRandomMode ? ChampionsManager.GetRandomUnlockedChampionIndex(ChampionsManager.ChampionsData, currentChampionIndex)
+		int nextIndex = isRandomMode ? ChampionsManager.GetRandomUnlockedChampionIndex(ChampionsManager.ChampionsData, currentChampionIndex)
 			: ChampionsManager.GetNextUnlockedChampionIndex(ChampionsManager.ChampionsData, currentChampionIndex);
 		if (nextIndex == -1)
 		{
@@ -96,7 +108,7 @@
 		}
 		SelectedChampion = ChampionsManager.ChampionsData[nextIndex];
 		currentChampionIndex = nextIndex;
-		LoadNextQuestion();
+		currentQuestion = GenerateNewQuestion();
 	}
 
 	void LoadPreviousChampion()
@@ -104,7 +116,7 @@
 		int prevIndex = (currentChampionIndex - 1 + ChampionsManager.ChampionsData.Count) % ChampionsManager.ChampionsData.Count;
 		SelectedChampion = ChampionsManager.ChampionsData[prevIndex];
 		currentChampionIndex = prevIndex;
-		LoadNextQuestion();
+		currentQuestion = GenerateNewQuestion();
 	}
 
 	string baseBackgroundImageUrl => "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/";
@@ -155,6 +167,14 @@
 							case QuestionType.MultipleCheckbox:
 								<CheckboxQuestion @key="currentQuestion.Id"
 												  Question="@currentQuestion"
+												  SelectedItemLabels="SelectedItemLabels"
+												  OnNext="LoadNextQuestion"
+												  OnAnswerValidated="ValidateQuestion" />
+								break;
+							case QuestionType.GuessTheSpell:
+								<GuessTheSpell @key="currentQuestion.Id"
+												  Question="@currentQuestion"
+												  SelectedItemLabels="SelectedItemLabels"
 												  OnNext="LoadNextQuestion"
 												  OnAnswerValidated="ValidateQuestion" />
 								break;

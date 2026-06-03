@@ -50,6 +50,9 @@
         SpellShield,
         PhysicalShield,
         AutoReset,
+        PhysicalDamage,
+        MagicDamage,
+        TrueDamage,
     }
 
     public static class SpellGroups
@@ -112,6 +115,12 @@
             SpellAttribute.SpellShield,
             SpellAttribute.PhysicalShield,
         };
+        public static readonly List<SpellAttribute> Damage = new()
+        {
+            SpellAttribute.PhysicalDamage,
+            SpellAttribute.MagicDamage,
+            SpellAttribute.TrueDamage,
+        };
 
         public static string ToFriendlyString(this SpellAttribute s) =>
         s switch
@@ -135,6 +144,9 @@
             SpellAttribute.SpellShield => "Spell Shield",
             SpellAttribute.PhysicalShield => "Physical Shield",
             SpellAttribute.AutoReset => "AutoAttack Reset",
+            SpellAttribute.PhysicalDamage => "Physical Damage",
+            SpellAttribute.MagicDamage => "Magic Damage",
+            SpellAttribute.TrueDamage => "True Damage",
             _ => s.ToString()
         };
     }
