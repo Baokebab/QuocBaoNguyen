@@ -1,4 +1,6 @@
-﻿namespace QBNsite.Helper
+﻿using QBNsite.Resources.League;
+
+namespace QBNsite.Helper
 {
     public enum QuestionType
     {
@@ -134,7 +136,7 @@
             }
             if (ChampionHasThesesEffect(champions, SpellGroups.Damage))
             {
-                res.Add(GenerateWhatKindOfGroupEffectsQuestion(champions, SpellGroups.Damage, "Damage", 3));
+                res.Add(GenerateWhatKindOfGroupEffectsQuestion(champions, SpellGroups.Damage, "Damage"));
             }
 
             return res;
@@ -153,10 +155,10 @@
                 {
                     Id = $"{champions.Name}_Question_GuessSpell{champions.Spells[i].Slot}",
                     Type = QuestionType.GuessTheSpell,
-                    QuestionPrompt = "Quel est ce sort ?",
+                    QuestionPrompt = LeagueQuestionsTextMatching.GetGuessTheSpellQuestionPrompt(),
                     Answers = possibleAnswers,
                     SpellsToShow = new HashSet<Spell>() { champions.Spells[i] },
-                    Commentary = $"Le sort était le {champions.Spells[i].Slot}"
+                    Commentary = LeagueQuestionsTextMatching.GetGuessTheSpellAnswer(champions.Spells[i].Slot)
                 };
                 mcqList.Add(mcq);
             }
@@ -168,22 +170,24 @@
             bool hasEffect = false;
             HashSet<Spell> spellsToShow = new HashSet<Spell>();
 
-            questionPrompt = $"{champions.Name} possède‑t‑il un {attributeName}?";
+            questionPrompt = LeagueQuestionsTextMatching.GetYesNoQuestionPrompt(spellAttributes, champions);
+
             spellsToShow = GetSpellsInAttributeList(champions.Spells, spellAttributes);
             hasEffect = spellsToShow.Count > 0;
-            commentary = hasEffect ? $"{champions.Name} peut {attributeName} avec son {string.Join(", ", spellsToShow.Select(x => x.Slot).ToList())}." : "";
+            string spellsAffected = string.Join(", ", spellsToShow.Select(x => x.Slot).ToList()); 
+            commentary = LeagueQuestionsTextMatching.GetYesNoAnswer(hasEffect, spellAttributes, champions, spellsAffected); 
 
             return new MultipleChoiceQuestion
             {
                 Id = $"{champions.Name}_Question_Has{attributeName}",
                 Type = QuestionType.YesNo,
                 QuestionPrompt = questionPrompt,
-                Answers = BaseAnswer.BaseAnswersWoLinks(new List<string>() { "Oui", "Non" }, new List<bool>() { hasEffect, !hasEffect }),
+                Answers = BaseAnswer.BaseAnswersWoLinks(new List<string>() { LeagueQuestionsTextMatching.GetLocalesString("Yes"), LeagueQuestionsTextMatching.GetLocalesString("No") }, new List<bool>() { hasEffect, !hasEffect }),
                 SpellsToShow = spellsToShow,
                 Commentary = commentary
             };
         }
-        public static MultipleChoiceQuestion GenerateWhatKindOfGroupEffectsQuestion(ChampionsDetails champions, List<SpellAttribute> spellAttributes, string groupName, int maxPossibleChoices)
+        public static MultipleChoiceQuestion GenerateWhatKindOfGroupEffectsQuestion(ChampionsDetails champions, List<SpellAttribute> spellAttributes, string groupName, int maxPossibleChoices = -1)
         {
             string questionPrompt = $"Quels genres de {groupName} {champions.Name} a-t-il ?";
             string commentary = "";
@@ -223,14 +227,23 @@
 
             if (commentary == "") commentary = $"{champions.Name} n'a pas de {groupName}.";
 
-            var reducedAnswers = ReduceChoices(possibleAnswers, maxPossibleChoices);
-
+            var finalAnswer = new BaseAnswer[0] ;
+            if(maxPossibleChoices > 1)
+            {
+                var reducedAnswers = ReduceChoices(possibleAnswers, maxPossibleChoices);
+                Helper.Shuffle(reducedAnswers);
+                finalAnswer = reducedAnswers;
+            }
+            else
+            {
+                finalAnswer = possibleAnswers.ToArray();
+            }
             return new MultipleChoiceQuestion
             {
                 Id = $"{champions.Name}_Question_What{groupName}",
                 Type = QuestionType.MultipleCheckbox,
                 QuestionPrompt = questionPrompt,
-                Answers = reducedAnswers,
+                Answers = finalAnswer,
                 SpellsToShow = spellToShow,
                 Commentary = commentary
             };

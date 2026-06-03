@@ -1,5 +1,10 @@
 ﻿namespace QBNsite.Helper
 {
+    public enum ChampionGenre
+    {
+        Male,
+        Female,
+    }
     public class ChampionRoot
     {
         public string Type { get; set; } = "";
@@ -28,10 +33,18 @@
         public List<SpellDto> Spells { get; set; } = new List<SpellDto>();
         public List<SkinDto> Skins { get; set; } = new List<SkinDto>();
     }
+    public class ChampionsCsvDetails
+    {
+        public string Id { get; set; } = "";
+        public string Name { get; set; } =  "";
+        public ChampionGenre Genre { get; set; } = ChampionGenre.Male;
+
+    }
     public class ChampionsDetails
     {
         public string Id { get; set; } = "";
         public string Name { get; set; } = "";
+        public ChampionGenre Genre { get; set; } = ChampionGenre.Male;
         public string IconLink { get; set; } = "";
         public List<Spell> Spells { get; set; } = new List<Spell>();
         public int NumberOfSkins { get; set; } = 0; 

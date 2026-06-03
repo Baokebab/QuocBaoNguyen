@@ -895,6 +895,8 @@ sidebar.ul[b-stu6smjf3l] {
     border-radius: 4px;
     display: flex;
     gap: 20px;
+    overflow-y: auto;
+    z-index: 9999;
 }
 
 .spells-column[b-w6zauq4hkk] {
@@ -968,8 +970,6 @@ video[b-w6zauq4hkk] {
 
     .overlay-champion-content[b-w6zauq4hkk] {
         display: block;
-        overflow-y: auto;
-        z-index: 9999;
     }
 
 

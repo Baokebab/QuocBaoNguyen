@@ -2,11 +2,11 @@
 
 @using Microsoft.Extensions.Localization;
 @using QBNsite.BlazorComp
-@using QBNsite.Resources;
 @using QBNsite.Helper;
+@using QBNsite.Resources.League;
 
 
-@inject IStringLocalizer<HomeLocales> L
+@inject IStringLocalizer<LeagueLocales> Locales
 @inject IJSRuntime JS
 @inject NavigationManager NavManager
 @inject Helper HelperInstance;
@@ -18,29 +18,46 @@
 		NavManager.NavigateTo(HelperInstance.homePath);
 	}
 
-	static string baseUrl = "https://ddragon.leagueoflegends.com";
-	static string baseSpellVideoUrl = "https://lol.dyn.riotcdn.net/x/videos/champion-abilities";
-	static string csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSfq7neW4KfM8c9GlWmr0JJSA-HvU0XZ-7dG07H0PznZ3uX2Uf28F11rO169hiJRexTfVpVUkjoQOcS/pub?gid=0&single=true&output=csv";
-	// static string csvPath = "LoL/LolSpells.csv"; 
 	string ExportCsv = "Champions,SpellId,SpellName,SpellSlot,PhysicalDamage,MagicDamage,TrueDamage";
 
 	protected override async Task OnInitializedAsync()
 	{
 		ChampionsManager.ChampionsData = new List<ChampionsDetails>();
 
-		// string csvRelativePath = Path.Combine(HelperInstance.homePath, csvPath);
-		Dictionary<string, List<SpellAttribute>> csvDataDict = await LeagueCsvHelper.LoadCsvAttributes(Http, csvUrl);
+		string csvRelativePath = Path.Combine(HelperInstance.homePath, LeagueHelper.localCsvPath);
+		string csvChampionsRelativePath = Path.Combine(HelperInstance.homePath, LeagueHelper.localChampionPath);
+		Dictionary<string, List<SpellAttribute>> csvDataDict;
+		Dictionary<string, ChampionsCsvDetails> csvChampionDict; 
+
+		try
+		{
+			 csvDataDict = await LeagueHelper.LoadSpellCsvAttributes(Http, LeagueHelper.csvUrl);
+
+		}
+		catch(Exception e)
+		{
+			Console.WriteLine(e);
+			 csvDataDict = await LeagueHelper.LoadSpellCsvAttributes(Http, csvRelativePath);
+		}
+		try
+		{
+			 csvChampionDict = await LeagueHelper.LoadChampionCsv(Http, LeagueHelper.champCsvUrl);
+		}
+		catch(Exception e)
+		{
+			Console.WriteLine(e);
+			 csvChampionDict = await LeagueHelper.LoadChampionCsv(Http, csvChampionsRelativePath);
+		}
 		
 
-		var versions = await Http.GetFromJsonAsync<List<string>>(
-			$"{baseUrl}/api/versions.json"
-		);
+		var versions = await Http.GetFromJsonAsync<List<string>>(LeagueHelper.leagueVersion);
+
 		if (versions == null || versions.Count == 0) return;
 		var version = versions.First();
 
-		string curVerBaseUrl = $"{baseUrl}/cdn/{version}";
+		string curVerBaseUrl = LeagueHelper.GetCurrentVersionUrl(version);
 		var root = await Http.GetFromJsonAsync<ChampionRoot>(
-			$"{curVerBaseUrl}/data/en_US/champion.json"
+			$"{curVerBaseUrl}/data/{Locales["Localisation"]}/champion.json"
 		);
 		if (root == null) return;
 
@@ -52,7 +69,7 @@
 			var dto = kvp.Value;
 
 			var detailRoot = await Http.GetFromJsonAsync<ChampionDetailRoot>(
-			$"{curVerBaseUrl}/data/en_US/champion/{dto.Id}.json"
+			$"{curVerBaseUrl}/data/{Locales["Localisation"]}/champion/{dto.Id}.json"
 		);
 
 			if (detailRoot == null) continue;
@@ -66,11 +83,10 @@
 			{
 				Id = dto.Id,
 				Name = dto.Name,
+				Genre = csvChampionDict[dto.Id].Genre,
 				IconLink = $"{curVerBaseUrl}/img/champion/{dto.Image.full}",
 				NumberOfSkins = detail.Skins.Count,
 			};
-
-
 
 			string[] slots = { "P1", "Q1", "W1", "E1", "R1" };
 
@@ -88,7 +104,7 @@
 					HelperInstance.StripHtml(detail.Passive.Description),
 					"",
 					$"{curVerBaseUrl}/img/passive/{detail.Passive.Image.full}",
-					$"{baseSpellVideoUrl}/{padded}/ability_{padded}_{slot}.mp4"
+					$"{LeagueHelper.baseSpellVideoUrl}/{padded}/ability_{padded}_{slot}.mp4"
 					);
 				}
 				else
@@ -100,7 +116,7 @@
 						HelperInstance.StripHtml(detail.Spells[i - 1].Description),
 						/* HelperInstance.StripHtml(detail.Spells[i - 1].Tooltip) */ detail.Spells[i - 1].Tooltip,
 					$"{curVerBaseUrl}/img/spell/{detail.Spells[i - 1].Id}.png",
-					$"{baseSpellVideoUrl}/{padded}/ability_{padded}_{slot}.mp4"
+					$"{LeagueHelper.baseSpellVideoUrl}/{padded}/ability_{padded}_{slot}.mp4"
 					);
 				}
 

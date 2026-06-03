@@ -32,7 +32,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\LoL\LolSpells.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\mp3\ValorantEvoriKill0.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -59,6 +59,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Resources\League\LeagueLocales.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>LeagueLocales.resx</DependentUpon>
+    </Compile>
     <Compile Update="Resources\PortfolioLocales.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -84,6 +89,10 @@
     <EmbeddedResource Update="Resources\JobsLocales.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>JobsLocales.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\League\LeagueLocales.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LeagueLocales.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\PortfolioLocales.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
