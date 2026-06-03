@@ -133,7 +133,7 @@
     <value>Does {0} have soft CC(s) in her kit ?</value>
   </data>
   <data name="HasSoftCCQuestion_M" xml:space="preserve">
-    <value>Does {0} have hard CC(s) in his kit ?</value>
+    <value>Does {0} have soft CC(s) in his kit ?</value>
   </data>
   <data name="YesNoAnswerYes_M" xml:space="preserve">
     <value>{0} can {1} with his {2}.</value>

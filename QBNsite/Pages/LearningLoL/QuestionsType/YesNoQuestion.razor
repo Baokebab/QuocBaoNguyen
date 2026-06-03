@@ -32,12 +32,12 @@
 		<div class="answers">
 			<button class="answer-btn @(UserChoice == 0 ? (Question.Answers[0].IsCorrectAnswer ? "good" : "bad") : "")"
 					@onclick="() => Select(0)" disabled="@AreButtonsDisabled">
-				Oui
+				@Question.Answers[0]
 			</button>
 
 			<button class="answer-btn @(UserChoice == 1 ? (Question.Answers[1].IsCorrectAnswer ? "good" : "bad") : "")"
 					@onclick="() => Select(1)" disabled="@AreButtonsDisabled">
-				Non
+				@Question.Answers[1]
 			</button>
 		</div>
 
