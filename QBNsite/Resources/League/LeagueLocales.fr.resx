@@ -162,4 +162,190 @@
   <data name="GuessTheSpellAnswer" xml:space="preserve">
     <value>Le sort était le {0}.</value>
   </data>
+  <data name="WhatSpellQuestion_AutoReset" xml:space="preserve">
+    <value>Quels sorts permettent de faire un reset d'auto ?</value>
+  </data>
+  <data name="WhatSpellQuestion_BlockedByChampion" xml:space="preserve">
+    <value>Quels sorts peuvent être bloqués (ou déclenchent une interaction au premier contact) avec un CHAMPION ?</value>
+  </data>
+  <data name="WhatSpellQuestion_BlockedByMinion" xml:space="preserve">
+    <value>Quels sorts peuvent être bloqués (ou déclenchent une interaction au premier contact) avec un SBIRE ?</value>
+  </data>
+  <data name="WhatSpellQuestion_BlocksAuto" xml:space="preserve">
+    <value>Quels sorts permettent de bloquer les auto attaques (mêlée et distance) ?</value>
+  </data>
+  <data name="WhatSpellQuestion_BlocksProjectiles" xml:space="preserve">
+    <value>Quels sorts permettent de bloquer les projectiles ?</value>
+  </data>
+  <data name="WhatSpellQuestion_Execute" xml:space="preserve">
+    <value>Quels sorts sont des Execute (tue à partir d'un certain seuil) ?</value>
+  </data>
+  <data name="WhatSpellQuestion_Finisher" xml:space="preserve">
+    <value>Quels sorts sont des Finisher (dégâts augmentés selon les pv manquants ennemis) ?</value>
+  </data>
+  <data name="WhatSpellQuestion_InvulnerabilityUntargetableVanished" xml:space="preserve">
+    <value>Quels sorts confèrent de l'invulnérabilité, rend le lanceur impossible à cibler ou fait disparaître ? </value>
+  </data>
+  <data name="WhatSpellQuestion_MagicShield" xml:space="preserve">
+    <value>Quels sorts confèrent un Bouclier Magique (violet) ?</value>
+  </data>
+  <data name="WhatSpellQuestion_MovementsBuff" xml:space="preserve">
+    <value>Quels sorts permettent d'augmenter la vitesse de déplacement ?</value>
+  </data>
+  <data name="WhatSpellQuestion_MultipleCharges" xml:space="preserve">
+    <value>Quels sorts peuvent être utilisés plusieurs fois, disposent de plusieurs charges ou peuvent être cumulés ?</value>
+  </data>
+  <data name="WhatSpellQuestion_NormalShield" xml:space="preserve">
+    <value>Quels sorts confèrent un Bouclier Normal (blanc) ? </value>
+  </data>
+  <data name="WhatSpellQuestion_PhysicalShield" xml:space="preserve">
+    <value>Quels sorts confèrent un Bouclier Physique (orange) ? </value>
+  </data>
+  <data name="WhatSpellQuestion_PointAndClick" xml:space="preserve">
+    <value>Quels sorts sont Point &amp; Click ?</value>
+  </data>
+  <data name="WhatSpellQuestion_Reset" xml:space="preserve">
+    <value>Quels sorts déclenchent un effet (reset / prolongation / autres.. ) lorsqu'un champion ennemi est éliminé ?</value>
+  </data>
+  <data name="WhatSpellQuestion_SpellShield" xml:space="preserve">
+    <value>Quels sorts confèrent un Bouclier Magique (bloque une compétence) ?</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_AutoReset" xml:space="preserve">
+    <value>{0}  peut reset auto avec {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_AutoReset" xml:space="preserve">
+    <value>{0}  peut reset auto avec {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_Reset" xml:space="preserve">
+    <value>{0} possèdent un  effet (reset / prolongation / autres.. ) lorsqu'un champion ennemi est éliminé.</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_Reset" xml:space="preserve">
+    <value>{0} possède un  effet (reset / prolongation / autres.. ) lorsqu'un champion ennemi est éliminé.</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_Execute" xml:space="preserve">
+    <value>{0} a un Execute sur {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_Execute" xml:space="preserve">
+    <value>{0} a un Execute sur {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_Finisher" xml:space="preserve">
+    <value>{0} a un Finisher sur {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_Finisher" xml:space="preserve">
+    <value>{0} a un Finisher sur {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_InvulnerabilityUntargetableVanished" xml:space="preserve">
+    <value>{0} a une invulnérabilité / intangibilité ou une disparition sur {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_InvulnerabilityUntargetableVanished" xml:space="preserve">
+    <value>{0} a une invulnérabilité / intangibilité ou une disparition sur {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_BlockedByChampion" xml:space="preserve">
+    <value>{0} {1} peuvent être bloqués (ou déclenchent une interaction au premier contact) avec un CHAMPION.</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_BlockedByChampion" xml:space="preserve">
+    <value>{0} {1} peut être bloqué (ou déclenche une interaction au premier contact) avec un CHAMPION.</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_BlockedByMinion" xml:space="preserve">
+    <value>{0} {1} peuvent être bloqués (ou déclenchent une interaction au premier contact) avec un SBIRE.</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_BlockedByMinion" xml:space="preserve">
+    <value>{0} {1} peut être bloqué (ou déclenche une interaction au premier contact) avec un SBIRE.</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_BlocksProjectiles" xml:space="preserve">
+    <value>{0} peut stopper les projectiles avec {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_BlocksProjectiles" xml:space="preserve">
+    <value>{0} peut stopper les projectiles avec {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_MultipleCharges" xml:space="preserve">
+    <value>{0} peut utiliser plusieurs fois ou stack {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_MultipleCharges" xml:space="preserve">
+    <value>{0} peut utiliser plusieurs fois ou stack {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_MovementsBuff" xml:space="preserve">
+    <value>{0} a un Buff de Movespeed sur {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_MovementsBuff" xml:space="preserve">
+    <value>{0} a un Buff de Movespeed sur {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_PointAndClick" xml:space="preserve">
+    <value>{0} sont Point &amp; Click (Ciblage sur Unité).</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_PointAndClick" xml:space="preserve">
+    <value>{0} est Point &amp; Click (Ciblage sur Unité).</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_NormalShield" xml:space="preserve">
+    <value>{0} a un Bouclier Magique sur {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_NormalShield" xml:space="preserve">
+    <value>{0} a un Bouclier Magique sur {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_MagicShield" xml:space="preserve">
+    <value>{0} a un Bouclier Magique sur {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_MagicShield" xml:space="preserve">
+    <value>{0} a un Bouclier Magique sur {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_SpellShield" xml:space="preserve">
+    <value>{0} a un Bouclier Magique (Absorbe un sort) sur {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_SpellShield" xml:space="preserve">
+    <value>{0} a un Bouclier Magique (Absorbe un sort) sur {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_PhysicalShield" xml:space="preserve">
+    <value>{0} a un Bouclier Physique sur {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_PhysicalShield" xml:space="preserve">
+    <value>{0} a un Bouclier Physique sur {1} {2}.</value>
+  </data>
+  <data name="her" xml:space="preserve">
+    <value>son</value>
+  </data>
+  <data name="his" xml:space="preserve">
+    <value>son</value>
+  </data>
+  <data name="WhatSpellAnswerNone" xml:space="preserve">
+    <value>{0} n'a pas de sorts qui sont {1}.</value>
+  </data>
+  <data name="WhatSpellQuestion_Group_CC" xml:space="preserve">
+    <value>Quels sorts sont des CCs (soft &amp; hard) ?</value>
+  </data>
+  <data name="WhatSpellQuestion_Group_Shield" xml:space="preserve">
+    <value>Quels sorts confèrent un Bouclier (Normal, Physique ou Magique) ?</value>
+  </data>
+  <data name="WhatSpellQuestion_Group_Dash" xml:space="preserve">
+    <value>Quels sorts sont des Dash ?</value>
+  </data>
+  <data name="WhatSpellAnswer_Group_Shield" xml:space="preserve">
+    <value>{0} a un Bouclier sur  {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswer_Group_CC" xml:space="preserve">
+    <value>{0} peut CC avec {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswer_Group_Dash" xml:space="preserve">
+    <value>{0} a un Dash sur {1} {2}.</value>
+  </data>
+  <data name="WhatKindEffectQuestion_Group_CC" xml:space="preserve">
+    <value>{0} possède quel genre de CCs ?</value>
+  </data>
+  <data name="WhatKindEffectQuestion_Group_Dash" xml:space="preserve">
+    <value>{0} possède quel genre de Dash ?</value>
+  </data>
+  <data name="WhatKindEffectQuestion_Group_Damage" xml:space="preserve">
+    <value>{0} inflige des dégâts de quels types ?</value>
+  </data>
+  <data name="WhatKindEffectQuestion_Group_Shield" xml:space="preserve">
+    <value>{0} possède quel genre de Bouclier ?</value>
+  </data>
+  <data name="with_F" xml:space="preserve">
+    <value>{0} avec son {1}.</value>
+  </data>
+  <data name="with_M" xml:space="preserve">
+    <value>{0} avec son {1}.</value>
+  </data>
+  <data name="WannaResetQuestion" xml:space="preserve">
+    <value>Tu as répondu correctement à chaque question pour {0}. Veux tu les refaire ?</value>
+  </data>
 </root>

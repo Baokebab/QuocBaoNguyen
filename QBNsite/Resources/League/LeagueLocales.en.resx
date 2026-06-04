@@ -162,4 +162,190 @@
   <data name="GuessTheSpellAnswer" xml:space="preserve">
     <value>It was the {0}.</value>
   </data>
+  <data name="WhatSpellQuestion_AutoReset" xml:space="preserve">
+    <value>Which spells are an auto attack reset ?</value>
+  </data>
+  <data name="WhatSpellQuestion_BlockedByChampion" xml:space="preserve">
+    <value>Which spells can be blocked (or has an interaction on first contact) with a CHAMPION ?</value>
+  </data>
+  <data name="WhatSpellQuestion_BlockedByMinion" xml:space="preserve">
+    <value>Which spells can be blocked (or has an interaction on first contact) with a MINION ?</value>
+  </data>
+  <data name="WhatSpellQuestion_BlocksAuto" xml:space="preserve">
+    <value>Which spells can block all auto attacks  (melee &amp; range) ?</value>
+  </data>
+  <data name="WhatSpellQuestion_BlocksProjectiles" xml:space="preserve">
+    <value>Which spells can block projectiles ?</value>
+  </data>
+  <data name="WhatSpellQuestion_Execute" xml:space="preserve">
+    <value>Which spells are Execute (kills on a certain threshold) ?</value>
+  </data>
+  <data name="WhatSpellQuestion_Finisher" xml:space="preserve">
+    <value>Which spells are Finisher (increase damage on missing ennemy health) ?</value>
+  </data>
+  <data name="WhatSpellQuestion_InvulnerabilityUntargetableVanished" xml:space="preserve">
+    <value>Which spells are an Invulnerability, grant Untargetability or a Vanish ? </value>
+  </data>
+  <data name="WhatSpellQuestion_MagicShield" xml:space="preserve">
+    <value>Which spells grant a Magic Shield (purple) ?</value>
+  </data>
+  <data name="WhatSpellQuestion_MovementsBuff" xml:space="preserve">
+    <value>Which spells increase movement speed ?</value>
+  </data>
+  <data name="WhatSpellQuestion_MultipleCharges" xml:space="preserve">
+    <value>Which spells can be cast multiple times, has multiple charges, or can be stacked ?</value>
+  </data>
+  <data name="WhatSpellQuestion_NormalShield" xml:space="preserve">
+    <value>Which spells grant a Normal Shield (white) ?</value>
+  </data>
+  <data name="WhatSpellQuestion_PhysicalShield" xml:space="preserve">
+    <value>Which spells grant a Physical Shield (orange) ?</value>
+  </data>
+  <data name="WhatSpellQuestion_PointAndClick" xml:space="preserve">
+    <value>Which spells are Point &amp; Click ?</value>
+  </data>
+  <data name="WhatSpellQuestion_Reset" xml:space="preserve">
+    <value>Which spells will trigger an effect (reset / extended / other.. ) when an enemy champion is taken down ?</value>
+  </data>
+  <data name="WhatSpellQuestion_SpellShield" xml:space="preserve">
+    <value>Which spells grant a Spell Shield (absorb one spell) ?</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_AutoReset" xml:space="preserve">
+    <value>{0} can auto reset with {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_AutoReset" xml:space="preserve">
+    <value>{0} can auto reset with {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_Reset" xml:space="preserve">
+    <value>{0} have an effect (reset / extended / other.. ) when an enemy champion is taken down.</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_Reset" xml:space="preserve">
+    <value>{0} has an effect (reset / extended / other.. ) when an enemy champion is taken down.</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_Execute" xml:space="preserve">
+    <value>{0} has an Execute on {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_Execute" xml:space="preserve">
+    <value>{0} has an Execute on {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_Finisher" xml:space="preserve">
+    <value>{0} has a Finisher on {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_Finisher" xml:space="preserve">
+    <value>{0} has a Finisher on {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_InvulnerabilityUntargetableVanished" xml:space="preserve">
+    <value>{0} has an Invulnerability, Untargetability or a Vanish on {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_InvulnerabilityUntargetableVanished" xml:space="preserve">
+    <value>{0} has an Invulnerability, Untargetability or a Vanish on {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_BlockedByChampion" xml:space="preserve">
+    <value>{0} {1} can be blocked (or has an interaction on first contact) with a CHAMPION.</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_BlockedByChampion" xml:space="preserve">
+    <value>{0} {1} can be blocked (or has an interaction on first contact) with a CHAMPION.</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_BlockedByMinion" xml:space="preserve">
+    <value>{0} {1} can be blocked (or has an interaction on first contact) with a MINION.</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_BlockedByMinion" xml:space="preserve">
+    <value>{0} {1} can be blocked (or has an interaction on first contact) with a MINION.</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_BlocksProjectiles" xml:space="preserve">
+    <value>{0} can stop projectiles with {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_BlocksProjectiles" xml:space="preserve">
+    <value>{0} can stop projectiles with {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_MultipleCharges" xml:space="preserve">
+    <value>{0} can cast multiple times or stack  {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_MultipleCharges" xml:space="preserve">
+    <value>{0} can cast multiple times or stack  {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_MovementsBuff" xml:space="preserve">
+    <value>{0} has a Movement Speed Buff on {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_MovementsBuff" xml:space="preserve">
+    <value>{0} has a Movement Speed Buff on {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_PointAndClick" xml:space="preserve">
+    <value>{0} are Point &amp; Click (Unit Targeted).</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_PointAndClick" xml:space="preserve">
+    <value>{0} is Point &amp; Click (Unit Targeted).</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_NormalShield" xml:space="preserve">
+    <value>{0} has a Normal Shield on {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_NormalShield" xml:space="preserve">
+    <value>{0} has a Normal Shield on {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_MagicShield" xml:space="preserve">
+    <value>{0} has a Magic Shield on {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_MagicShield" xml:space="preserve">
+    <value>{0} has a Magic Shield on {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_SpellShield" xml:space="preserve">
+    <value>{0} has a Spell Shield on {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_SpellShield" xml:space="preserve">
+    <value>{0} has a Spell Shield on {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_PhysicalShield" xml:space="preserve">
+    <value>{0} has a Physical Shield on {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_PhysicalShield" xml:space="preserve">
+    <value>{0} has a Physical Shield on {1} {2}.</value>
+  </data>
+  <data name="her" xml:space="preserve">
+    <value>her</value>
+  </data>
+  <data name="his" xml:space="preserve">
+    <value>his</value>
+  </data>
+  <data name="WhatSpellAnswerNone" xml:space="preserve">
+    <value>{0} doesn't have any spell that is {1}</value>
+  </data>
+  <data name="WhatSpellQuestion_Group_CC" xml:space="preserve">
+    <value>Which spells are CCs (soft &amp; hard) ?</value>
+  </data>
+  <data name="WhatSpellQuestion_Group_Shield" xml:space="preserve">
+    <value>Which spells grants a Shield (Normal, Magic, Physical or Spell) ?</value>
+  </data>
+  <data name="WhatSpellQuestion_Group_Dash" xml:space="preserve">
+    <value>Which spells are Dashes?</value>
+  </data>
+  <data name="WhatSpellAnswer_Group_Shield" xml:space="preserve">
+    <value>{0} has a Shield on {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswer_Group_CC" xml:space="preserve">
+    <value>{0} can CC with {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswer_Group_Dash" xml:space="preserve">
+    <value>{0} has a Dash on {1} {2}.</value>
+  </data>
+  <data name="WhatKindEffectQuestion_Group_CC" xml:space="preserve">
+    <value>What type of CCs does {0} have ?</value>
+  </data>
+  <data name="WhatKindEffectQuestion_Group_Dash" xml:space="preserve">
+    <value>What kind of Dash does {0} have ?</value>
+  </data>
+  <data name="WhatKindEffectQuestion_Group_Damage" xml:space="preserve">
+    <value>What type of Damages does {0} have ?</value>
+  </data>
+  <data name="WhatKindEffectQuestion_Group_Shield" xml:space="preserve">
+    <value>What kind of Shield does {0} have ?</value>
+  </data>
+  <data name="with_F" xml:space="preserve">
+    <value>{0} with her {1}.</value>
+  </data>
+  <data name="with_M" xml:space="preserve">
+    <value>{0} with his {1}.</value>
+  </data>
+  <data name="WannaResetQuestion" xml:space="preserve">
+    <value>You answered every question correctly for {0}. Would you like to try them again?</value>
+  </data>
 </root>

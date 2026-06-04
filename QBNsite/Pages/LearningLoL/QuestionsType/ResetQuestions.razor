@@ -1,4 +1,8 @@
-﻿
+﻿@using Microsoft.Extensions.Localization
+@using QBNsite.Resources.League;
+@inject IStringLocalizer<LeagueLocales> Locales
+
+
 @code {
 	[Parameter] public string Question { get; set; }
 	[Parameter] public EventCallback<bool> OnNext { get; set; }
@@ -21,12 +25,12 @@
 		<div class="answers">
 			<button class="answer-btn @(UserChoice == true ? "selected" : "")"
 					@onclick="() => Select(true)">
-				Oui
+				@Locales["Yes"]
 			</button>
 
 			<button class="answer-btn @(UserChoice == false ? "selected" : "")"
 					@onclick="() => Select(false)">
-				Non
+				@Locales["No"]
 			</button>
 		</div>
 	</div>

@@ -95,7 +95,9 @@
 	<div class="multiple-checkbox-question-content">
 
 		<div class="question-text">@Question.QuestionPrompt</div>
-		<VideoSpoiler Source="@Question.SpellsToShow.First().VideoLink"/>
+		<VideoSpoiler 
+			SourceWebm="@Question.SpellsToShow.First().VideoLinkWebm"
+			SourceMp4="@Question.SpellsToShow.First().VideoLink" />
 
 		<div class="options-container">
 			@for(int i = 0; i < Items.Count; i++) 

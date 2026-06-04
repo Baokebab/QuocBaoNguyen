@@ -14,6 +14,69 @@ namespace QBNsite.Helper
         public static string yesNoAnswerPositive = "YesNoAnswerYes_";
         public static string yesNoAnswerNegative = "YesNoAnswerYes_";
 
+        public static string GetWhatSpellHasThisEffectQuestionPrompt(SpellAttribute spellAttribute)
+        {
+            return GetLocalesString($"WhatSpellQuestion_{spellAttribute.ToString()}");
+        }
+        public static string GetWhatSpellHasThesesEffectsQuestionPrompt(string attributeName)
+        {
+            return GetLocalesString($"WhatSpellQuestion_Group_{attributeName}");
+        }
+
+        public static string GetWhatKindOfGroupEffectQuestionPrompt(string attributeName, string championName)
+        {
+            return GetLocalesString($"WhatKindEffectQuestion_Group_{attributeName}", championName);
+        }
+        public static string GetWhatSpellHasThisEffectAnswer(ChampionsDetails champions, SpellAttribute spellAttribute, HashSet<Spell> spellToShow)
+        {
+            string pronoun = champions.Genre == ChampionGenre.Male ? GetLocalesString("his") : GetLocalesString("her");
+            string numeral = spellToShow.Count == 1 ? "Singular" : "Plural";
+            string spellsSlot = string.Join(", ", spellToShow.Select(x => x.Slot));
+
+            if (spellAttribute == SpellAttribute.AutoReset
+                || spellAttribute == SpellAttribute.BlocksProjectiles
+                || spellAttribute == SpellAttribute.Execute
+                || spellAttribute == SpellAttribute.Finisher
+                || spellAttribute == SpellAttribute.InvulnerabilityUntargetableVanished
+                || spellAttribute == SpellAttribute.MagicShield
+                || spellAttribute == SpellAttribute.MovementsBuff
+                || spellAttribute == SpellAttribute.MultipleCharges
+                || spellAttribute == SpellAttribute.NormalShield
+                || spellAttribute == SpellAttribute.PhysicalShield
+                || spellAttribute == SpellAttribute.Reset
+                || spellAttribute == SpellAttribute.SpellShield
+                || spellAttribute == SpellAttribute.AutoReset)
+            {
+                return GetLocalesString($"WhatSpellAnswer{numeral}_{spellAttribute.ToString()}", champions.Name, pronoun, spellsSlot);
+            }
+            else if (spellAttribute == SpellAttribute.BlockedByChampion
+                || spellAttribute == SpellAttribute.BlockedByMinion)
+            {
+                return GetLocalesString($"WhatSpellAnswer{numeral}_{spellAttribute.ToString()}", pronoun, spellsSlot);
+            }
+            else if(spellAttribute == SpellAttribute.PointAndClick)
+            {
+                return GetLocalesString($"WhatSpellAnswer{numeral}_{spellAttribute.ToString()}", spellsSlot);
+            }
+            else
+            {
+                return GetLocalesString("WhatSpellAnswerNone", champions.Name, spellAttribute.ToFriendlyString());
+            }
+        }
+        public static string GetWhatSpellHasThesesEffecstAnswer(ChampionsDetails champions, string attributeName, HashSet<Spell> spellToShow)
+        {
+            string pronoun = champions.Genre == ChampionGenre.Male ? GetLocalesString("his") : GetLocalesString("her");
+            string spellsSlot = string.Join(", ", spellToShow.Select(x => x.Slot));
+
+            if (spellToShow.Count > 0)
+            {
+                return GetLocalesString($"WhatSpellAnswer_Group_{attributeName}", champions.Name, pronoun, spellsSlot);
+            }
+            else
+            {
+                return GetLocalesString("WhatSpellAnswerNone", champions.Name, attributeName);
+            }
+        }
         public static string GetGuessTheSpellQuestionPrompt()
         {
             return GetLocalesString("GuessTheSpellQuestion");
@@ -24,35 +87,19 @@ namespace QBNsite.Helper
         }
         public static string GetYesNoQuestionPrompt(List<SpellAttribute> spellAttributes, ChampionsDetails champions)
         {
+            string championGenre = champions.Genre == ChampionGenre.Male ? "M" : "F";
+
             if (spellAttributes == SpellGroups.HardCC)
             {
-                switch (champions.Genre)
-                {
-                    case ChampionGenre.Male:
-                        return GetLocalesString("HasHardCCQuestion_M", champions.Name);
-                    case ChampionGenre.Female:
-                        return GetLocalesString("HasHardCCQuestion_F", champions.Name);
-                }
+                return GetLocalesString($"HasHardCCQuestion_{championGenre}", champions.Name);
             }
             else if (spellAttributes == SpellGroups.SoftCC)
             {
-                switch (champions.Genre)
-                {
-                    case ChampionGenre.Male:
-                        return GetLocalesString("HasSoftCCQuestion_M", champions.Name);
-                    case ChampionGenre.Female:
-                        return GetLocalesString("HasSoftCCQuestion_F", champions.Name);
-                }
+                return GetLocalesString($"HasSoftCCQuestion_{championGenre}", champions.Name);
             }
             else if (spellAttributes == SpellGroups.Dash)
             {
-                switch (champions.Genre)
-                {
-                    case ChampionGenre.Male:
-                        return GetLocalesString("HasDashQuestion_M", champions.Name);
-                    case ChampionGenre.Female:
-                        return GetLocalesString("HasDashQuestion_F", champions.Name);
-                }
+                return GetLocalesString($"HasDashQuestion_{championGenre}", champions.Name);
             }
             return "Error please contact Baobab";
         }

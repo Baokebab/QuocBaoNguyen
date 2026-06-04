@@ -133,6 +133,24 @@ namespace QBNsite.Resources.League {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à her.
+        /// </summary>
+        public static string her {
+            get {
+                return ResourceManager.GetString("her", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à his.
+        /// </summary>
+        public static string his {
+            get {
+                return ResourceManager.GetString("his", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à en_US.
         /// </summary>
         public static string Localisation {
@@ -147,6 +165,546 @@ namespace QBNsite.Resources.League {
         public static string No {
             get {
                 return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à You answered every question correctly for {0}. Would you like to try them again?.
+        /// </summary>
+        public static string WannaResetQuestion {
+            get {
+                return ResourceManager.GetString("WannaResetQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à What type of CCs does {0} have ?.
+        /// </summary>
+        public static string WhatKindEffectQuestion_Group_CC {
+            get {
+                return ResourceManager.GetString("WhatKindEffectQuestion_Group_CC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à What type of Damages does {0} have ?.
+        /// </summary>
+        public static string WhatKindEffectQuestion_Group_Damage {
+            get {
+                return ResourceManager.GetString("WhatKindEffectQuestion_Group_Damage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à What kind of Dash does {0} have ?.
+        /// </summary>
+        public static string WhatKindEffectQuestion_Group_Dash {
+            get {
+                return ResourceManager.GetString("WhatKindEffectQuestion_Group_Dash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à What kind of Shield does {0} have ?.
+        /// </summary>
+        public static string WhatKindEffectQuestion_Group_Shield {
+            get {
+                return ResourceManager.GetString("WhatKindEffectQuestion_Group_Shield", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} can CC with {1} {2}..
+        /// </summary>
+        public static string WhatSpellAnswer_Group_CC {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswer_Group_CC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} has a Dash on {1} {2}..
+        /// </summary>
+        public static string WhatSpellAnswer_Group_Dash {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswer_Group_Dash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} has a Shield on {1} {2}..
+        /// </summary>
+        public static string WhatSpellAnswer_Group_Shield {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswer_Group_Shield", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} doesn&apos;t have any spell that is {1}.
+        /// </summary>
+        public static string WhatSpellAnswerNone {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerNone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} can auto reset with {1} {2}..
+        /// </summary>
+        public static string WhatSpellAnswerPlural_AutoReset {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerPlural_AutoReset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} {1} can be blocked (or has an interaction on first contact) with a CHAMPION..
+        /// </summary>
+        public static string WhatSpellAnswerPlural_BlockedByChampion {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerPlural_BlockedByChampion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} {1} can be blocked (or has an interaction on first contact) with a MINION..
+        /// </summary>
+        public static string WhatSpellAnswerPlural_BlockedByMinion {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerPlural_BlockedByMinion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} can stop projectiles with {1} {2}..
+        /// </summary>
+        public static string WhatSpellAnswerPlural_BlocksProjectiles {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerPlural_BlocksProjectiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} has an Execute on {1} {2}..
+        /// </summary>
+        public static string WhatSpellAnswerPlural_Execute {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerPlural_Execute", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} has a Finisher on {1} {2}..
+        /// </summary>
+        public static string WhatSpellAnswerPlural_Finisher {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerPlural_Finisher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} has an Invulnerability, Untargetability or a Vanish on {1} {2}..
+        /// </summary>
+        public static string WhatSpellAnswerPlural_InvulnerabilityUntargetableVanished {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerPlural_InvulnerabilityUntargetableVanished", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} has a Magic Shield on {1} {2}..
+        /// </summary>
+        public static string WhatSpellAnswerPlural_MagicShield {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerPlural_MagicShield", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} has a Movement Speed Buff on {1} {2}..
+        /// </summary>
+        public static string WhatSpellAnswerPlural_MovementsBuff {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerPlural_MovementsBuff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} can cast multiple times or stack  {1} {2}..
+        /// </summary>
+        public static string WhatSpellAnswerPlural_MultipleCharges {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerPlural_MultipleCharges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} has a Normal Shield on {1} {2}..
+        /// </summary>
+        public static string WhatSpellAnswerPlural_NormalShield {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerPlural_NormalShield", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} has a Physical Shield on {1} {2}..
+        /// </summary>
+        public static string WhatSpellAnswerPlural_PhysicalShield {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerPlural_PhysicalShield", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} are Point &amp; Click (Unit Targeted)..
+        /// </summary>
+        public static string WhatSpellAnswerPlural_PointAndClick {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerPlural_PointAndClick", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} have an effect (reset / extended / other.. ) when an enemy champion is taken down..
+        /// </summary>
+        public static string WhatSpellAnswerPlural_Reset {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerPlural_Reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} has a Spell Shield on {1} {2}..
+        /// </summary>
+        public static string WhatSpellAnswerPlural_SpellShield {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerPlural_SpellShield", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} can auto reset with {1} {2}..
+        /// </summary>
+        public static string WhatSpellAnswerSingular_AutoReset {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerSingular_AutoReset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} {1} can be blocked (or has an interaction on first contact) with a CHAMPION..
+        /// </summary>
+        public static string WhatSpellAnswerSingular_BlockedByChampion {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerSingular_BlockedByChampion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} {1} can be blocked (or has an interaction on first contact) with a MINION..
+        /// </summary>
+        public static string WhatSpellAnswerSingular_BlockedByMinion {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerSingular_BlockedByMinion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} can stop projectiles with {1} {2}..
+        /// </summary>
+        public static string WhatSpellAnswerSingular_BlocksProjectiles {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerSingular_BlocksProjectiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} has an Execute on {1} {2}..
+        /// </summary>
+        public static string WhatSpellAnswerSingular_Execute {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerSingular_Execute", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} has a Finisher on {1} {2}..
+        /// </summary>
+        public static string WhatSpellAnswerSingular_Finisher {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerSingular_Finisher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} has an Invulnerability, Untargetability or a Vanish on {1} {2}..
+        /// </summary>
+        public static string WhatSpellAnswerSingular_InvulnerabilityUntargetableVanished {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerSingular_InvulnerabilityUntargetableVanished", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} has a Magic Shield on {1} {2}..
+        /// </summary>
+        public static string WhatSpellAnswerSingular_MagicShield {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerSingular_MagicShield", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} has a Movement Speed Buff on {1} {2}..
+        /// </summary>
+        public static string WhatSpellAnswerSingular_MovementsBuff {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerSingular_MovementsBuff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} can cast multiple times or stack  {1} {2}..
+        /// </summary>
+        public static string WhatSpellAnswerSingular_MultipleCharges {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerSingular_MultipleCharges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} has a Normal Shield on {1} {2}..
+        /// </summary>
+        public static string WhatSpellAnswerSingular_NormalShield {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerSingular_NormalShield", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} has a Physical Shield on {1} {2}..
+        /// </summary>
+        public static string WhatSpellAnswerSingular_PhysicalShield {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerSingular_PhysicalShield", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} is Point &amp; Click (Unit Targeted)..
+        /// </summary>
+        public static string WhatSpellAnswerSingular_PointAndClick {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerSingular_PointAndClick", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} has an effect (reset / extended / other.. ) when an enemy champion is taken down..
+        /// </summary>
+        public static string WhatSpellAnswerSingular_Reset {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerSingular_Reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} has a Spell Shield on {1} {2}..
+        /// </summary>
+        public static string WhatSpellAnswerSingular_SpellShield {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerSingular_SpellShield", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Which spells are an auto attack reset ?.
+        /// </summary>
+        public static string WhatSpellQuestion_AutoReset {
+            get {
+                return ResourceManager.GetString("WhatSpellQuestion_AutoReset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Which spells can be blocked (or has an interaction on first contact) with a CHAMPION ?.
+        /// </summary>
+        public static string WhatSpellQuestion_BlockedByChampion {
+            get {
+                return ResourceManager.GetString("WhatSpellQuestion_BlockedByChampion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Which spells can be blocked (or has an interaction on first contact) with a MINION ?.
+        /// </summary>
+        public static string WhatSpellQuestion_BlockedByMinion {
+            get {
+                return ResourceManager.GetString("WhatSpellQuestion_BlockedByMinion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Which spells can block all auto attacks  (melee &amp; range) ?.
+        /// </summary>
+        public static string WhatSpellQuestion_BlocksAuto {
+            get {
+                return ResourceManager.GetString("WhatSpellQuestion_BlocksAuto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Which spells can block projectiles ?.
+        /// </summary>
+        public static string WhatSpellQuestion_BlocksProjectiles {
+            get {
+                return ResourceManager.GetString("WhatSpellQuestion_BlocksProjectiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Which spells are Execute (kills on a certain threshold) ?.
+        /// </summary>
+        public static string WhatSpellQuestion_Execute {
+            get {
+                return ResourceManager.GetString("WhatSpellQuestion_Execute", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Which spells are Finisher (increase damage on missing ennemy health) ?.
+        /// </summary>
+        public static string WhatSpellQuestion_Finisher {
+            get {
+                return ResourceManager.GetString("WhatSpellQuestion_Finisher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Which spells are CCs (soft &amp; hard) ?.
+        /// </summary>
+        public static string WhatSpellQuestion_Group_CC {
+            get {
+                return ResourceManager.GetString("WhatSpellQuestion_Group_CC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Which spells are Dashes?.
+        /// </summary>
+        public static string WhatSpellQuestion_Group_Dash {
+            get {
+                return ResourceManager.GetString("WhatSpellQuestion_Group_Dash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Which spells grants a Shield (Normal, Magic, Physical or Spell) ?.
+        /// </summary>
+        public static string WhatSpellQuestion_Group_Shield {
+            get {
+                return ResourceManager.GetString("WhatSpellQuestion_Group_Shield", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Which spells are an Invulnerability, grant Untargetability or a Vanish ? .
+        /// </summary>
+        public static string WhatSpellQuestion_InvulnerabilityUntargetableVanished {
+            get {
+                return ResourceManager.GetString("WhatSpellQuestion_InvulnerabilityUntargetableVanished", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Which spells grant a Magic Shield (purple) ?.
+        /// </summary>
+        public static string WhatSpellQuestion_MagicShield {
+            get {
+                return ResourceManager.GetString("WhatSpellQuestion_MagicShield", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Which spells increase movement speed ?.
+        /// </summary>
+        public static string WhatSpellQuestion_MovementsBuff {
+            get {
+                return ResourceManager.GetString("WhatSpellQuestion_MovementsBuff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Which spells can be cast multiple times, has multiple charges, or can be stacked ?.
+        /// </summary>
+        public static string WhatSpellQuestion_MultipleCharges {
+            get {
+                return ResourceManager.GetString("WhatSpellQuestion_MultipleCharges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Which spells grant a Normal Shield (white) ?.
+        /// </summary>
+        public static string WhatSpellQuestion_NormalShield {
+            get {
+                return ResourceManager.GetString("WhatSpellQuestion_NormalShield", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Which spells grant a Physical Shield (orange) ?.
+        /// </summary>
+        public static string WhatSpellQuestion_PhysicalShield {
+            get {
+                return ResourceManager.GetString("WhatSpellQuestion_PhysicalShield", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Which spells are Point &amp; Click ?.
+        /// </summary>
+        public static string WhatSpellQuestion_PointAndClick {
+            get {
+                return ResourceManager.GetString("WhatSpellQuestion_PointAndClick", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Which spells will trigger an effect (reset / extended / other.. ) when an enemy champion is taken down ?.
+        /// </summary>
+        public static string WhatSpellQuestion_Reset {
+            get {
+                return ResourceManager.GetString("WhatSpellQuestion_Reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Which spells grant a Spell Shield (absorb one spell) ?.
+        /// </summary>
+        public static string WhatSpellQuestion_SpellShield {
+            get {
+                return ResourceManager.GetString("WhatSpellQuestion_SpellShield", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} with her {1}..
+        /// </summary>
+        public static string with_F {
+            get {
+                return ResourceManager.GetString("with_F", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} with his {1}..
+        /// </summary>
+        public static string with_M {
+            get {
+                return ResourceManager.GetString("with_M", resourceCulture);
             }
         }
         

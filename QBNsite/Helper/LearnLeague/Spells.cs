@@ -111,9 +111,9 @@
         public static readonly List<SpellAttribute> Shield = new()
         {
             SpellAttribute.NormalShield,
+            SpellAttribute.PhysicalShield,
             SpellAttribute.MagicShield,
             SpellAttribute.SpellShield,
-            SpellAttribute.PhysicalShield,
         };
         public static readonly List<SpellAttribute> Damage = new()
         {

@@ -1,6 +1,7 @@
 ﻿@code {
 	private bool showVideo = false;
-	[Parameter] public string Source { get; set; } = "";
+	[Parameter] public string SourceWebm { get; set; } = "";
+	[Parameter] public string SourceMp4 { get; set; } = "";
 
 	private void RevealVideo()
 	{
@@ -14,11 +15,8 @@
 		<div class="spoiler-text">Afficher la vidéo</div>
 	</div>
 
-	<video src="@Source"
-		   autoplay
-		   loop
-		   controls
-		   muted="false"
-		   width="100%">
+	<video autoplay loop controls muted="false" width="100%">
+		<source src="@SourceWebm" type="video/webm" />
+		<source src="@SourceMp4" type="video/mp4" />
 	</video>
 </div>

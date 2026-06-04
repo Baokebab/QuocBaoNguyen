@@ -1,6 +1,4 @@
-﻿using QBNsite.Resources.League;
-
-namespace QBNsite.Helper
+﻿namespace QBNsite.Helper
 {
     public enum QuestionType
     {
@@ -73,66 +71,66 @@ namespace QBNsite.Helper
 
             if (ChampionHasThesesEffect(champions, SpellGroups.Dash))
             {
-                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, SpellGroups.Dash, "Dash"));
+                res.Add(GenerateWhatSpellsHasTheseEffectsQuestion(champions, SpellGroups.Dash, "Dash"));
                 res.Add(GenerateWhatKindOfGroupEffectsQuestion(champions, SpellGroups.Dash, "Dash", 5));
             }
             if (ChampionHasThesesEffect(champions, SpellGroups.CC))
             {
-                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, SpellGroups.CC, "CC (Soft & Hard)"));
+                res.Add(GenerateWhatSpellsHasTheseEffectsQuestion(champions, SpellGroups.CC, "CC"));
                 res.Add(GenerateWhatKindOfGroupEffectsQuestion(champions, SpellGroups.CC, "CC", 5));
             }
             if (ChampionHasThesesEffect(champions, SpellGroups.Shield))
             {
-                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, SpellGroups.Shield, "Shield (Normal, Magic, Physical, or Spell)"));
-                res.Add(GenerateWhatKindOfGroupEffectsQuestion(champions, SpellGroups.Shield, "Shield (Normal, Magic, Physical, or Spell)", 5));
+                res.Add(GenerateWhatSpellsHasTheseEffectsQuestion(champions, SpellGroups.Shield, "Shield"));
+                res.Add(GenerateWhatKindOfGroupEffectsQuestion(champions, SpellGroups.Shield, "Shield"));
             }
             if (DoesChamponHaveThisEffect(champions, SpellAttribute.AutoReset))
             {
-                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, new List<SpellAttribute>() { SpellAttribute.AutoReset }, "Reset d'autoattaque"));
+                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, SpellAttribute.AutoReset, "Reset d'autoattaque"));
             }
             if (DoesChamponHaveThisEffect(champions, SpellAttribute.BlockedByChampion))
             {
-                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, new List<SpellAttribute>() { SpellAttribute.BlockedByChampion }, "blocable (ou ralenti au 1er contact) par un champion "));
+                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, SpellAttribute.BlockedByChampion, "blocable (ou ralenti au 1er contact) par un champion "));
             }
             if (DoesChamponHaveThisEffect(champions, SpellAttribute.BlockedByMinion))
             {
-                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, new List<SpellAttribute>() { SpellAttribute.BlockedByMinion }, "blocable (ou ralenti au 1er contact) par un minion"));
+                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, SpellAttribute.BlockedByMinion, "blocable (ou ralenti au 1er contact) par un minion"));
             }
             if (DoesChamponHaveThisEffect(champions, SpellAttribute.PointAndClick))
             {
-                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, new List<SpellAttribute>() { SpellAttribute.PointAndClick }, "unit targeted (point & click)"));
+                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, SpellAttribute.PointAndClick, "unit targeted (point & click)"));
             }
             if (DoesChamponHaveThisEffect(champions, SpellAttribute.Reset))
             {
-                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, new List<SpellAttribute>() { SpellAttribute.Reset }, "Reset"));
+                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, SpellAttribute.Reset, "Reset"));
             }
             if (DoesChamponHaveThisEffect(champions, SpellAttribute.MultipleCharges))
             {
-                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, new List<SpellAttribute>() { SpellAttribute.MultipleCharges }, "Multiple Charges"));
+                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, SpellAttribute.MultipleCharges, "Multiple Charges"));
             }
             if (DoesChamponHaveThisEffect(champions, SpellAttribute.Execute))
             {
-                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, new List<SpellAttribute>() { SpellAttribute.Execute }, "Execute"));
+                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, SpellAttribute.Execute, "Execute"));
             }
             if (DoesChamponHaveThisEffect(champions, SpellAttribute.Finisher))
             {
-                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, new List<SpellAttribute>() { SpellAttribute.Finisher }, "Finisher"));
+                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, SpellAttribute.Finisher, "Finisher"));
             }
             if (DoesChamponHaveThisEffect(champions, SpellAttribute.InvulnerabilityUntargetableVanished))
             {
-                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, new List<SpellAttribute>() { SpellAttribute.InvulnerabilityUntargetableVanished }, "Invulnerability / Untargetable / Vanished"));
+                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, SpellAttribute.InvulnerabilityUntargetableVanished, "Invulnerability / Untargetable / Vanished"));
             }
             if (DoesChamponHaveThisEffect(champions, SpellAttribute.BlocksAuto))
             {
-                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, new List<SpellAttribute>() { SpellAttribute.BlocksAuto }, "bloque les autoattaque"));
+                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, SpellAttribute.BlocksAuto, "bloque les autoattaque"));
             }
             if (DoesChamponHaveThisEffect(champions, SpellAttribute.BlocksProjectiles))
             {
-                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, new List<SpellAttribute>() { SpellAttribute.BlocksProjectiles }, "bloque les projectiles"));
+                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, SpellAttribute.BlocksProjectiles, "bloque les projectiles"));
             }
             if (DoesChamponHaveThisEffect(champions, SpellAttribute.MovementsBuff))
             {
-                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, new List<SpellAttribute>() { SpellAttribute.MovementsBuff }, "Movement Speed Buff"));
+                res.Add(GenerateWhatSpellsHasThisEffectQuestion(champions, SpellAttribute.MovementsBuff, "Movement Speed Buff"));
             }
             if (ChampionHasThesesEffect(champions, SpellGroups.Damage))
             {
@@ -165,32 +163,27 @@ namespace QBNsite.Helper
         }
         public static MultipleChoiceQuestion GenerateYesNoIsEffectPresentQuestions(ChampionsDetails champions, List<SpellAttribute> spellAttributes, string attributeName)
         {
-            string questionPrompt = "";
-            string commentary = "";
             bool hasEffect = false;
             HashSet<Spell> spellsToShow = new HashSet<Spell>();
-
-            questionPrompt = LeagueQuestionsTextMatching.GetYesNoQuestionPrompt(spellAttributes, champions);
 
             spellsToShow = GetSpellsInAttributeList(champions.Spells, spellAttributes);
             hasEffect = spellsToShow.Count > 0;
             string spellsAffected = string.Join(", ", spellsToShow.Select(x => x.Slot).ToList()); 
-            commentary = LeagueQuestionsTextMatching.GetYesNoAnswer(hasEffect, spellAttributes, champions, spellsAffected); 
 
             return new MultipleChoiceQuestion
             {
                 Id = $"{champions.Name}_Question_Has{attributeName}",
                 Type = QuestionType.YesNo,
-                QuestionPrompt = questionPrompt,
+                QuestionPrompt = LeagueQuestionsTextMatching.GetYesNoQuestionPrompt(spellAttributes, champions),
                 Answers = BaseAnswer.BaseAnswersWoLinks(new List<string>() { LeagueQuestionsTextMatching.GetLocalesString("Yes"), LeagueQuestionsTextMatching.GetLocalesString("No") }, new List<bool>() { hasEffect, !hasEffect }),
                 SpellsToShow = spellsToShow,
-                Commentary = commentary
+                Commentary = LeagueQuestionsTextMatching.GetYesNoAnswer(hasEffect, spellAttributes, champions, spellsAffected)
             };
         }
         public static MultipleChoiceQuestion GenerateWhatKindOfGroupEffectsQuestion(ChampionsDetails champions, List<SpellAttribute> spellAttributes, string groupName, int maxPossibleChoices = -1)
         {
-            string questionPrompt = $"Quels genres de {groupName} {champions.Name} a-t-il ?";
             string commentary = "";
+            string championGenre = champions.Genre == ChampionGenre.Male ? "M" : "F";
 
             List<BaseAnswer> possibleAnswers = spellAttributes.Select(attr => new BaseAnswer(attr.ToFriendlyString(), false)).ToList();
 
@@ -222,10 +215,10 @@ namespace QBNsite.Helper
                 if (index == -1) continue;
 
                 possibleAnswers[index].IsCorrectAnswer = true;
-                commentary += $"{spellAttribute.Key.ToFriendlyString()} avec son {string.Join(", ", spellAttribute.Value)}. ";
+                commentary += LeagueQuestionsTextMatching.GetLocalesString($"with_{championGenre}", spellAttribute.Key.ToFriendlyString(), string.Join(", ", spellAttribute.Value));
             }
 
-            if (commentary == "") commentary = $"{champions.Name} n'a pas de {groupName}.";
+            if (commentary == "") commentary = LeagueQuestionsTextMatching.GetLocalesString($"YesNoAnswerNo_{championGenre}", champions.Name, groupName);
 
             var finalAnswer = new BaseAnswer[0] ;
             if(maxPossibleChoices > 1)
@@ -242,17 +235,14 @@ namespace QBNsite.Helper
             {
                 Id = $"{champions.Name}_Question_What{groupName}",
                 Type = QuestionType.MultipleCheckbox,
-                QuestionPrompt = questionPrompt,
+                QuestionPrompt = LeagueQuestionsTextMatching.GetWhatKindOfGroupEffectQuestionPrompt(groupName, champions.Name),
                 Answers = finalAnswer,
                 SpellsToShow = spellToShow,
                 Commentary = commentary
             };
         }
-        public static MultipleChoiceQuestion GenerateWhatSpellsHasThisEffectQuestion(ChampionsDetails champions, List<SpellAttribute> spellAttributes, string attributeName)
+        public static MultipleChoiceQuestion GenerateWhatSpellsHasTheseEffectsQuestion(ChampionsDetails champions, List<SpellAttribute> spellAttributes, string attributeName)
         {
-            string questionPrompt = $"Quels sorts de {champions.Name} est {attributeName} ?";
-            string commentary = "";
-
             BaseAnswer[] possibleAnswers = champions.Spells.Select(spell => new BaseAnswer(spell.Slot + " - " + spell.Name, false, spell.IconLink)).ToArray();
             HashSet<Spell> spellToShow = new HashSet<Spell>();
 
@@ -263,37 +253,51 @@ namespace QBNsite.Helper
                 {
                     spellToShow.Add(champions.Spells[i]);
                     possibleAnswers[i].IsCorrectAnswer = true;
-                    commentary += $"{(plural > 0 ? ", " : "")}{champions.Spells[i].Slot}";
                     plural++;
                 }
             }
 
-            if (commentary == "")
+            return new MultipleChoiceQuestion
             {
-                commentary = $"{champions.Name} n'a pas de sorts {attributeName}.";
-            }
-            else
+                Id = $"{champions.Name}_Question_WhatSpells_{attributeName}",
+                Type = QuestionType.MultipleCheckbox,
+                QuestionPrompt = LeagueQuestionsTextMatching.GetWhatSpellHasThesesEffectsQuestionPrompt(attributeName),
+                Answers = possibleAnswers,
+                SpellsToShow = spellToShow,
+                Commentary = LeagueQuestionsTextMatching.GetWhatSpellHasThesesEffecstAnswer(champions, attributeName, spellToShow),
+            };
+        }
+        public static MultipleChoiceQuestion GenerateWhatSpellsHasThisEffectQuestion(ChampionsDetails champions, SpellAttribute spellAttribute, string attributeName)
+        {
+            BaseAnswer[] possibleAnswers = champions.Spells.Select(spell => new BaseAnswer(spell.Slot + " - " + spell.Name, false, spell.IconLink)).ToArray();
+            HashSet<Spell> spellToShow = new HashSet<Spell>();
+
+            for (int i = 0; i < champions.Spells.Count; i++)
             {
-                commentary += $" de {champions.Name} {(plural == 1 ? "a" : "ont")} la caractérisque {attributeName}";
+                if (champions.Spells[i].SpellAttributes.Contains(spellAttribute))
+                {
+                    spellToShow.Add(champions.Spells[i]);
+                    possibleAnswers[i].IsCorrectAnswer = true;
+                }
             }
             return new MultipleChoiceQuestion
             {
                 Id = $"{champions.Name}_Question_WhatSpells_{attributeName}",
                 Type = QuestionType.MultipleCheckbox,
-                QuestionPrompt = questionPrompt,
+                QuestionPrompt = LeagueQuestionsTextMatching.GetWhatSpellHasThisEffectQuestionPrompt(spellAttribute),
                 Answers = possibleAnswers,
                 SpellsToShow = spellToShow,
-                Commentary = commentary
+                Commentary = LeagueQuestionsTextMatching.GetWhatSpellHasThisEffectAnswer(champions, spellAttribute, spellToShow)
             };
         }
-        public static MultipleChoiceQuestion GenerateResetQuestion(string championId)
+        public static MultipleChoiceQuestion GenerateResetQuestion(ChampionsDetails champions)
         {
             return new MultipleChoiceQuestion
             {
-                Id = $"{championId}_NoMoreQuestion",
+                Id = $"{champions.Id}_NoMoreQuestion",
                 Type = QuestionType.AllQuestionsAnswered,
-                QuestionPrompt = "Tu as répondu correctement à chaque question pour ce champion. Veux tu les refaire? ",
-                Answers = BaseAnswer.BaseAnswersWoLinks(new List<string>() { "Oui", "Non" }, new List<bool>() { true, false }),
+                QuestionPrompt = LeagueQuestionsTextMatching.GetLocalesString("WannaResetQuestion", champions.Name),
+                Answers = BaseAnswer.BaseAnswersWoLinks(new List<string>() { LeagueQuestionsTextMatching.GetLocalesString("Yes"), LeagueQuestionsTextMatching.GetLocalesString("No") }, new List<bool>() { true, false }),
             };
         }
         public static HashSet<Spell> GetSpellsInAttributeList(List<Spell> spells, List<SpellAttribute> spellAttributes)
