@@ -220,7 +220,7 @@
     <value>{0} possèdent un  effet (reset / prolongation / autres.. ) lorsqu'un champion ennemi est éliminé.</value>
   </data>
   <data name="WhatSpellAnswerSingular_Reset" xml:space="preserve">
-    <value>{0} possède un  effet (reset / prolongation / autres.. ) lorsqu'un champion ennemi est éliminé.</value>
+    <value>{0} possède un  effet (reset / prolongation / autres.. ) sur {1} {2} lorsqu'un champion ennemi est éliminé.</value>
   </data>
   <data name="WhatSpellAnswerPlural_Execute" xml:space="preserve">
     <value>{0} a un Execute sur {1} {2}.</value>

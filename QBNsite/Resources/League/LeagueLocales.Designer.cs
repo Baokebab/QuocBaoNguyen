@@ -502,7 +502,7 @@ namespace QBNsite.Resources.League {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à {0} has an effect (reset / extended / other.. ) when an enemy champion is taken down..
+        ///   Recherche une chaîne localisée semblable à {0} has an effect (reset / extended / other.. ) on {1} {2}  when an enemy champion is taken down..
         /// </summary>
         public static string WhatSpellAnswerSingular_Reset {
             get {

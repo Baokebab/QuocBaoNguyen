@@ -4,13 +4,12 @@
 
 @code {
 
-
 	[Parameter] public MultipleChoiceQuestion Question { get; set; }
 	[Parameter] public EventCallback OnNext { get; set; }
 	[Parameter] public EventCallback<bool> OnAnswerValidated { get; set; }
 	[Parameter] public HashSet<string> SelectedItemLabels { get; set; }
-
-	bool AreAnswersValidated = false;
+	[Parameter] public bool AreAnswersValidated { get; set; }
+	bool playSound = false ;
 
 	public class CheckItem
 	{
@@ -55,12 +54,11 @@
 	async Task ValidateUserChoices()
 	{
 		if (!AreAnswersValidated) {
-			AreAnswersValidated = true;
+			playSound = true;
 			await OnAnswerValidated.InvokeAsync(IsUserCorrect());
 		}
 		else
 		{
-			AreAnswersValidated = false;
 			await OnNext.InvokeAsync();
 		}
 	}
@@ -130,19 +128,22 @@
 
 		@if (AreAnswersValidated)
 		{
-			if (IsUserCorrect())
+			if (playSound)
 			{
-				<audio autoplay>
-					<source src="@AudioManager.GetAudioPathForCorrectAnswer(HelperInstance.homePath)" type="audio/mp3" />
-				</audio>
-				AudioManager.GoodAnswerCount = (AudioManager.GoodAnswerCount + 1) % 5;
-			}
-			else
-			{
-				<audio autoplay>
-					<source src="@AudioManager.GetAudioPathForWrongAnswer(HelperInstance.homePath)" type="audio/mp3" />
-				</audio>
-				AudioManager.GoodAnswerCount = 0;
+				if (IsUserCorrect())
+				{
+					<audio autoplay>
+						<source src="@AudioManager.GetAudioPathForCorrectAnswer(HelperInstance.homePath)" type="audio/mp3" />
+					</audio>
+					AudioManager.GoodAnswerCount = (AudioManager.GoodAnswerCount + 1) % 5;
+				}
+				else
+				{
+					<audio autoplay>
+						<source src="@AudioManager.GetAudioPathForWrongAnswer(HelperInstance.homePath)" type="audio/mp3" />
+					</audio>
+					AudioManager.GoodAnswerCount = 0;
+				}
 			}
 
 			if (!string.IsNullOrWhiteSpace(Question.Commentary))

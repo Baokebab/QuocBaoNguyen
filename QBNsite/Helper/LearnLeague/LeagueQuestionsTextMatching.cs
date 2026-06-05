@@ -22,7 +22,6 @@ namespace QBNsite.Helper
         {
             return GetLocalesString($"WhatSpellQuestion_Group_{attributeName}");
         }
-
         public static string GetWhatKindOfGroupEffectQuestionPrompt(string attributeName, string championName)
         {
             return GetLocalesString($"WhatKindEffectQuestion_Group_{attributeName}", championName);

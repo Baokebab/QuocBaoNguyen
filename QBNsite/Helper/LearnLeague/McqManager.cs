@@ -215,7 +215,7 @@
                 if (index == -1) continue;
 
                 possibleAnswers[index].IsCorrectAnswer = true;
-                commentary += LeagueQuestionsTextMatching.GetLocalesString($"with_{championGenre}", spellAttribute.Key.ToFriendlyString(), string.Join(", ", spellAttribute.Value));
+                commentary += LeagueQuestionsTextMatching.GetLocalesString($"with_{championGenre}", spellAttribute.Key.ToFriendlyString(), string.Join(", ", spellAttribute.Value)) + "\n";
             }
 
             if (commentary == "") commentary = LeagueQuestionsTextMatching.GetLocalesString($"YesNoAnswerNo_{championGenre}", champions.Name, groupName);

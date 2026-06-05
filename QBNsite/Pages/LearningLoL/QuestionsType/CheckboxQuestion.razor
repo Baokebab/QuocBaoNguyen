@@ -2,13 +2,13 @@
 @inject Helper HelperInstance;
 
 @code {
-
-
 	[Parameter] public MultipleChoiceQuestion Question { get; set; }
 	[Parameter] public EventCallback OnNext { get; set; }
 	[Parameter] public EventCallback<bool> OnAnswerValidated { get; set; }
 	[Parameter] public HashSet<string> SelectedItemLabels { get; set; }
-	bool AreAnswersValidated  = false;
+	[Parameter] public bool AreAnswersValidated { get; set; }
+
+	public bool playSound = false;
 
 	public class CheckItem
 	{
@@ -50,13 +50,13 @@
 
 	async Task ValidateUserChoices()
 	{
-		if (!AreAnswersValidated) {
-			AreAnswersValidated = true;
+		if (!AreAnswersValidated)
+		{
+			playSound = true;
 			await OnAnswerValidated.InvokeAsync(CheckIfAllCorrectAnswersSelected());
 		}
 		else
 		{
-			AreAnswersValidated = false;
 			await OnNext.InvokeAsync();
 		}
 	}
@@ -87,7 +87,7 @@
 
 	private string IsCheckBoxSelected(CheckItem checkItem)
 	{
-		if(checkItem.IsChecked)
+		if (checkItem.IsChecked)
 		{
 			return "selected";
 		}
@@ -110,8 +110,8 @@
 			@foreach (var item in Items)
 			{
 				<div class="option-box @(IsCheckBoxSelected(item))
-							@(AreAnswersValidated && item.IsChecked ? (item.IsCorrectAnswer ? "good" : "bad") : (AreAnswersValidated && !item.IsChecked && item.IsCorrectAnswer ? "forgotten" : ""))
-							@(AreAnswersValidated ? "disabled" : "")"
+								@(AreAnswersValidated && item.IsChecked ? (item.IsCorrectAnswer ? "good" : "bad") : (AreAnswersValidated && !item.IsChecked && item.IsCorrectAnswer ? "forgotten" : ""))
+								@(AreAnswersValidated ? "disabled" : "")"
 					 @onclick="() => Toggle(item)">
 
 					@if (!string.IsNullOrWhiteSpace(item.Icon))
@@ -129,39 +129,42 @@
 		</div>
 
 		<div class="next-container">
-			<button class="next-btn" @onclick="ValidateUserChoices"> 
+			<button class="next-btn" @onclick="ValidateUserChoices">
 				@(!AreAnswersValidated ? "Check" : " Suivant → ")
 			</button>
 		</div>
 
 		@if (AreAnswersValidated)
 		{
-			if (CheckIfAllCorrectAnswersSelected())
+			if (playSound)
 			{
-				<audio autoplay>
-					<source src="@AudioManager.GetAudioPathForCorrectAnswer(HelperInstance.homePath)" type="audio/mp3" />
-				</audio>
-				AudioManager.GoodAnswerCount = (AudioManager.GoodAnswerCount + 1) % 5;
-			}
-			else if (CheckIfAtLeastOneCorrectAnswerSelected())
-			{
-				<audio autoplay>
-					<source src="@AudioManager.GetAudioPathForHalfAnswer(HelperInstance.homePath)" type="audio/mp3" />
-				</audio>
-				AudioManager.GoodAnswerCount = 0;
-			}
-			else
-			{
-				<audio autoplay>
-					<source src="@AudioManager.GetAudioPathForWrongAnswer(HelperInstance.homePath)" type="audio/mp3" />
-				</audio>
-				AudioManager.GoodAnswerCount = 0;
+				if (CheckIfAllCorrectAnswersSelected())
+				{
+					<audio autoplay>
+						<source src="@AudioManager.GetAudioPathForCorrectAnswer(HelperInstance.homePath)" type="audio/mp3" />
+					</audio>
+					AudioManager.GoodAnswerCount = (AudioManager.GoodAnswerCount + 1) % 5;
+				}
+				else if (CheckIfAtLeastOneCorrectAnswerSelected())
+				{
+					<audio autoplay>
+						<source src="@AudioManager.GetAudioPathForHalfAnswer(HelperInstance.homePath)" type="audio/mp3" />
+					</audio>
+					AudioManager.GoodAnswerCount = 0;
+				}
+				else
+				{
+					<audio autoplay>
+						<source src="@AudioManager.GetAudioPathForWrongAnswer(HelperInstance.homePath)" type="audio/mp3" />
+					</audio>
+					AudioManager.GoodAnswerCount = 0;
+				}
 			}
 
 			if (!string.IsNullOrWhiteSpace(Question.Commentary))
 			{
 				<div class="comment-block">
-					@Question.Commentary
+					@((MarkupString)Question.Commentary.Replace("\n", "<br>"))
 				</div>
 			}
 

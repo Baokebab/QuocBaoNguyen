@@ -11,6 +11,7 @@
 	[Parameter] public int activeTab { get; set; } = 1;
 
 	public HashSet<string> SelectedItemLabels { get; set; } = new();
+	public bool AreAnswerValidated = false;
 	private Spell SelectedSpell = new Spell();
 	MultipleChoiceQuestion currentQuestion;
 
@@ -48,6 +49,7 @@
 	void LoadNextQuestion()
 	{
 		SelectedItemLabels.Clear();
+		AreAnswerValidated = false;
 		if (McqManager.AllRandomAllChampions)
 		{
 			int nextIndex = ChampionsManager.GetRandomUnlockedChampionIndex(ChampionsManager.ChampionsData, currentChampionIndex);
@@ -83,6 +85,7 @@
 
 	void ValidateQuestion(bool hasAnsweredCorrectly)
 	{
+		AreAnswerValidated = true;
 		currentQuestion.hasBeenCorrectlyAnswered = hasAnsweredCorrectly;
 	}
 
@@ -126,8 +129,8 @@
 	<div class="overlay-background" @onclick="CloseOverlay">
 		<div class="overlay-panel" @onclick:stopPropagation="true"
 			 style="background-image: url('@(baseBackgroundImageUrl + SelectedChampion.Id + "_0.jpg")');
-							                background-size: cover;
-							                background-position: center;">
+								                background-size: cover;
+								                background-position: center;">
 
 			<div class="overlay-panel-header">
 
@@ -167,15 +170,17 @@
 								<CheckboxQuestion @key="currentQuestion.Id"
 												  Question="@currentQuestion"
 												  SelectedItemLabels="SelectedItemLabels"
+												  AreAnswersValidated="AreAnswerValidated"
 												  OnNext="LoadNextQuestion"
 												  OnAnswerValidated="ValidateQuestion" />
 								break;
 							case QuestionType.GuessTheSpell:
 								<GuessTheSpell @key="currentQuestion.Id"
-												  Question="@currentQuestion"
-												  SelectedItemLabels="SelectedItemLabels"
-												  OnNext="LoadNextQuestion"
-												  OnAnswerValidated="ValidateQuestion" />
+											   Question="@currentQuestion"
+											   SelectedItemLabels="SelectedItemLabels"
+											   AreAnswersValidated="AreAnswerValidated"
+											   OnNext="LoadNextQuestion"
+											   OnAnswerValidated="ValidateQuestion" />
 								break;
 
 							case QuestionType.AllQuestionsAnswered:
