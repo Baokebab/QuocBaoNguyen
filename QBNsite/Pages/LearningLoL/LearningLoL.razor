@@ -20,6 +20,9 @@
 
 	string ExportCsv = "Champions,SpellId,SpellName,SpellSlot,PhysicalDamage,MagicDamage,TrueDamage";
 
+
+	private bool IsLoading = true;
+
 	protected override async Task OnInitializedAsync()
 	{
 		ChampionsManager.ChampionsData = new List<ChampionsDetails>();
@@ -27,28 +30,28 @@
 		string csvRelativePath = Path.Combine(HelperInstance.homePath, LeagueHelper.localCsvPath);
 		string csvChampionsRelativePath = Path.Combine(HelperInstance.homePath, LeagueHelper.localChampionPath);
 		Dictionary<string, List<SpellAttribute>> csvDataDict;
-		Dictionary<string, ChampionsCsvDetails> csvChampionDict; 
+		Dictionary<string, ChampionsCsvDetails> csvChampionDict;
 
 		try
 		{
-			 csvDataDict = await LeagueHelper.LoadSpellCsvAttributes(Http, LeagueHelper.csvUrl);
+			csvDataDict = await LeagueHelper.LoadSpellCsvAttributes(Http, LeagueHelper.csvUrl);
 
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			Console.WriteLine(e);
-			 csvDataDict = await LeagueHelper.LoadSpellCsvAttributes(Http, csvRelativePath);
+			csvDataDict = await LeagueHelper.LoadSpellCsvAttributes(Http, csvRelativePath);
 		}
 		try
 		{
-			 csvChampionDict = await LeagueHelper.LoadChampionCsv(Http, LeagueHelper.champCsvUrl);
+			csvChampionDict = await LeagueHelper.LoadChampionCsv(Http, LeagueHelper.champCsvUrl);
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			Console.WriteLine(e);
-			 csvChampionDict = await LeagueHelper.LoadChampionCsv(Http, csvChampionsRelativePath);
+			csvChampionDict = await LeagueHelper.LoadChampionCsv(Http, csvChampionsRelativePath);
 		}
-		
+
 
 		var versions = await Http.GetFromJsonAsync<List<string>>(LeagueHelper.leagueVersion);
 
@@ -61,7 +64,7 @@
 		);
 		if (root == null) return;
 
-		int j = 0; 
+		int j = 0;
 		foreach (var kvp in root.Data)
 		{
 			if (j >= 10) break;
@@ -120,7 +123,7 @@
 					);
 				}
 
-				if(csvDataDict.ContainsKey(currentSpell.Id))
+				if (csvDataDict.ContainsKey(currentSpell.Id))
 				{
 					currentSpell.SpellAttributes = csvDataDict[currentSpell.Id];
 				}
@@ -148,6 +151,8 @@
 			ChampionsManager.ChampionsData.Add(champ);
 			j++;
 		}
+
+		IsLoading = false;
 	}
 
 	private async Task DownloadCsv()
@@ -171,9 +176,9 @@
 					|| c.Name.Contains(SearchText, StringComparison.OrdinalIgnoreCase)
 				).ToList();
 
-	private ChampionsDetails SelectedChampion; 
+	private ChampionsDetails SelectedChampion;
 	private int SelectedChampionIndex;
-	private bool isRandomModeOn = false; 
+	private bool isRandomModeOn = false;
 
 	private void OpenOverlay(ChampionsDetails champ, int currentIndex, bool isRandom = false)
 	{
@@ -190,6 +195,7 @@
 
 <PageTitle>Learning LoL Champions</PageTitle>
 
+
 @* <button @onclick="DownloadCsv">Télécharger CSV</button> *@
 
 <div class="search-container">
@@ -197,44 +203,40 @@
 		   @bind="SearchText" @bind:event="oninput" />
 </div>
 
-
 <Toggle @bind-Value="McqManager.IgnoreResetQuestion"
 		Label="@(new string[]{"Refus Auto du Reset On","Refus Auto du Reset Off" })" />
 <Toggle @bind-Value="McqManager.AllRandomAllChampions"
 		Label="@(new string[]{"Random Question Random Champion On", "Random Question Random Champion Off " })" />
 
+@if (!IsLoading)
+{
+	<div class="champion-grid">
 
-<div class="champion-grid">
-
-	<div class="champion-card">
-		@{
-			var randomIndex = new Random().Next(0, ChampionsManager.ChampionsData.Count);
-		<img src="https://wiki.leagueoflegends.com/en-us/images/Arena_Bravery_square.png" alt="All champions Random"
-				 @onclick="() => OpenOverlay(ChampionsManager.ChampionsData[randomIndex], randomIndex, true)" />
-		 }
-	</div>
-	@for (int i = 0; i < FilteredChampions.Count; i++)
-	{
-		var champ = FilteredChampions[i];
-		int champIndex = ChampionsManager.ChampionsData.FindIndex(c => c.Id == champ.Id);
-
-		<div class="champion-card @(champ.IsLockedFromRandom ? "completed" : "")">
-			<img src="@champ.IconLink" alt="@champ.Name" @onclick="() => OpenOverlay(champ, champIndex)" />
+		<div class="champion-card">
+			@{
+				var randomIndex = new Random().Next(0, ChampionsManager.ChampionsData.Count);
+				<img src="https://wiki.leagueoflegends.com/en-us/images/Arena_Bravery_square.png" alt="All champions Random"
+					 @onclick="() => OpenOverlay(ChampionsManager.ChampionsData[randomIndex], randomIndex, true)" />
+			}
 		</div>
+		@for (int i = 0; i < FilteredChampions.Count; i++)
+		{
+			var champ = FilteredChampions[i];
+			int champIndex = ChampionsManager.ChampionsData.FindIndex(c => c.Id == champ.Id);
+
+			<div class="champion-card @(champ.IsLockedFromRandom ? "completed" : "")">
+				<img src="@champ.IconLink" alt="@champ.Name" @onclick="() => OpenOverlay(champ, champIndex)" />
+			</div>
+		}
+
+	</div>
+
+	@if (SelectedChampion != null)
+	{
+		<ChampionOverlay SelectedChampion="SelectedChampion"
+						 currentChampionIndex="SelectedChampionIndex"
+						 isRandomMode="isRandomModeOn"
+						 OnClose="CloseOverlay" />
 	}
 
-</div>
-
-@if (SelectedChampion != null)
-{
-	<ChampionOverlay 
-		SelectedChampion="SelectedChampion"
-		currentChampionIndex="SelectedChampionIndex"
-		isRandomMode="isRandomModeOn"
-		OnClose="CloseOverlay" />
 }
-
-
-
-
-

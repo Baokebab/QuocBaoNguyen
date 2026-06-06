@@ -34,14 +34,15 @@ article.content px-4 {
     cursor: pointer;
     transition: transform 0.2s ease;
 }
-    
+
     .champion-card img {
         width: 90px;
         height: 90px;
         border-radius: 8px;
         transition: transform 0.2s ease;
     }
-    .champion-card.completed img{
+
+    .champion-card.completed img {
         border: 5px solid lawngreen;
         transform: scale(1.05);
     }
@@ -64,7 +65,6 @@ article.content px-4 {
     gap: 15px;
     padding: 15px;
 }
-
 
 @media(max-width: 768px) {
     h1 {
@@ -103,4 +103,3 @@ article.content px-4 {
         height: auto;
     }
 }
-

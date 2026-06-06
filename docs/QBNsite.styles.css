@@ -1038,14 +1038,15 @@ article.content px-4[b-fao7nt93w8] {
     cursor: pointer;
     transition: transform 0.2s ease;
 }
-    
+
     .champion-card img[b-fao7nt93w8] {
         width: 90px;
         height: 90px;
         border-radius: 8px;
         transition: transform 0.2s ease;
     }
-    .champion-card.completed img[b-fao7nt93w8]{
+
+    .champion-card.completed img[b-fao7nt93w8] {
         border: 5px solid lawngreen;
         transform: scale(1.05);
     }
@@ -1068,7 +1069,6 @@ article.content px-4[b-fao7nt93w8] {
     gap: 15px;
     padding: 15px;
 }
-
 
 @media(max-width: 768px) {
     h1[b-fao7nt93w8] {
@@ -1107,7 +1107,6 @@ article.content px-4[b-fao7nt93w8] {
         height: auto;
     }
 }
-
 /* /Pages/LearningLoL/QuestionsType/CheckboxQuestion.razor.rz.scp.css */
 .multiple-checkbox-question[b-bv0qf6yq9b] {
 

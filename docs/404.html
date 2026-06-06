@@ -4,10 +4,11 @@
     <meta charset="utf-8" />
     <title>Redirection...</title>
     <script type="text/javascript">
-        var path = window.location.pathname;
+        var path = window.location.pathname.replace("/QuocBaoNguyen", "");
         var query = window.location.search;
         var fragment = window.location.hash;
-        window.location.replace("/QBNsite/" + query + fragment);
+
+        window.location.replace("/QuocBaoNguyen/index.html#" + path + query + fragment);
     </script>
 </head>
 <body>
