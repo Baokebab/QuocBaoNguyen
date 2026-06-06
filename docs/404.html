@@ -3,20 +3,21 @@
 <head>
     <meta charset="utf-8" />
     <title>Redirecting...</title>
-    <script type="text/javascript">
+    <script>
         (function () {
-            var redirect = sessionStorage.redirect;
-            delete sessionStorage.redirect;
-            if (redirect && redirect !== location.href) {
+            var redirect = sessionStorage.getItem("redirect");
+            if (redirect) {
+                sessionStorage.removeItem("redirect");
                 history.replaceState(null, null, redirect);
             }
         })();
     </script>
 </head>
 <body>
-    <script type="text/javascript">
-        sessionStorage.redirect = location.href;
-        location.replace("/QuocBaoNguyen/");
+    <script>
+        sessionStorage.setItem("redirect", location.pathname + location.search + location.hash);
+
+        location.replace("/QuocBaoNguyen/index.html");
     </script>
 </body>
 </html>
