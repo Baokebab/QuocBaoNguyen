@@ -34,9 +34,6 @@
     <Content Update="wwwroot\LoL\LolSpells.csv">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\mp3\ValorantEvoriKill0.mp3">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Update="wwwroot\mp3\ValorantEvoriKill1.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -47,6 +44,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\mp3\ValorantEvoriKill4.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\mp3\ValorantEvoriKill5.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\mp3\ValorantVandal.mp3">
@@ -98,6 +98,10 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>PortfolioLocales.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\mpeg\" />
   </ItemGroup>
 
 </Project>
