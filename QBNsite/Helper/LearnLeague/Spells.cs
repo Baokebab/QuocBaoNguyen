@@ -53,6 +53,7 @@
         PhysicalDamage,
         MagicDamage,
         TrueDamage,
+        Heal,
     }
 
     public static class SpellGroups

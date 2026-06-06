@@ -304,6 +304,15 @@ namespace QBNsite.Resources.League {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} can heal with {1} {2}..
+        /// </summary>
+        public static string WhatSpellAnswerPlural_Heal {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerPlural_Heal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à {0} has an Invulnerability, Untargetability or a Vanish on {1} {2}..
         /// </summary>
         public static string WhatSpellAnswerPlural_InvulnerabilityUntargetableVanished {
@@ -435,6 +444,15 @@ namespace QBNsite.Resources.League {
         public static string WhatSpellAnswerSingular_Finisher {
             get {
                 return ResourceManager.GetString("WhatSpellAnswerSingular_Finisher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} can heal with {1} {2}..
+        /// </summary>
+        public static string WhatSpellAnswerSingular_Heal {
+            get {
+                return ResourceManager.GetString("WhatSpellAnswerSingular_Heal", resourceCulture);
             }
         }
         
@@ -606,6 +624,15 @@ namespace QBNsite.Resources.League {
         public static string WhatSpellQuestion_Group_Shield {
             get {
                 return ResourceManager.GetString("WhatSpellQuestion_Group_Shield", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Which spells can heal (user or ally) ?.
+        /// </summary>
+        public static string WhatSpellQuestion_Heal {
+            get {
+                return ResourceManager.GetString("WhatSpellQuestion_Heal", resourceCulture);
             }
         }
         

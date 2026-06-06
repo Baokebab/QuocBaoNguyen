@@ -69,6 +69,7 @@
             {
                 currentSoundIndex = new Random().Next(soundGroups.Count);
             }
+            GoodAnswerCount = (GoodAnswerCount + 1) % 5;
             return res;
         }
 
@@ -87,12 +88,14 @@
         public static string GetAudioPathForWrongAnswer(string homePath)
         {
             currentSoundIndex = new Random().Next(soundGroups.Count);
+            GoodAnswerCount = 0;
             return Path.Combine(homePath, "mp3/ValorantVandal.mp3");
         }
 
         public static string GetAudioPathForHalfAnswer(string homePath)
         {
             currentSoundIndex = new Random().Next(soundGroups.Count);
+            GoodAnswerCount = 0;
             return Path.Combine(homePath, "mp3/HalfCorrectShoot.mp3");
         }
 

@@ -348,4 +348,13 @@
   <data name="WannaResetQuestion" xml:space="preserve">
     <value>Tu as répondu correctement à chaque question pour {0}. Veux tu les refaire ?</value>
   </data>
+  <data name="WhatSpellQuestion_Heal" xml:space="preserve">
+    <value>Quels sorts soignent (l'utilisateur ou les alliés) ?</value>
+  </data>
+  <data name="WhatSpellAnswerSingular_Heal" xml:space="preserve">
+    <value>{0} peut soigner avec {1} {2}.</value>
+  </data>
+  <data name="WhatSpellAnswerPlural_Heal" xml:space="preserve">
+    <value>{0} peut soigner avec {1} {2}.</value>
+  </data>
 </root>

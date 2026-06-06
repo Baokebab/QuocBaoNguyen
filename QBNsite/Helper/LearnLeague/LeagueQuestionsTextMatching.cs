@@ -44,7 +44,7 @@ namespace QBNsite.Helper
                 || spellAttribute == SpellAttribute.PhysicalShield
                 || spellAttribute == SpellAttribute.Reset
                 || spellAttribute == SpellAttribute.SpellShield
-                || spellAttribute == SpellAttribute.AutoReset)
+                || spellAttribute == SpellAttribute.Heal)
             {
                 return GetLocalesString($"WhatSpellAnswer{numeral}_{spellAttribute.ToString()}", champions.Name, pronoun, spellsSlot);
             }
