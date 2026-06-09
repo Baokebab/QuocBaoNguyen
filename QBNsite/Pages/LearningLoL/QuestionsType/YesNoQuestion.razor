@@ -5,23 +5,36 @@
 	[Parameter] public MultipleChoiceQuestion Question { get; set; }
 	[Parameter] public EventCallback OnNext { get; set; }
 	[Parameter] public EventCallback<bool> OnAnswerValidated { get; set; }
+	[Parameter] public HashSet<string> SelectedItemLabels { get; set; }
+	[Parameter] public bool AreAnswersValidated { get; set; }
+
+	public bool playSound = false;
 
 	int UserChoice = -1;
-	bool AreButtonsDisabled = false;
 
 	void Select(int choix)
 	{
 		//0 = YES, 1 = NO
 		UserChoice = choix;
-		AreButtonsDisabled = true;
+		AreAnswersValidated = true;
+		playSound = true;
+		SelectedItemLabels.Add(choix.ToString());
 		OnAnswerValidated.InvokeAsync(Question.Answers[UserChoice].IsCorrectAnswer);
 	}
 
 	async Task Next()
 	{
 		UserChoice = -1;
-		AreButtonsDisabled = false;
+		AreAnswersValidated = false;
 		await OnNext.InvokeAsync();
+	}
+
+	protected override void OnInitialized()
+	{
+		if (SelectedItemLabels.Count > 0)
+		{
+			UserChoice = int.Parse(SelectedItemLabels.First());
+		}
 	}
 }
 
@@ -31,37 +44,39 @@
 
 		<div class="answers">
 			<button class="answer-btn @(UserChoice == 0 ? (Question.Answers[0].IsCorrectAnswer ? "good" : "bad") : "")"
-					@onclick="() => Select(0)" disabled="@AreButtonsDisabled">
+					@onclick="() => Select(0)" disabled="@AreAnswersValidated">
 				@Question.Answers[0].AnswerText
 			</button>
 
 			<button class="answer-btn @(UserChoice == 1 ? (Question.Answers[1].IsCorrectAnswer ? "good" : "bad") : "")"
-					@onclick="() => Select(1)" disabled="@AreButtonsDisabled">
+					@onclick="() => Select(1)" disabled="@AreAnswersValidated">
 				@Question.Answers[1].AnswerText
 			</button>
 		</div>
 
-		@if (UserChoice != -1)
+		@if (AreAnswersValidated)
 		{
+			if (playSound)
+			{
+				if (Question.Answers[UserChoice].IsCorrectAnswer)
+				{
+					<audio autoplay>
+						<source src="@AudioManager.GetAudioPathForCorrectAnswer(HelperInstance.homePath)" type="audio/mp3" />
+					</audio>
+				}
+				else
+				{
+					<audio autoplay>
+						<source src="@AudioManager.GetAudioPathForWrongAnswer(HelperInstance.homePath)" type="audio/mp3" />
+					</audio>
+				}
+			}
 
 			if (!string.IsNullOrWhiteSpace(Question.Commentary))
 			{
 				<div class="comment-block">
 					@Question.Commentary
 				</div>
-			}
-
-			if (Question.Answers[UserChoice].IsCorrectAnswer)
-			{
-				<audio autoplay>
-					<source src="@AudioManager.GetAudioPathForCorrectAnswer(HelperInstance.homePath)" type="audio/mp3" />
-				</audio>
-			}
-			else
-			{
-				<audio autoplay>
-					<source src="@AudioManager.GetAudioPathForWrongAnswer(HelperInstance.homePath)" type="audio/mp3" />
-				</audio>
 			}
 
 			<div class="next-container">

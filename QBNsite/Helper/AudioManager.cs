@@ -67,10 +67,14 @@
 
             if(GoodAnswerCount > 3)
             {
-                currentSoundIndex = new Random().Next(soundGroups.Count);
+                int tempIndex = new Random().Next(soundGroups.Count);
+                while(tempIndex == currentSoundIndex)
+                {
+                    tempIndex = new Random().Next(soundGroups.Count);
+                }
+                currentSoundIndex = tempIndex;
             }
             GoodAnswerCount = (GoodAnswerCount + 1) % 5;
-            Console.WriteLine(GoodAnswerCount + " - " + res);
             return res;
         }
 

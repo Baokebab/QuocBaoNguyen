@@ -161,6 +161,8 @@
 							case QuestionType.YesNo:
 								<YesNoQuestion @key="currentQuestion.Id"
 											   Question="@currentQuestion"
+											   SelectedItemLabels="SelectedItemLabels"
+											   AreAnswersValidated="AreAnswerValidated"
 											   OnNext="LoadNextQuestion"
 											   OnAnswerValidated="ValidateQuestion" />
 								break;
