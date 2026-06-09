@@ -944,7 +944,6 @@ sidebar.ul[b-stu6smjf3l] {
     border-radius: 8px;
 }
 
-
 video[b-w6zauq4hkk] {
     background-color: black;
     min-height: 400px;
@@ -1106,6 +1105,97 @@ article.content px-4[b-fao7nt93w8] {
         max-width: 100%;
         height: auto;
     }
+}
+/* /Pages/LearningLoL/ParameterOverlay.razor.rz.scp.css */
+.parameter-overlay-background[b-o4v6bi591t] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+.parameter-overlay-panel[b-o4v6bi591t] {
+    background: #111;
+    border-radius: 12px;
+    width: 80vw;
+    max-width: 1000px;
+    height: 80vh;
+    max-height: 900px;
+    overflow: hidden;
+    position: relative;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+    .parameter-overlay-panel[b-o4v6bi591t]::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0,0,0,0.55);
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .parameter-overlay-panel > *[b-o4v6bi591t] {
+        position: relative;
+        z-index: 1;
+    }
+
+.parameter-overlay-panel-header[b-o4v6bi591t] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    background: #1e1e1e;
+    color: white;
+    height: 32px;
+}
+
+    .parameter-overlay-panel-header .title[b-o4v6bi591t] {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+.parameter-overlay-content[b-o4v6bi591t] {
+    padding: 15px;
+    border-radius: 4px;
+    gap: 20px;
+    overflow-y: auto;
+    z-index: 9999;
+}
+
+.parameter-close-btn[b-o4v6bi591t] {
+    top: 10px;
+    right: 10px;
+    background: #aa0000;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+@media(max-width: 768px) {
+
+    .parameter-overlay-panel[b-o4v6bi591t] {
+        width: 90vw;
+    }
+
+    .parameter-overlay-panel-header button[b-o4v6bi591t] {
+        font-size: 10px;
+    }
+
+    .parameter-overlay-panel-header .title[b-o4v6bi591t] {
+        font-size: 12px;
+    }
+
 }
 /* /Pages/LearningLoL/QuestionsType/CheckboxQuestion.razor.rz.scp.css */
 .multiple-checkbox-question[b-bv0qf6yq9b] {

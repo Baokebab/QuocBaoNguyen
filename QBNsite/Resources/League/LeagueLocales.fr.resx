@@ -357,4 +357,7 @@
   <data name="WhatSpellAnswerPlural_Heal" xml:space="preserve">
     <value>{0} peut soigner avec {1} {2}.</value>
   </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
 </root>

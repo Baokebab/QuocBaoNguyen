@@ -20,7 +20,7 @@
 
 	string ExportCsv = "Champions,SpellId,SpellName,SpellSlot,PhysicalDamage,MagicDamage,TrueDamage";
 
-
+	private bool showParemeter = false; 
 	private bool IsLoading = true;
 
 	protected override async Task OnInitializedAsync()
@@ -191,6 +191,11 @@
 	{
 		SelectedChampion = null;
 	}
+
+	private void CloseParameter()
+	{
+		showParemeter = false; 
+	}
 }
 
 <PageTitle>Learning LoL Champions</PageTitle>
@@ -203,10 +208,12 @@
 		   @bind="SearchText" @bind:event="oninput" />
 </div>
 
-<Toggle @bind-Value="McqManager.IgnoreResetQuestion"
-		Label="@(new string[]{"Refus Auto du Reset On","Refus Auto du Reset Off" })" />
-<Toggle @bind-Value="McqManager.AllRandomAllChampions"
-		Label="@(new string[]{"Random Question Random Champion On", "Random Question Random Champion Off " })" />
+<button style=" border-radius: 6px;" @onclick=" ()=> { showParemeter = true; }">  @Locales["Settings"]  </button>
+
+@if (showParemeter)
+{
+	<ParameterOverlay OnClose="CloseParameter" />
+}
 
 @if (!IsLoading)
 {
@@ -239,4 +246,9 @@
 						 OnClose="CloseOverlay" />
 	}
 
+}
+
+else
+{
+	<p> Loading ... </p>
 }

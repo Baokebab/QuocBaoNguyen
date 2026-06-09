@@ -60,9 +60,10 @@
             RGX,
         };
         public static int currentSoundIndex = 0;
+        public static bool EvoriOnly = false; 
         public static string GetAudioPathForCorrectAnswer(string homePath)
         {
-            string tempPath = soundGroups[currentSoundIndex] + (GoodAnswerCount + 1).ToString();
+            string tempPath = (EvoriOnly ? Evori : soundGroups[currentSoundIndex]) + (GoodAnswerCount + 1).ToString();
             string res = Path.Combine(homePath, CompleteExt(tempPath));
 
             if(GoodAnswerCount > 3)

@@ -169,6 +169,15 @@ namespace QBNsite.Resources.League {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Settings.
+        /// </summary>
+        public static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à You answered every question correctly for {0}. Would you like to try them again?.
         /// </summary>
         public static string WannaResetQuestion {
