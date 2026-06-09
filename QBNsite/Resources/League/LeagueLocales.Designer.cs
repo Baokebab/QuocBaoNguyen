@@ -376,7 +376,7 @@ namespace QBNsite.Resources.League {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à {0} have an effect (reset / extended / other.. ) when an enemy champion is taken down..
+        ///   Recherche une chaîne localisée semblable à {0} have an effect (reset / extended / other.. ) on {1} {2} when an enemy champion is taken down..
         /// </summary>
         public static string WhatSpellAnswerPlural_Reset {
             get {

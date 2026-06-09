@@ -217,7 +217,7 @@
     <value>{0} can auto reset with {1} {2}.</value>
   </data>
   <data name="WhatSpellAnswerPlural_Reset" xml:space="preserve">
-    <value>{0} have an effect (reset / extended / other.. ) when an enemy champion is taken down.</value>
+    <value>{0} have an effect (reset / extended / other.. ) on {1} {2} when an enemy champion is taken down.</value>
   </data>
   <data name="WhatSpellAnswerSingular_Reset" xml:space="preserve">
     <value>{0} has an effect (reset / extended / other.. ) on {1} {2}  when an enemy champion is taken down.</value>

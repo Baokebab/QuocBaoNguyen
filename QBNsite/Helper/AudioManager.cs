@@ -70,6 +70,7 @@
                 currentSoundIndex = new Random().Next(soundGroups.Count);
             }
             GoodAnswerCount = (GoodAnswerCount + 1) % 5;
+            Console.WriteLine(GoodAnswerCount + " - " + res);
             return res;
         }
 
