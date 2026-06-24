@@ -26,7 +26,7 @@
         const string Phaseguard = "mpeg/Phaseguard_Kill_";
         const string Prelude = "mpeg/Prelude_to_Chaos_Kill_";
         const string Primordium = "mpeg/Primordium_Kill_";
-        const string Reaver = "mpeg/reaverkill";
+        const string Reaver = "mp3/reaverkill";
         const string RGX = "mpeg/RGX_11z_Pro_Kill_";
 
         public static int GoodAnswerCount = 0;

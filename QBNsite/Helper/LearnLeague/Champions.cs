@@ -49,7 +49,8 @@
         public List<Spell> Spells { get; set; } = new List<Spell>();
         public int NumberOfSkins { get; set; } = 0; 
         public List<MultipleChoiceQuestion> Mcq { get; set; } = new List<MultipleChoiceQuestion>();
-        public bool IsLockedFromRandom { get; set; } = false; 
+        public bool IsLockedFromRandom { get; set; } = false;
+        public bool hasBeenCompletedOnce { get; set; } = false;
     }
     public class ImageDto
     {

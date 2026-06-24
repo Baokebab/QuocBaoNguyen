@@ -25,6 +25,9 @@
 
 	protected override async Task OnInitializedAsync()
 	{
+
+		
+
 		ChampionsManager.ChampionsData = new List<ChampionsDetails>();
 
 		string csvRelativePath = Path.Combine(HelperInstance.homePath, LeagueHelper.localCsvPath);
@@ -65,11 +68,20 @@
 		if (root == null) return;
 
 		int j = 0;
+
+		IsLoading = false;
+
 		foreach (var kvp in root.Data)
 		{
 			if (j >= 10) break;
 
 			var dto = kvp.Value;
+
+			if (!csvChampionDict.ContainsKey(dto.Id))
+			{
+				Console.WriteLine($"Champions manquants dans le fichier csv - {dto.Id}");
+				continue;
+			}
 
 			var detailRoot = await Http.GetFromJsonAsync<ChampionDetailRoot>(
 			$"{curVerBaseUrl}/data/{Locales["Localisation"]}/champion/{dto.Id}.json"
@@ -150,9 +162,10 @@
 			Helper.Shuffle(champ.Mcq);
 			ChampionsManager.ChampionsData.Add(champ);
 			j++;
+			InvokeAsync(StateHasChanged);
 		}
 
-		IsLoading = false;
+
 	}
 
 	private async Task DownloadCsv()
@@ -231,7 +244,7 @@
 			var champ = FilteredChampions[i];
 			int champIndex = ChampionsManager.ChampionsData.FindIndex(c => c.Id == champ.Id);
 
-			<div class="champion-card @(champ.IsLockedFromRandom ? "completed" : "")">
+			<div class="champion-card @(champ.hasBeenCompletedOnce ? "completed" : "")" id="@("keyCard" + champ.Id)">
 				<img src="@champ.IconLink" alt="@champ.Name" @onclick="() => OpenOverlay(champ, champIndex)" />
 			</div>
 		}
@@ -245,9 +258,7 @@
 						 isRandomMode="isRandomModeOn"
 						 OnClose="CloseOverlay" />
 	}
-
 }
-
 else
 {
 	<p> Loading ... </p>

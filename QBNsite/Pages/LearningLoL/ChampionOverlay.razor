@@ -33,6 +33,7 @@
 			if (McqManager.IgnoreResetQuestion)
 			{
 				SelectedChampion.IsLockedFromRandom = true;
+				SelectedChampion.hasBeenCompletedOnce = true;
 				LoadNextChampion();
 				return currentQuestion;
 			}
@@ -66,6 +67,7 @@
 
 	void OnAllQuestionAnsweredNext(bool resetQuestions)
 	{
+		SelectedChampion.hasBeenCompletedOnce = true;
 		if (resetQuestions)
 		{
 			for (int i = 0; i < SelectedChampion.Mcq.Count; i++)
@@ -109,6 +111,9 @@
 			return;
 		}
 		SelectedChampion = ChampionsManager.ChampionsData[nextIndex];
+		SelectedItemLabels.Clear();
+		AreAnswerValidated = false;
+		SelectedSpell = SelectedChampion.Spells.FirstOrDefault();
 		currentChampionIndex = nextIndex;
 		currentQuestion = GenerateNewQuestion();
 	}
@@ -186,6 +191,7 @@
 								break;
 
 							case QuestionType.AllQuestionsAnswered:
+								SelectedChampion.hasBeenCompletedOnce = true;
 								<ResetQuestions @key="currentQuestion.Id"
 												Question="@currentQuestion.QuestionPrompt"
 												OnNext="OnAllQuestionAnsweredNext" />
