@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "QBNsite",
   "resources": {
-    "hash": "sha256-kYIfkjaph7krVNO3VjEimKNDohrUULqqNVwzkHfvUK4=",
+    "hash": "sha256-jHhaGA3bZHUj3ji9fGt8lNsbD2kdad4XRSyssJJYDA0=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-YDHEHpc+/PUWFYa9BMCN3EcVlpemjKD024swcpPfMIQ="
     },
@@ -50,14 +50,14 @@
       "System.Text.RegularExpressions.wasm": "sha256-WW491q1a6Es0EZCMrylzCbMv/gNl9z1z7LsrX3nAWqw=",
       "netstandard.wasm": "sha256-uCWI1p8BfgH1GEEReddGgeb9XZh8joGf7/w3Qg+GzNQ=",
       "System.Private.CoreLib.wasm": "sha256-+wuP/KzcXPJ57RxNhsoATLb+ukLWU3au4NVIJkm1LsU=",
-      "QBNsite.wasm": "sha256-a/O3744RQk149oZ/5jfggB0cMQm00ocpDDTzqPNPUes="
+      "QBNsite.wasm": "sha256-twWFtzsohqh34Qhr0WdRJ+ZG85pUu81VzUASWd8Lix4="
     },
     "satelliteResources": {
       "en": {
-        "QBNsite.resources.wasm": "sha256-vV1GYLFrOW20vEBf9Nu+YYjFOEj3VY+8mC+VD6KX+gQ="
+        "QBNsite.resources.wasm": "sha256-34TDUTkCtk4k+6Jik4gJZtszbaS5rzqDq1thcsmMALw="
       },
       "fr": {
-        "QBNsite.resources.wasm": "sha256-93PDn4sYp1mS/t/Z3orjoPCNPPole5ak87xBLMirLd4="
+        "QBNsite.resources.wasm": "sha256-d+Uwkbm4M1kF1Q3AN4UwtXWjvfKkQVvi9cENU8OyaAw="
       }
     }
   },
