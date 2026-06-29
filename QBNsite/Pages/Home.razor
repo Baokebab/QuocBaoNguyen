@@ -10,7 +10,6 @@
 @inject IStringLocalizer<PortfolioLocales> PortfolioL
 @inject IStringLocalizer<JobsLocales> JobL
 @inject IJSRuntime JS
-@inject Helper HelperInstance;
 
 @code {
 	protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -22,7 +21,6 @@
 	private List<PortfolioItem> PortfolioItems = new List<PortfolioItem>();
 	private List<JobExperience> JobExperiences = new List<JobExperience>();
 
-	private string rootPath => HelperInstance.homePath;
 	protected override void OnInitialized()
 	{
 		//Card blocs init
@@ -59,11 +57,6 @@
 	{
 		await JS.InvokeVoidAsync("scrollToElement", "Top");
 	}
-
-	private string AddRootPath(string relativePath)
-	{
-		return Path.Combine(rootPath , relativePath);
-	}
 }
 
 <PageTitle>Quoc-Bao Nguyen</PageTitle>
@@ -84,7 +77,7 @@
 				<a class="small-icon" href="https://github.com/Baokebab" title="GitHub" target="_blank" rel="noopener">
 					<img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" class="small-icon" />
 				</a>
-				<a class="small-icon" href="@AddRootPath(L["CV_Path"])" title="CV.pdf" target="_blank" rel="noopener">
+				<a class="small-icon" href="@(L["CV_Path"])" title="CV.pdf" target="_blank" rel="noopener">
 					<img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" class="small-icon" />
 				</a>
 
@@ -117,7 +110,7 @@
 									<div class="item active">
 										<div class="carousel-column image-column">
 											<a href="@item.pageLink">
-												<img src="@rootPath + @item.imagePathAvif" type="image/avif"
+												<img src="@item.imagePathAvif" type="image/avif"
 													 onerror="this.onerror=null; this.src='@item.imagePathWebP'; this.onerror=function() { this.onerror=null; this.src='@item.imagePathGif'; this.onerror=function() { this.onerror=null; this.src='@item.imagePathPng'; }; };"
 													 alt="Description de l'image" loading="lazy" />
 											</a>

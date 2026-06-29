@@ -1,107 +1,82 @@
-<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Content Include="Resources\HomeLocales.Designer.cs" />
-    <Content Include="Resources\HomeLocales.en.resx" />
-    <Content Include="Resources\HomeLocales.fr.resx" />
-    <Content Include="Resources\JobsLocales.Designer.cs" />
-    <Content Include="Resources\JobsLocales.fr.resx" />
-    <Content Include="Resources\PortfolioLocales.Designer.cs" />
-    <Content Include="Resources\PortfolioLocales.en.resx" />
-    <Content Include="Resources\PortfolioLocales.fr.resx" />
-  </ItemGroup>
+	<Target Name="UseDevIndex" Condition="'$(Configuration)'=='Debug'" BeforeTargets="Build">
+		<Copy SourceFiles="wwwroot/index.dev.html" DestinationFiles="wwwroot/index.html" OverwriteReadOnlyFiles="true" />
+	</Target>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.17" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.17" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.Extensions.Localization" Version="9.0.6" />
-  </ItemGroup>
+	<Target Name="UseProdIndex" Condition="'$(Configuration)'=='Release'" BeforeTargets="Build">
+		<Copy SourceFiles="wwwroot/index.prod.html" DestinationFiles="wwwroot/index.html" OverwriteReadOnlyFiles="true" />
+	</Target>
 
-  <ItemGroup>
-    <Content Update="wwwroot\.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>.txt</LastGenOutput>
-    </Content>
-    <Content Update="wwwroot\js\custom.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\LoL\LolSpells.csv">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\mp3\ValorantEvoriKill1.mp3">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\mp3\ValorantEvoriKill2.mp3">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\mp3\ValorantEvoriKill3.mp3">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\mp3\ValorantEvoriKill4.mp3">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\mp3\ValorantEvoriKill5.mp3">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\mp3\ValorantVandal.mp3">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
 
-  <ItemGroup>
-    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
-  </ItemGroup>
+	<ItemGroup>
+		<Content Include="Resources\HomeLocales.Designer.cs" />
+		<Content Include="Resources\HomeLocales.en.resx" />
+		<Content Include="Resources\HomeLocales.fr.resx" />
+		<Content Include="Resources\JobsLocales.Designer.cs" />
+		<Content Include="Resources\JobsLocales.fr.resx" />
+		<Content Include="Resources\PortfolioLocales.Designer.cs" />
+		<Content Include="Resources\PortfolioLocales.en.resx" />
+		<Content Include="Resources\PortfolioLocales.fr.resx" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="Resources\League\LeagueLocales.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>LeagueLocales.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\PortfolioLocales.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>PortfolioLocales.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\HomeLocales.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>HomeLocales.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\JobsLocales.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>JobsLocales.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.17" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.17" PrivateAssets="all" />
+		<PackageReference Include="Microsoft.Extensions.Localization" Version="9.0.6" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Update="Resources\HomeLocales.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>HomeLocales.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\JobsLocales.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>JobsLocales.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\League\LeagueLocales.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>LeagueLocales.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\PortfolioLocales.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>PortfolioLocales.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
+	<ItemGroup>
+		<Content Update="wwwroot\.tt">
+			<Generator>TextTemplatingFileGenerator</Generator>
+			<LastGenOutput>.txt</LastGenOutput>
+		</Content>
+		<Content Update="wwwroot\js\custom.js">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\mpeg\" />
-  </ItemGroup>
+	<ItemGroup>
+		<Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Resources\PortfolioLocales.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>PortfolioLocales.resx</DependentUpon>
+		</Compile>
+		<Compile Update="Resources\HomeLocales.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>HomeLocales.resx</DependentUpon>
+		</Compile>
+		<Compile Update="Resources\JobsLocales.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>JobsLocales.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="Resources\HomeLocales.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<LastGenOutput>HomeLocales.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\JobsLocales.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<LastGenOutput>JobsLocales.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\PortfolioLocales.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<LastGenOutput>PortfolioLocales.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
 
 </Project>

@@ -1,22 +1,16 @@
 ﻿@page "/Zodiaq"
 
 @using Microsoft.Extensions.Localization;
+@using QBNsite.Helper;
 @using QBNsite.Helper.Portfolio.PortfolioItems
 @using QBNsite.Resources;
-@using QBNsite.Helper;
 
 @inject IStringLocalizer<HomeLocales> L
 @inject IStringLocalizer<PortfolioLocales> PortfolioL
 @inject NavigationManager NavManager
-@inject Helper HelperInstance;
 
 
 @code {
-	private void GoHome()
-	{
-		NavManager.NavigateTo(HelperInstance.homePath);
-	}
-
 	private PortfolioItem thisPortfolioItem;
 	protected override void OnInitialized()
 	{

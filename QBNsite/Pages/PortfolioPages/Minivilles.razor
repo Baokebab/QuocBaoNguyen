@@ -8,15 +8,9 @@
 @inject IStringLocalizer<HomeLocales> L
 @inject IStringLocalizer<PortfolioLocales> PortfolioL
 @inject NavigationManager NavManager
-@inject Helper HelperInstance;
 
 
 @code {
-	private void GoHome()
-	{
-		NavManager.NavigateTo(HelperInstance.homePath);
-	}
-
 	private PortfolioItem thisPortfolioItem;
 	protected override void OnInitialized()
 	{

@@ -1,20 +1,11 @@
-﻿using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 namespace QBNsite.Helper
 {
 
-    public class Helper
+    public static class Helper
     {
-        private readonly IWebAssemblyHostEnvironment _env;
-        public Helper(IWebAssemblyHostEnvironment hostEnvironment)
-        {
-            _env = hostEnvironment;
-        }
-
-        public string homePath => _env.IsDevelopment() ? "" : "/QuocBaoNguyen/";
-
-        public string StripHtml(string input)
+        public static string StripHtml(string input)
         {
 
             return Regex.Replace(input, "<.*?>", string.Empty);

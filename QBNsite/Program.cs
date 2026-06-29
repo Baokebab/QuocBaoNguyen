@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using QBNsite;
-using QBNsite.Helper;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -16,6 +15,5 @@ if (builder.HostEnvironment.IsProduction())
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(baseUri) });
 
 builder.Services.AddLocalization();
-builder.Services.AddSingleton<Helper>();
 
 await builder.Build().RunAsync();

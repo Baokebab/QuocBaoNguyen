@@ -2,19 +2,17 @@
 
 @using Microsoft.Extensions.Localization;
 @using QBNsite.Resources;
-@using QBNsite.Helper;
 
 @inject IStringLocalizer<HomeLocales> L
 @inject NavigationManager NavManager
-@inject Helper HelperInstance;
 
 @code {
 	private void GoHome()
 	{
-		NavManager.NavigateTo(HelperInstance.homePath);
+		NavManager.NavigateTo("/");
 	}
 
-	string wipImagePath => HelperInstance.homePath + "Images/png/WIP.png";
+	string wipImagePath => "Images/png/WIP.png";
 }
 
 <PageTitle>@L["WIP"]</PageTitle>
